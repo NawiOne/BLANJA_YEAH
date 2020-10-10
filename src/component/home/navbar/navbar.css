@@ -1,0 +1,99 @@
+.navbar {
+  height: 10vh;
+  width: 100%;
+  background-color: #ffff;
+  display: flex;
+  flex: 1;
+  justify-content: space-evenly;
+  padding-left: 120px;
+  padding-right: 120px;
+}
+.left {
+  display: flex;
+  flex: 3;
+}
+.logo {
+  display: flex;
+  margin-right: 20px;
+  justify-content: space-around;
+  padding: 0 10px;
+  align-items: center;
+}
+.blanja-logo {
+  width: 31px;
+  height: 44px;
+}
+.blanja {
+  color: #db3022;
+  font-size: 2em;
+  font-weight: bold;
+  margin-left: 0.7vw;
+  margin-bottom: -5px;
+}
+.form {
+  display: flex;
+  align-items: center;
+  width: 70%;
+}
+.inputCont {
+  /* background-color: red; */
+  padding: .5vw;
+  padding-left: 2vw;
+  border: 1px solid #8e8e93;
+  border-radius: 23px;
+  width: 35vw;
+  margin-right: 1vw;
+  margin-left: 3vw;
+}
+.input-search {
+  border: none;
+  outline: none;
+  width: 80%;
+}
+.filter {
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #8e8e93;
+  border-radius: 10px;
+}
+.humberger{
+    width: 3vw;
+}
+
+.right {
+  /* display: flex; */
+  display: none;
+  justify-content: space-around;
+  flex: 1;
+  align-items: center;
+}
+.trolly {
+  width: 30px;
+  height: 25px;
+}
+.btn-login {
+    color: #ffff;
+    width: 7vw;
+  background-color: #db3022;
+  border-radius: 20px ;
+}
+.btn-login:hover{
+    color: #ffff;
+}
+.btn-signup{
+    width: 7vw;
+    border: 1px solid #9B9B9B ;
+    border-radius: 20px ;
+    color: #9B9B9B;
+    
+}
+
+/* responsive */
+
+@media screen and (min-width: 1200px ){
+    .right{
+        display: flex;
+    }
+}
