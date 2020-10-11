@@ -1,0 +1,87 @@
+
+.infoUser{
+  display: flex;
+  flex-direction: row;
+  padding-top:10vh;
+}
+.profilePicture{
+  border-radius:50%;
+  margin-right:2vw;
+}
+.profileName{
+  font-size: 1em;
+  color: #222222;
+}
+.textEdit{
+  color: #9B9B9B;
+  font-size: 0.825em;
+}
+.iconEdit{
+  color:#9B9B9B;
+  font-size: 0.825em;
+  font-weight: bold;
+}
+
+/* Customer link */
+
+.custommerLink{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10vh;
+}
+.textLink{
+  color:#222222;
+  font-size: 0.825em;
+  font-weight: bold;
+}
+.iconAccount{
+  color: #ffffff;
+  font-size: 1em;
+  background-color: #456BF3;
+  padding: 0.5em;
+  border-radius: 50%;
+  margin-right: 2vw;
+  margin-bottom: 5vh;
+}
+.iconAddress{
+  color: #ffffff;
+  font-size: 1em;
+  background-color: #F36F45;
+  padding: 0.5em;
+  border-radius: 50%;
+  margin-right: 2vw;
+  margin-bottom: 5vh;
+}
+.iconOrder{
+  color: #ffffff;
+  font-size: 1em;
+  background-color: #F3456F;
+  padding: 0.5em;
+  border-radius: 50%;
+  margin-right: 2vw;
+  margin-bottom: 5vh;
+}
+
+/* Profile Details */
+.profileDetail{
+  background-color:#F5F5F5;
+}
+
+/* Edit Account */
+.editAccount{
+  background-color: #ffffff;
+  margin-top: 3.125em;
+  margin-left: 1.5625em;
+  margin-bottom: 7.125em;
+}
+.btn-save{
+  width:6.25em;
+  background-color:#DB3022;
+  border-radius: 21.5625em;
+  color:#ffffff;
+}
+.imageUser{
+  width: 6.9375em;
+  height:  6.9375em;
+  border-radius: 50%;
+}

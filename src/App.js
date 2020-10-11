@@ -4,11 +4,13 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import './App.css';
 
 import Home from './pages/Home';
+import Profile from './pages/Profile';
 
 function App() {
   return (
     <Router>
-      <Route path='/' component={Home} />
+      {/* <Route path='/' component={Home} /> */}
+      <Profile/>
     </Router>
   );
 }
