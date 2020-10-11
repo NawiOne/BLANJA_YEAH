@@ -1,4 +1,20 @@
+.profile{
+  height:100vh;
+  width: 100%;
+  background-color:#F5F5F5;
+}
+.profileContent{
+  display: flex;
+  flex-direction: row;
+}
 
+
+/* Profile List */
+.profileList{
+  background-color:#ffffff;
+  height: 90vh;
+  padding-left: 10vw;
+}
 .infoUser{
   display: flex;
   flex-direction: row;
@@ -65,23 +81,118 @@
 /* Profile Details */
 .profileDetail{
   background-color:#F5F5F5;
+  margin-top:6vh;
+  margin-left:2vw;
+
 }
 
 /* Edit Account */
 .editAccount{
   background-color: #ffffff;
-  margin-top: 3.125em;
+  width: 60vw;
+  height: 75vh;
+  padding-left: 1.5vw;
+  padding-right: 1.5vw;
+  padding-top: 3vh;
+  /* margin-top: 3.125em;
   margin-left: 1.5625em;
-  margin-bottom: 7.125em;
+  margin-bottom: 7.125em; */
+}
+.titleEditAccount{
+  color:#222222;
+  font-size: 1.25em;
+}
+.descriptionEditAccount{
+  color:#9B9B9B;
+  font-size: 0.875em;
+  border-bottom: 0.0625em solid #D4D4D4;
+  padding-bottom: 2vh;
+  margin-bottom: 5vh;
+}
+.labelName{
+  text-align: right;
+  color:#9B9B9B;
+  font-size: 0.875em;
 }
 .btn-save{
   width:6.25em;
+  font-size: 0.875em;
   background-color:#DB3022;
   border-radius: 21.5625em;
   color:#ffffff;
+  margin-top: 3vh;
 }
 .imageUser{
   width: 6.9375em;
   height:  6.9375em;
   border-radius: 50%;
+}
+.imageUserWrapper{
+  border-left: 0.0625em solid #D4D4D4;
+  padding-left: 4vw;
+}
+.labelRadio, .labelSelect{
+  color:#9B9B9B;
+  font-size: 0.875em;
+}
+.btn-selectImage{
+  border:0.0625em solid #9B9B9B;
+  border-radius:  1.5em;
+  font-size: 0.875em;
+  color: #9B9B9B;
+  margin-top: 3vh;
+  padding-left: 1vw;
+  padding-right: 1vw;
+}
+.form-control{
+  color: #222222;
+}
+.form-control::-webkit-input-placeholder {
+  color: #222222;
+  font-size: 0.875em;
+}
+
+/* Shipping Address */
+.shippingAddress{
+  background-color: #ffffff;
+  width: 60vw;
+  height: 75vh;
+  padding-left: 1.5vw;
+  padding-right: 1.5vw;
+  padding-top: 3vh;
+}
+.wrapperButton{
+  border: 1px dashed #9B9B9B;
+  display: flex;
+  margin-left: 3vw;
+  margin-right: 3vw;
+  justify-content: center;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+}
+.btn-Address{
+  font-size: 1.125em;
+  color:#9B9B9B;
+}
+.addressWrapper{
+  border: 1px solid #DB3022;
+  margin-top: 5vh;
+  margin-left: 3vw;
+  margin-right: 3vw;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+}
+.titleAddress{
+  font-size: 1em;
+  color:#222222;
+}
+.changeAddress{
+  color: #DB3022;
+  font-size: 1em;
+}
+.address{
+  color: #222222;
+  font-size: 0.875em;
 }

@@ -6,7 +6,7 @@ import CustommerLink from './profileLinks/CustommerLink';
 
 const ProfileList =()=> {
   return (
-    <div className='profileList'>
+    <div className='container profileList'>
       <div className='infoUser'>
         <img src={profilePicture} alt ='ProfilePicture' className='profilePicture'/>
         <div>

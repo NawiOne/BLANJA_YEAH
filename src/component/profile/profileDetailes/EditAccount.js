@@ -8,65 +8,65 @@ const EditAccount =()=> {
 
   return (
     <div>
-      <div className='container editAccount'>
+      <div className='editAccount'>
         <div>
-          <h4>My Profile</h4>
-          <p>Manage your profile information</p>
+          <h4 className='titleEditAccount'>My Profile</h4>
+          <p className='descriptionEditAccount'>Manage your profile information</p>
         </div>
         <div className='row'>
-          <div className='col col-md-9'>
+          <div className='col col-md-8'>
             <form>
               <div className='form-group row'>
-                <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label">Name</label>
-                <div className="col-sm-8">
-                  <input type="email" className="form-control form-control-sm" id="colFormLabel" placeholder="col-form-label-sm"></input>
+                <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label labelName">Name</label>
+                <div className="col-sm-9">
+                  <input type="email" className="form-control form-control-sm " id="colFormLabel" placeholder="Johanes Mikael"></input>
                 </div>
               </div>
               <div className='form-group row'>
-                <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label">Email</label>
-                <div className="col-sm-8">
-                  <input type="email" className="form-control form-control-sm" id="colFormLabel" placeholder="col-form-label-sm"></input>
+                <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label labelName">Email</label>
+                <div className="col-sm-9">
+                  <input type="email" className="form-control form-control-sm" id="colFormLabel" placeholder="johanes@gmail.com"></input>
                 </div>
               </div>
               <div className='form-group row'>
-                <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label">Phone Number</label>
-                <div className="col-sm-8">
-                  <input type="email" className="form-control form-control-sm" id="colFormLabel" placeholder="col-form-label-sm"></input>
+                <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label labelName">Phone Number</label>
+                <div className="col-sm-9">
+                  <input type="email" className="form-control form-control-sm" id="colFormLabel" placeholder="08901289012"></input>
                 </div>
               </div>
               <div className='form-group row'>
-                <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label-sm">Gender</label>
-                <div className="col-sm-8">
+                <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label-sm labelName">Gender</label>
+                <div className="col-sm-9">
                   <div className="custom-control custom-radio custom-control-inline">
                     <input type="radio" id="customRadioInline1" name="customRadioInline1" className="custom-control-input"/>
-                    <label className="custom-control-label" for="customRadioInline1">Laki-Laki</label>
+                    <label className="custom-control-label labelRadio" for="customRadioInline1">Laki-Laki</label>
                   </div>
                   <div className="custom-control custom-radio custom-control-inline">
                     <input type="radio" id="customRadioInline2" name="customRadioInline1" className="custom-control-input"/>
-                    <label className="custom-control-label" for="customRadioInline2">Perempuan</label>
+                    <label className="custom-control-label labelRadio" for="customRadioInline2">Perempuan</label>
                   </div>
                 </div>
               </div>
               <div className='form-group row'>
-                <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label">Date of birth</label>
-                <div className="col-sm-8 no-gutters">
+                <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label labelName">Date of birth</label>
+                <div className="col-sm-9 no-gutters">
                   <div className='row'>
                     <div className='col-sm-4'>
-                      <select id="inputState" className="form-control">
+                      <select id="inputState" className="form-control labelSelect">
                         {date.map(item=>{ return(
                           <option>{item}</option>
                         )})}
                       </select>
                     </div>
                     <div className='col-sm-4'>
-                      <select id="inputState" className="form-control">
+                      <select id="inputState" className="form-control labelSelect">
                         {month.map(item=>{ return(
                             <option>{item}</option>
                           )})}
                       </select>
                     </div>
                     <div className='col-sm-4'>
-                      <select id="inputState" className="form-control">
+                      <select id="inputState" className="form-control labelSelect">
                         <option selected>Choose...</option>
                         <option>...</option>
                       </select>
@@ -83,7 +83,10 @@ const EditAccount =()=> {
             </form>
           </div>
           <div className='col col-md-3'>
-            <img src={profilePicture} className='imageUser' alt='profilePicture'/>
+            <div className='imageUserWrapper'>
+              <img src={profilePicture} className='imageUser' alt='profilePicture'/>
+              <button type="button" className="btn btn-selectImage">Select image</button>
+            </div>
           </div>
         </div>
       </div>

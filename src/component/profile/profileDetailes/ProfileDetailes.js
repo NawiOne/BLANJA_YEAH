@@ -1,11 +1,13 @@
 import React from 'react';
 import EditAccount from './EditAccount';
+import ShippingAddress from './ShippingAddress';
 
 const ProfileDetailes =()=> {
   return (
     <div>
-      <div className='container'>
-        <EditAccount/>
+      <div className='profileDetail'>
+        {/* <EditAccount/> */}
+        <ShippingAddress/>
       </div>
     </div>
   )

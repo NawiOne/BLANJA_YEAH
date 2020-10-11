@@ -7,14 +7,10 @@ const Profile = ()=> {
   return (
     <div className='profile'>
       <Navbar/>
-      {/* <div className='profileContent'>
-        <ProfileList/>
-        <ProfileDetails/>
-      </div> */}
-      <div className='container'>
+      <div>
         <div className='row no-gutters'>
-          <div className='col col-md-3 col-lg-3'><ProfileList/></div>
-          <div className='col col-md-9 col-lg-9 profileDetail'><ProfileDetails/></div>
+          <div className='col col-md-4 col-lg-4'><ProfileList/></div>
+          <div className='col col-md-8 col-lg-8'><ProfileDetails/></div>
         </div>
       </div>
     </div>
