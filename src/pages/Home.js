@@ -5,15 +5,19 @@ import Slider from "react-slick";
 import Navbar from "../component/home/navbar/navbar";
 import SidebarMenu from "../component/home/sidebar-menu/sidebar-menu";
 import SliderTop from "../component/home/slider-top/sliderTop";
-import NewProduct from '../component/home/newProduct/newProduct';
-import PopularProduct from '../component/home/popular/popular';
+import NewProduct from "../component/home/newProduct/newProduct";
+import PopularProduct from "../component/home/popular/popular";
+import SliderCoba from "../component/slider";
 
 import "../component/home/category-slider/categorySlider.css";
 import { category } from "../assets/category";
 
-import prevArrow from '../assets/image/prevArrow.png';
-import nextArrow from '../assets/image/nextArrow.png';
+import prevArrow from "../assets/image/prevArrow.png";
+import nextArrow from "../assets/image/nextArrow.png";
 
+var handleNext = () => {
+  return;
+};
 
 const NextArrow = (props) => {
   const { className, style, onClick } = props;
@@ -29,7 +33,7 @@ const NextArrow = (props) => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        boxShadow: '1px .3px #999999'
+        boxShadow: "1px .3px #999999",
       }}
       onClick={onClick}
     >
@@ -52,7 +56,7 @@ const PrevArrow = (props) => {
         alignItems: "center",
         justifyContent: "center",
         borderRadius: "50%",
-        boxShadow: '-1px .3px #999999'
+        boxShadow: "-1px .3px #999999",
       }}
       onClick={onClick}
     >
@@ -61,46 +65,68 @@ const PrevArrow = (props) => {
   );
 };
 
-const CategorySlider = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    slidesToShow: 4,
-    speed: 500,
-    arrows: false,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
-    responsive: [
-      {
-        breakpoint: 800,
-        settings: {
-          slidesToShow: 2,
-          arrows: true,
-          autoplay: true,
-        },
-      },
-    ],
-  };
+class CategorySlider extends React.Component {
+  constructor(props) {
+    super(props);
+    this.next = this.next.bind(this);
+    this.previous = this.previous.bind(this);
+  }
 
-  return (
-    <>
-      <div>
-        <Slider {...settings}>
-          {category.map((item, index) => {
-            return (
-              <div className='category-items' key={index} >
-                <div className='cat-item' style={{ background: item.color }}>
-                  <p className='category-name'>{item.name}</p>
-                  <img src={item.image} alt='' className='category-img' />
+  next() {
+    this.slider.slickNext();
+  }
+  previous() {
+    this.slider.slickPrev();
+  }
+  render() {
+    const settings = {
+      dots: true,
+      infinite: true,
+      slidesToShow: 4,
+      speed: 500,
+      arrows: false,
+      nextArrow: <NextArrow />,
+      prevArrow: <PrevArrow />,
+      responsive: [
+        {
+          breakpoint: 800,
+          settings: {
+            slidesToShow: 2,
+            arrows: true,
+            autoplay: true,
+          },
+        },
+      ],
+    };
+
+    return (
+      <>
+        <div>
+          <Slider {...settings} ref={(c) => (this.slider = c)}>
+            {category.map((item, index) => {
+              return (
+                <div className='category-items' key={index}>
+                  <div className='cat-item' style={{ background: item.color }}>
+                    <p className='category-name'>{item.name}</p>
+                    <img src={item.image} alt='' className='category-img' />
+                  </div>
                 </div>
-              </div>
-            );
-          })}
-        </Slider>
-      </div>
-    </>
-  );
-};
+              );
+            })}
+          </Slider>
+          <div className='next-prev-btn'>
+            <button className='btn-prev shadow' onClick={this.previous}>
+              <img src={prevArrow} alt='' />
+            </button>
+            <button className='btn-next shadow' onClick={this.next}>
+              <img src={nextArrow} alt='' />
+            </button>
+          </div>
+        </div>
+      </>
+    );
+  }
+}
 
 const Home = () => {
   return (
@@ -120,16 +146,10 @@ const Home = () => {
         <div className='row section-category-slider'>
           <div className='col-md-3 category-description'>
             <div className='category-title'>
-              <h2 className="section-title">Category</h2>
-              <p>What are you currently looking for</p>
-            </div>
-            <div className='next-prev-btn'>
-              <button className='btn-prev shadow'>
-                <img src={prevArrow} alt="" />
-              </button>
-              <button className='btn-next shadow'>
-              <img src={nextArrow} alt="" />
-              </button>
+              <h2 className='section-title'>Category</h2>
+              <p className='title-description'>
+                What are you currently looking for
+              </p>
             </div>
           </div>
           <div className='col-md-9 category-slider'>
@@ -137,10 +157,10 @@ const Home = () => {
           </div>
         </div>
         <div className='row section-new-product'>
-            <NewProduct />
+          <NewProduct />
         </div>
         <div className='row section-popular-product'>
-            <PopularProduct />
+          <PopularProduct />
         </div>
       </div>
     </>
