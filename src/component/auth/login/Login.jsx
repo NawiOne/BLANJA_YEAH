@@ -3,10 +3,17 @@ import './login.css'
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import logoBlanja from '../../../assets/image/logo-blanja.png'
+import { useDispatch, useSelector } from 'react-redux'
+import { authLoginCreator } from '../../../redux/action/auth'
 
 const Login = ({ changeToRegister, changeToReset }) => {
+    const dispatch = useDispatch()
+    const msgInvalid = useSelector(state => state.auth.msgInvalid)
+
+    console.log('pesan : ', msgInvalid);
+
     const [role, setRole] = useState(2)
-    const isLogin = true
+
 
     let styleBtnCustomer = "btn-custommer"
     if (role === 2) {
@@ -42,18 +49,14 @@ const Login = ({ changeToRegister, changeToReset }) => {
                     <button type="button" className={styleBtnCustomer} onClick={() => setRole(2)}>Custommer</button>
                     <button type="button" className={styleBtnSeller} onClick={() => setRole(1)}>Seller</button>
                 </div>
-                {!isLogin ? <div className="col-md-12 d-flex justify-content-center align-items-center mt-4">
+                {msgInvalid.length ? <div className="col-md-12 d-flex justify-content-center align-items-center mt-4">
                     <p className="text-red">Wrong email or password</p>
                 </div> : null}
                 <Formik
                     initialValues={{ email: '', password: '' }}
                     validationSchema={reviewSchema}
                     onSubmit={(values, { resetForm }) => {
-                        const data = {
-                            ...values,
-                            level_id: role
-                        }
-                        console.log(data)
+                        dispatch(authLoginCreator(values.email, values.password))
                         resetForm({ values: '' })
                     }}>
                     {(props) => (

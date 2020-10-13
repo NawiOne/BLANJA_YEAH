@@ -2,10 +2,31 @@ import React, { useState } from 'react'
 import '../component/auth/login/login.css'
 import { Formik } from 'formik';
 import * as yup from 'yup';
+import Axios from 'axios'
+import { useHistory } from 'react-router-dom'
+import Modal from '../component/modals/changePasswordSuccess';
 
 import logoBlanja from '../assets/image/logo-blanja.png'
 
-const ConfirmationPassword = ({ changeToRegister, changeToReset }) => {
+const ConfirmationPassword = ({ changeToRegister, changeToReset, location }) => {
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const redirect = useHistory()
+
+    const getIdUser = () => {
+        const str = location.search
+        const id = str.split('=')
+        return id[1]
+    }
+
+    const resetPassword = (data) => {
+        const api = `http://localhost:8000/auth/changePassword`
+        Axios.post(api, data).then(data => {
+            handleShow()
+
+        }).catch(err => console.log(err))
+    }
 
     const reviewSchema = yup.object({
         password: yup
@@ -43,9 +64,10 @@ const ConfirmationPassword = ({ changeToRegister, changeToReset }) => {
                         validationSchema={reviewSchema}
                         onSubmit={(values, { resetForm }) => {
                             const data = {
-                                ...values,
+                                password: values.password,
+                                id_user: getIdUser()
                             }
-                            console.log(data)
+                            resetPassword(data)
                             resetForm({ values: '' })
                         }}>
                         {(props) => (
@@ -69,9 +91,9 @@ const ConfirmationPassword = ({ changeToRegister, changeToReset }) => {
                         )}
                     </Formik>
 
-
                 </div>
             </form>
+            <Modal show={show} handleShow={handleShow} handleClose={handleClose} redirect={redirect} />
         </div >
     )
 }
