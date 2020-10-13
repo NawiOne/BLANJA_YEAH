@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { hideMenuCreator } from "../../../redux/action/animate";
 import "./navbar.css";
@@ -60,9 +61,16 @@ const Navbar = () => {
           {isLogin ? (
             <div className='operation-btn-nav'>
               <img src={trolly} alt='' className='navbar-icon' />
-              <img src={notif} className='navbar-icon' alt=''></img>
-              <img src={mail} className='navbar-icon' alt=''></img>
-              <Link to='/profile'><img src={userPlaceholder} alt='' className='user-pic' /></Link>
+              <img
+                src={notif}
+                className='navbar-icon'
+                alt=''
+                data-toggle='popover'
+                data-placement='top'
+                data-content='Vivamus sagittis lacus vel augue laoreet rutrum faucibus.'
+              ></img>
+                <Link to='/chat'><img src={mail} className='navbar-icon' alt='' /></Link>              
+              <img src={userPlaceholder} alt='' className='user-pic' />
             </div>
           ) : (
             <div className='operation-btn-nav-auth'>

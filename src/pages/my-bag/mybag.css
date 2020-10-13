@@ -1,0 +1,125 @@
+.section-mybag {
+  padding: 7vh 8vw;
+  overflow-x: hidden;
+}
+.select-allitem {
+  border: none;
+  box-shadow: 0px 0px 8px rgba(115, 115, 115, 0.25);
+  border-radius: 4px;
+}
+.select-allitem input[type=checkbox]{
+    outline: none;
+    border: none;
+}
+.select-allitem .card-body {
+  display: flex;
+  justify-content: space-between;
+  border: none;
+}
+.check-selected {
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+.checkbox-selected{
+    background: #DB3022;
+}
+.delete-item {
+  background: none;
+  border: none;
+  outline: none;
+  color: #db3022;
+  font-weight: 500;
+  /* font-size: 16px; */
+}
+.delete-item:focus {
+  background: none;
+  border: none;
+  outline: none;
+  color: #db3022;
+  font-weight: 500;
+  /* font-size: 16px; */
+}
+.mybag-item {
+  border: none;
+  box-shadow: 0px 0px 8px rgba(115, 115, 115, 0.25);
+  border-radius: 4px;
+}
+.mybag-item .card-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+}
+.item-bag-name-img {
+  display: flex;
+  width: 50%;
+  align-items: center;
+}
+.mybag-item-name {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2vh;
+  line-height: 12px;
+}
+.mybag-item .quantity-handle {
+  display: flex;
+  align-items: center;
+  width: 12%;
+  justify-content: space-evenly;
+}
+.mybag-item .quantity-handle .handle-minus {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #d5d5d5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mybag-item .quantity-handle .handle-plus {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  align-items: center;
+  box-shadow: 0px 0px 4px rgba(142, 142, 142, 0.25);
+}
+.img-item-bag {
+  width: 14%;
+  height: 8vh;
+  margin: 0 1vw;
+  margin-left: 2vw;
+  border-radius: 8px;
+}
+.right-section {
+  border: none;
+  box-shadow: 0px 0px 4px rgba(142, 142, 142, 0.25);
+}
+
+.right-section .mybag-total{
+    display: flex;
+    justify-content: space-between;
+    margin: 4vh 0;
+}
+.btn-buy-mybag{
+    width: 100%;
+    border: none;
+    background: #DB3022;
+    border-radius: 25px;
+    padding: 1vh 0;
+    color: #fff;
+    font-weight: bold;
+}
+.btn-buy-mybag:focus{
+    width: 100%;
+    border: none;
+    background: #DB3022;
+    border-radius: 25px;
+    padding: 1vh 0;
+    color: #fff;
+    font-weight: bold;
+    outline: none;
+}
