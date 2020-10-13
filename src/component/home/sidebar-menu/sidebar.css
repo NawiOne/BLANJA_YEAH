@@ -1,7 +1,7 @@
 .sidebar {
   width: 100%;
   padding: 0 7vw;
-  z-index: 999;
+  /* z-index: 999; */
   padding: 2vh 0;
   position: absolute;
   background-color: #ffff;
@@ -11,7 +11,7 @@
 }
 .sidebar-on {
   width: 100%;
-  z-index: 999999;
+  z-index: 2;
   position: absolute;
   background-color: #ffff;
   padding: 2vh 0;

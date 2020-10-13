@@ -18,7 +18,7 @@ const PopularProduct = () => {
       {data.map((item, index) => {
         return (
           <div className='col-6 col-md-3 col-xl-2 item-new-product' key={index}>
-            <Link to='/product'>
+            <Link to='/product' style={{textDecoration: 'none', color: 'inherit'}}>
               <div className='card card-item-new shadow'>
                 <img
                   src={kaos}

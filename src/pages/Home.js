@@ -1,6 +1,7 @@
 import React from "react";
 import "./home.css";
 import Slider from "react-slick";
+import { Link } from "react-router-dom";
 
 import Navbar from "../component/home/navbar/navbar";
 import SidebarMenu from "../component/home/sidebar-menu/sidebar-menu";
@@ -106,10 +107,18 @@ class CategorySlider extends React.Component {
             {category.map((item, index) => {
               return (
                 <div className='category-items' key={index}>
-                  <div className='cat-item' style={{ background: item.color }}>
-                    <p className='category-name'>{item.name}</p>
-                    <img src={item.image} alt='' className='category-img' />
-                  </div>
+                  <Link to='/category'>
+                    <div
+                      className='cat-item'
+                      style={{ background: item.color }}
+                      onClick={() => {
+                        console.log('category', item.name)
+                      }}
+                    >
+                      <p className='category-name'>{item.name}</p>
+                      <img src={item.image} alt='' className='category-img' />
+                    </div>
+                  </Link>
                 </div>
               );
             })}
