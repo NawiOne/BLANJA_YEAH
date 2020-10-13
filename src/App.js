@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import './App.css';
 
 import Home from './pages/Home';
+// import Profile from './pages/Profile';
 import PageProduct from './pages/page-product/pageProduct';
 import CategoryPage from './pages/category-page/categoryPage';
 import Checkout from './pages/checkout/checkout';
@@ -13,6 +14,7 @@ import Chat from './pages/chatting/chatting';
 function App() {
   return (
     <Router>
+//       <Profile/>
       <Route path='/' exact component={Home} />
       <Route path='/product' exact component={PageProduct} />
       <Route path='/category' exact component={CategoryPage} />
