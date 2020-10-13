@@ -3,12 +3,14 @@ import './register.css'
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import logoBlanja from '../../../assets/image/logo-blanja.png'
-
-
+import { useDispatch, useSelector } from 'react-redux'
+import { authRegisterCreator } from '../../../redux/action/auth'
 
 const Register = ({ changeToLogin }) => {
+    const dispatch = useDispatch()
+    const auth = useSelector(state => state.auth)
+
     const [role, setRole] = useState(2)
-    const isLogin = true
 
     let reviewSchema = ''
     if (role === 1) {
@@ -56,7 +58,7 @@ const Register = ({ changeToLogin }) => {
     return (
         <div className="d-flex justify-content-center align-items-center container-auth">
             <form id="create-course-form">
-                <div className="row content">
+                <div className="row content-register">
                     <div className="col-md-12 d-flex justify-content-center align-items-center">
                         <img src={logoBlanja} alt="logo" width="120" height="50" />
                     </div>
@@ -73,28 +75,34 @@ const Register = ({ changeToLogin }) => {
                         validationSchema={reviewSchema}
                         onSubmit={(values, { resetForm }) => {
                             if (role === 1) {
-                                console.log(values)
+                                const data = {
+                                    ...values,
+                                    level_id: role
+                                }
+                                dispatch(authRegisterCreator(data))
                                 resetForm({ values: '' })
                             } else {
                                 const data = {
                                     username: values.username,
                                     email: values.email,
-                                    password: values.password
+                                    password: values.password,
+                                    level_id: role
                                 }
-                                console.log(data);
+                                console.log(data)
+                                dispatch(authRegisterCreator(data));
                                 resetForm({ values: '' })
                             }
 
                         }}>
                         {(props) => (
                             <>
-                                <div className="col-md-12 d-flex justify-content-center align-items-center mt-4">
+                                <div className="col-md-12 d-flex justify-content-center align-items-center mt-3">
                                     <input type="text" className="input-text username" placeholder="Name" name="username" onChange={props.handleChange} onBlur={props.handleBlur} value={props.values.username} />
                                 </div>
                                 <div className="col-md-12 d-flex justify-content-center align-items-center">
                                     <p className="text-red">{props.touched.username && props.errors.username}</p>
                                 </div>
-                                <div className="col-md-12 d-flex justify-content-center align-items-center mt-3">
+                                <div className="col-md-12 d-flex justify-content-center align-items-center mt-2">
                                     <input type="text" className="input-text" placeholder="Email" name="email" onChange={props.handleChange} onBlur={props.handleBlur} value={props.values.email} />
                                 </div>
                                 <div className="col-md-12 d-flex justify-content-center align-items-center">
@@ -103,13 +111,13 @@ const Register = ({ changeToLogin }) => {
                                 {
                                     role === 1 ?
                                         <>
-                                            <div className="col-md-12 d-flex justify-content-center align-items-center mt-3">
+                                            <div className="col-md-12 d-flex justify-content-center align-items-center mt-2">
                                                 <input type="text" className="input-text" placeholder="Phone Number" name="phone_number" onChange={props.handleChange} onBlur={props.handleBlur} value={props.values.phone_number} />
                                             </div>
                                             <div className="col-md-12 d-flex justify-content-center align-items-center">
                                                 <p className="text-red">{props.touched.phone_number && props.errors.phone_number}</p>
                                             </div>
-                                            <div className="col-md-12 d-flex justify-content-center align-items-center mt-3">
+                                            <div className="col-md-12 d-flex justify-content-center align-items-center mt-2">
                                                 <input type="text" className="input-text" placeholder="Store Name" name="store_name" onChange={props.handleChange} onBlur={props.handleBlur} value={props.values.store_name} />
                                             </div>
                                             <div className="col-md-12 d-flex justify-content-center align-items-center">
@@ -117,13 +125,13 @@ const Register = ({ changeToLogin }) => {
                                             </div>
                                         </> : null
                                 }
-                                <div className="col-md-12 d-flex justify-content-center align-items-center mt-3">
+                                <div className="col-md-12 d-flex justify-content-center align-items-center mt-2">
                                     <input type="password" className="input-text" placeholder="Password" name="password" onChange={props.handleChange} onBlur={props.handleBlur} value={props.values.password} /> <br />
                                 </div>
                                 <div className="col-md-12 d-flex justify-content-center align-items-center">
                                     <p className="text-red">{props.touched.password && props.errors.password}</p>
                                 </div>
-                                <div className="col-md-12 d-flex justify-content-center align-items-center mt-5">
+                                <div className="col-md-12 d-flex justify-content-center align-items-center mt-3">
                                     <button type="button" className="btn-submit" onClick={props.handleSubmit}>Register</button>
                                 </div>
                             </>

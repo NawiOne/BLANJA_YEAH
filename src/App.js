@@ -18,13 +18,14 @@ function App() {
   return (
     <Router>
       <Route path='/profile' exact component={Profile} />
-      <Route path='/Confirmation-password' component={ConfirmationPassword} />
+      <Route path='/confirmation-password' component={ConfirmationPassword} />
       <Route path='/' exact component={Home} />
       <Route path='/product' exact component={PageProduct} />
       <Route path='/category' exact component={CategoryPage} />
       <Route path='/checkout' exact component={Checkout} />
       <Route path='/chat' exact component={Chat} />
       <Route path='/mybag' exact component={MyBag} />
+      <Route path='/auth' exact component={Auth} />
     </Router>
   );
 }
