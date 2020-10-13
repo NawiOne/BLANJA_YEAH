@@ -1,6 +1,8 @@
 import React from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import './App.css';
+import Auth from './pages/Auth';
+import ConfirmationPassword from './pages/ConfirmationPassword';
 
 import Home from './pages/Home';
 import Profile from './pages/Profile';
@@ -16,6 +18,7 @@ function App() {
   return (
     <Router>
       <Route path='/profile' exact component={Profile} />
+      <Route path='/Confirmation-password' component={ConfirmationPassword} />
       <Route path='/' exact component={Home} />
       <Route path='/product' exact component={PageProduct} />
       <Route path='/category' exact component={CategoryPage} />
