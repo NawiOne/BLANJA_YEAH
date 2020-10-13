@@ -1,12 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import 'slick-carousel/slick/slick.css'; 
+import 'slick-carousel/slick/slick-theme.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {Provider} from 'react-redux';
+import reduxStore from './redux/store';
+
+const AppRedux = () => {
+  return (
+    <Provider store={reduxStore}>
+      <App />
+    </Provider>
+  )
+}
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AppRedux />
   </React.StrictMode>,
   document.getElementById('root')
 );

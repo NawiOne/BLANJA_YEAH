@@ -1,0 +1,1 @@
+export const hideMenuAction = 'HIDE_MENU';
