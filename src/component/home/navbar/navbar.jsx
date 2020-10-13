@@ -12,7 +12,6 @@ import mail from "../../../assets/image/mail.png";
 import notif from "../../../assets/image/notif.png";
 import userPlaceholder from "../../../assets/image/user.jpg";
 import cross from "../../../assets/image/cross.png";
-import {Link} from 'react-router-dom';
 
 const Navbar = () => {
   const [isLogin] = useState(true);
@@ -69,8 +68,8 @@ const Navbar = () => {
                 data-placement='top'
                 data-content='Vivamus sagittis lacus vel augue laoreet rutrum faucibus.'
               ></img>
-                <Link to='/chat'><img src={mail} className='navbar-icon' alt='' /></Link>              
-              <img src={userPlaceholder} alt='' className='user-pic' />
+                <Link to='/chat'><img src={mail} className='navbar-icon' alt='' /></Link>  
+                <Link to='/profile'><img src={userPlaceholder} alt='' className='user-pic' /></Link>
             </div>
           ) : (
             <div className='operation-btn-nav-auth'>
