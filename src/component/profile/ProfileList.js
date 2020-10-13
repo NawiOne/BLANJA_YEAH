@@ -1,20 +1,41 @@
-import React from 'react'
+import React,{useState} from 'react'
 import './Profile.css';
 import profilePicture from '../../assets/image/profilePicture.png';
 import {Link} from 'react-router-dom';
 import CustommerLink from './profileLinks/CustommerLink';
+import SellerLink from './profileLinks/SellerLink';
 
-const ProfileList =()=> {
+const ProfileList =({data})=> {
+
+  const isCustommer =true; // nanti di ganti dari state auth, status login custommer atau seller
+  
+  const handleClickEdit = ()=>{
+    data[1]({
+      ...data[0],
+      isEditProfile:true,
+      isMyAccount:false,
+      isAddres :false,
+      isMyOrder:false,
+      isEditAccountStore:false,
+      isMyAccountStore:false,
+      isMyProductStore:false,
+      isSellingProduct:false,
+    })
+  }
   return (
     <div className='container profileList'>
       <div className='infoUser'>
         <img src={profilePicture} alt ='ProfilePicture' className='profilePicture'/>
         <div>
           <h6 className='profileName'>Johanes Mikael</h6>
-          <Link to='/' className='textEdit' style={{textDecoration:'none'}}><i className="material-icons iconEdit">create</i> Ubah profile</Link>
+          <p className='textEdit' onClick={handleClickEdit}><i className="material-icons iconEdit">create</i> Ubah profile</p>
         </div>
       </div>
-      <CustommerLink/>
+      {isCustommer ?
+        <CustommerLink data={data}/>
+        :
+        <SellerLink data={data}/>
+      }
     </div>
   )
 }

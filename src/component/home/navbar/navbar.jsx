@@ -11,9 +11,10 @@ import mail from "../../../assets/image/mail.png";
 import notif from "../../../assets/image/notif.png";
 import userPlaceholder from "../../../assets/image/user.jpg";
 import cross from "../../../assets/image/cross.png";
+import {Link} from 'react-router-dom';
 
 const Navbar = () => {
-  const [isLogin] = useState(false);
+  const [isLogin] = useState(true);
   const { animate } = useSelector((state) => state);
   const dispatch = useDispatch();
 
@@ -61,7 +62,7 @@ const Navbar = () => {
               <img src={trolly} alt='' className='navbar-icon' />
               <img src={notif} className='navbar-icon' alt=''></img>
               <img src={mail} className='navbar-icon' alt=''></img>
-              <img src={userPlaceholder} alt='' className='user-pic' />
+              <Link to='/profile'><img src={userPlaceholder} alt='' className='user-pic' /></Link>
             </div>
           ) : (
             <div className='operation-btn-nav-auth'>
