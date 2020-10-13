@@ -12,6 +12,7 @@ import mail from "../../../assets/image/mail.png";
 import notif from "../../../assets/image/notif.png";
 import userPlaceholder from "../../../assets/image/user.jpg";
 import cross from "../../../assets/image/cross.png";
+import {Link} from 'react-router-dom';
 
 const Navbar = () => {
   const [isLogin] = useState(true);
