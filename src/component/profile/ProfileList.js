@@ -7,7 +7,7 @@ import SellerLink from './profileLinks/SellerLink';
 
 const ProfileList =({data})=> {
 
-  const isCustommer =true; // nanti di ganti dari state auth, status login custommer atau seller
+  const isCustommer =false; // nanti di ganti dari state auth, status login custommer atau seller
   
   const handleClickEdit = ()=>{
     data[1]({

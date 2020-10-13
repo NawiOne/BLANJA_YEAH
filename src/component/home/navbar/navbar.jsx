@@ -13,7 +13,6 @@ import notif from "../../../assets/image/notif.png";
 import userPlaceholder from "../../../assets/image/user.jpg";
 import cross from "../../../assets/image/cross.png";
 
-
 const Navbar = () => {
   const [isLogin] = useState(true);
   const { animate } = useSelector((state) => state);
@@ -69,8 +68,8 @@ const Navbar = () => {
                 data-placement='top'
                 data-content='Vivamus sagittis lacus vel augue laoreet rutrum faucibus.'
               ></img>
-              <Link to='/chat'><img src={mail} className='navbar-icon' alt='' /></Link>
-              <img src={userPlaceholder} alt='' className='user-pic' />
+                <Link to='/chat'><img src={mail} className='navbar-icon' alt='' /></Link>  
+                <Link to='/profile'><img src={userPlaceholder} alt='' className='user-pic' /></Link>
             </div>
           ) : (
               <div className='operation-btn-nav-auth'>

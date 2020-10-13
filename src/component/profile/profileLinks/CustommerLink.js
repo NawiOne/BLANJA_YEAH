@@ -1,4 +1,7 @@
 import React from 'react';
+import user from '../../../assets/image/user.png';
+import map from '../../../assets/image/map-pin.png';
+import clipboard from '../../../assets/image/clipboard.png';
 
 const CustommerLink =({data})=> {
   const handleClickMyAccount = ()=>{
@@ -42,9 +45,9 @@ const CustommerLink =({data})=> {
   }
   return (
     <div className='custommerLink'>
-      <h6 className='textLink' onClick={handleClickMyAccount}><i className="material-icons iconAccount">person_outline</i>My account</h6>
-      <h6 className='textLink' onClick={handleClickAddres}><i className="material-icons iconAddress">place</i>Shipping Address</h6>
-      <h6 className='textLink' onClick={handleClickMyOrder}><i className="material-icons iconOrder">content_paste</i>My order</h6>
+      <h6 className='textLink' onClick={handleClickMyAccount}><img src={user} alt='' className='iconAccount'/>My account</h6>
+      <h6 className='textLink' onClick={handleClickAddres}><img src={map} alt='' className='iconAddress'/>Shipping Address</h6>
+      <h6 className='textLink' onClick={handleClickMyOrder}><img src={clipboard} alt='' className='iconOrder'/>My order</h6>
     </div>
   )
 }
