@@ -13,6 +13,8 @@ import CategorySlider from '../component/categorySlider';
 
 import "../component/home/category-slider/categorySlider.css";
 
+
+
 const Home = () => {
  const dispatch = useDispatch();
 
