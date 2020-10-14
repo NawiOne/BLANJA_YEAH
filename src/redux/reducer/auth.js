@@ -24,41 +24,51 @@ const auth = (state = initialState, { type, payload }) => {
       };
     case actionType.authLogin + '_FULFILLED':
        
-        if(payload.data.success){
-            return {
-                ...state,
-                data: payload.data.data,
-                msgInvalid: '',
-                isLogin: true
-              };
-        }else{
-            return {
-                ...state,
-                data: [],
-                msgInvalid: payload.data.error.msg,
-                isLogin: false
-              };
-        }
-        case actionType.authRegister + '_PENDING':
-            return {
+      if(payload.data.success){
+          return {
               ...state,
-              isPending: true,
+              data: payload.data.data,
+              msgInvalid: '',
+              isLogin: true
             };
-          case actionType.authRegister + '_REJECTED':
-            return {
+      }else{
+          return {
               ...state,
-              isRejected: true,
-              isPending: false,
+              data: [],
+              msgInvalid: payload.data.error.msg,
+              isLogin: false
             };
-          case actionType.authRegister + '_FULFILLED':
-                  return {
-                      ...state,
-                      data: payload.data.data,
-                      msgInvalid: '',
-                      isLogin: true
-                    };
-    default:
-      return state;
+      }
+    case actionType.authRegister + '_PENDING':
+        return {
+          ...state,
+          isPending: true,
+        };
+      case actionType.authRegister + '_REJECTED':
+        return {
+          ...state,
+          isRejected: true,
+          isPending: false,
+        };
+      case actionType.authRegister + '_FULFILLED':
+        return {
+            ...state,
+            data: payload.data.data,
+            msgInvalid: '',
+            isLogin: true
+          };
+      case actionType.authLogOut:
+        return {
+          ...state,
+          data: [],
+          isLogin: false,
+          msgInvalid: '',
+          isPending: false,
+          isFulfilled: false,
+          isRejected: false,
+        };
+      default:
+        return state;
   }
 };
 

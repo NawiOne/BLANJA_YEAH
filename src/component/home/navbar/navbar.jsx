@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect} from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { hideMenuCreator } from "../../../redux/action/animate";
@@ -12,12 +12,15 @@ import mail from "../../../assets/image/mail.png";
 import notif from "../../../assets/image/notif.png";
 import userPlaceholder from "../../../assets/image/user.jpg";
 import cross from "../../../assets/image/cross.png";
+import {urlImage} from '../../../utils/http';
+import {getUserCreator} from '../../../redux/action/user';
 
 const Navbar = () => {
 
-  // const [isLogin] = useState(true);
-  const isLogin = useSelector((state)=>state.auth.isLogin)
-  // console.log(isLogin)
+  const isLogin = useSelector((state)=>state.auth.isLogin);
+ 
+  // const user = useSelector((state)=>state.user.user[0]);
+  // console.log(user)
   
   const { animate, product } = useSelector((state) => state);
 

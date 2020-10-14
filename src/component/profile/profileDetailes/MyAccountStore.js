@@ -1,7 +1,11 @@
 import React from 'react';
-import profilePicture from '../../../assets/image/profilePicture.png'
+import {useSelector,useDispatch} from "react-redux";
+import {urlImage} from '../../../utils/http';
 
 const MyAccountStore =({data})=> {
+
+  const user = useSelector((state)=>state.user.user[0])
+
   const handleClickEdit = ()=>{
     data[1]({
       ...data[0],
@@ -25,19 +29,19 @@ const MyAccountStore =({data})=> {
             <div className='form-group row'>
               <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label labelName">Store name</label>
               <div className="col-sm-8 informationProfile">
-                Johanes Mikael
+                {user.username}
               </div>
             </div>
             <div className='form-group row'>
               <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label labelName">Email</label>
               <div className="col-sm-8 informationProfile">
-                johanes@gmail.com
+                {user.email}
               </div>
             </div>
             <div className='form-group row'>
               <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label labelName">Phone Number</label>
               <div className="col-sm-8 informationProfile">
-                08901289012
+                {user.phone_number}
               </div>
             </div>
             <div className='form-group row'>
@@ -50,7 +54,7 @@ const MyAccountStore =({data})=> {
         </div>
         <div className='col col-md-3'>
           <div className='imageUserWrapper'>
-            <img src={profilePicture} className='imageUser' alt='profilePicture'/>
+            <img src={urlImage+user.image} className='imageUser' alt='profilePicture'/>
             <h6 className='edit' onClick={handleClickEdit}>Edit Profile</h6>
           </div>
         </div>

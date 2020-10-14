@@ -1,7 +1,9 @@
 import React from 'react';
-import profilePicture from '../../../assets/image/profilePicture.png'
+import {useSelector,useDispatch} from "react-redux";
+import {urlImage} from '../../../utils/http';
 
 const EditAccountStore =()=> {
+  const user = useSelector((state)=>state.user.user[0])
   return (
     <div className='detailWrapper'>
       <h4 className='titleDetail'>My Profile Store</h4>
@@ -12,19 +14,19 @@ const EditAccountStore =()=> {
             <div className='form-group row'>
               <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label labelName">Name</label>
               <div className="col-sm-9">
-                <input type="email" className="form-control form-control-sm " id="colFormLabel" placeholder="Johanes Mikael"></input>
+                <input type="email" className="form-control form-control-sm " id="colFormLabel" placeholder={user.username}></input>
               </div>
             </div>
             <div className='form-group row'>
               <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label labelName">Email</label>
               <div className="col-sm-9">
-                <input type="email" className="form-control form-control-sm" id="colFormLabel" placeholder="johanes@gmail.com"></input>
+                <input type="email" className="form-control form-control-sm" id="colFormLabel" placeholder={user.email}></input>
               </div>
             </div>
             <div className='form-group row'>
               <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label labelName">Phone Number</label>
               <div className="col-sm-9">
-                <input type="email" className="form-control form-control-sm" id="colFormLabel" placeholder="08901289012"></input>
+                <input type="email" className="form-control form-control-sm" id="colFormLabel" placeholder={user.phone_number}></input>
               </div>
             </div>
             <div className="form-group row">
@@ -43,7 +45,7 @@ const EditAccountStore =()=> {
         </div>
         <div className='col col-md-3'>
           <div className='imageUserWrapper'>
-            <img src={profilePicture} className='imageUser' alt='profilePicture'/>
+            <img src={urlImage+user.image} className='imageUser' alt='profilePicture'/>
             <button type="button" className="btn btn-selectImage">Select image</button>
           </div>
         </div>

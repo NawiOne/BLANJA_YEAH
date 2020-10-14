@@ -16,3 +16,5 @@ export const getUser =(id)=>{
   const URI =`${linkApi}user/${id}`;
   return Axios.get(URI);
 }
+
+export const urlImage = 'http://localhost:8000/images/';

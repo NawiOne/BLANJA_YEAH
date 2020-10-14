@@ -1,4 +1,3 @@
-
 import React,{useEffect} from 'react';
 import {useSelector,useDispatch } from "react-redux";
 import "./home.css";
@@ -17,7 +16,7 @@ const Home = () => {
  const dispatch = useDispatch();
 
  const id_login = useSelector((state)=>state.auth.data.id_user)
-  
+ 
  useEffect(() => {
    dispatch(getNewProductCreator());
    dispatch(getPopularCreator());
