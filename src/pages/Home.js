@@ -1,4 +1,5 @@
-import React from "react";
+import React,{useEffect} from 'react';
+import {useSelector,useDispatch } from "react-redux";
 import "./home.css";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
@@ -15,6 +16,8 @@ import { category } from "../assets/category";
 
 import prevArrow from "../assets/image/prevArrow.png";
 import nextArrow from "../assets/image/nextArrow.png";
+
+import {getUserCreator} from '../redux/action/user';
 
 var handleNext = () => {
   return;
@@ -138,6 +141,7 @@ class CategorySlider extends React.Component {
 }
 
 const Home = () => {
+
   return (
     <>
       <div>

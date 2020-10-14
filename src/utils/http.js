@@ -11,3 +11,8 @@ export const authRegister = (data) => {
     const URI = `${linkApi}auth/register`;
     return Axios.post(URI, data);
   };
+
+export const getUser =(id)=>{
+  const URI =`${linkApi}user/${id}`;
+  return Axios.get(URI);
+}
