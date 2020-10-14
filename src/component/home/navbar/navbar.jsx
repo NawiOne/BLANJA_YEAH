@@ -14,8 +14,13 @@ import userPlaceholder from "../../../assets/image/user.jpg";
 import cross from "../../../assets/image/cross.png";
 
 const Navbar = () => {
-  const [isLogin] = useState(true);
+
+  // const [isLogin] = useState(true);
+  const isLogin = useSelector((state)=>state.auth.isLogin)
+  // console.log(isLogin)
+  
   const { animate, product } = useSelector((state) => state);
+
   const dispatch = useDispatch();
 
   const handleSearch = (e) => {
