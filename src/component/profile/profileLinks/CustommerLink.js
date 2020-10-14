@@ -1,5 +1,5 @@
 import React from 'react';
-import user from '../../../assets/image/user.png';
+import user from '../../../assets/image/iconUser.png';
 import map from '../../../assets/image/map-pin.png';
 import clipboard from '../../../assets/image/clipboard.png';
 

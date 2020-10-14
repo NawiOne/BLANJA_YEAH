@@ -23,6 +23,8 @@
 .profilePicture{
   border-radius:50%;
   margin-right:2vw;
+  width:50px;
+  height:50px;
 }
 .profileName{
   font-size: 1em;
@@ -37,6 +39,15 @@
   color:#9B9B9B;
   font-size: 0.825em;
   font-weight: bold;
+}
+.btn-signOut{
+  color:#ffffff;
+  background-color: #DB3022;
+  margin-top: 10vh;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  font-size: 0.875em;
+  border-radius: 1em;
 }
 
 /* Customer link */
@@ -425,6 +436,16 @@
 .iconText{
   padding-left: 1vw;
   border-left: 0.0625em solid #9B9B9B;
+}
+.btn-jual{
+  width:6.25em;
+  font-size: 0.875em;
+  background-color:#DB3022;
+  border-radius: 21.5625em;
+  color:#ffffff;
+  margin-top: 3vh;
+  margin-left: 54vw;
+  margin-bottom: 10vh;
 }
 
 

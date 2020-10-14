@@ -1,7 +1,10 @@
 import React from 'react';
-import profilePicture from '../../../assets/image/profilePicture.png'
+import {useSelector,useDispatch} from "react-redux";
+import {urlImage} from '../../../utils/http';
 
 const EditAccount =()=> {
+
+  const user = useSelector((state)=>state.user.user[0])
 
   const date = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31];
   const month =['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
@@ -81,7 +84,7 @@ const EditAccount =()=> {
         </div>
         <div className='col col-md-3'>
           <div className='imageUserWrapper'>
-            <img src={profilePicture} className='imageUser' alt='profilePicture'/>
+            <img src={urlImage+user.image} className='imageUser' alt='profilePicture'/>
             <button type="button" className="btn btn-selectImage">Select image</button>
           </div>
         </div>

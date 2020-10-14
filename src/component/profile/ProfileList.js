@@ -1,15 +1,20 @@
-import React,{useState} from 'react';
-import {useSelector } from "react-redux";
+import React from 'react';
+import {useSelector,useDispatch} from "react-redux";
+import { Link } from "react-router-dom";
 import './Profile.css';
 import profilePicture from '../../assets/image/profilePicture.png';
-import {Link} from 'react-router-dom';
 import CustommerLink from './profileLinks/CustommerLink';
 import SellerLink from './profileLinks/SellerLink';
+import {authLogOutCreator} from '../../redux/action/auth';
+import {urlImage} from '../../utils/http';
 
 const ProfileList =({data})=> {
 
-  const level_id = useSelector((state)=>state.auth.data.level_id)
-  console.log(typeof (level_id===1))
+  const dispatch = useDispatch();
+
+  const level_id = useSelector((state)=>state.auth.data.level_id);
+  const user = useSelector((state)=>state.user.user[0])
+  
   let list;
   if(level_id === 1){
     list=<SellerLink data={data}/>
@@ -33,16 +38,24 @@ const ProfileList =({data})=> {
       isSellingProduct:false,
     })
   }
+
+  const handleButtonLogOut =()=>{
+    dispatch(authLogOutCreator());
+  }
+
   return (
     <div className='container profileList'>
       <div className='infoUser'>
-        <img src={profilePicture} alt ='ProfilePicture' className='profilePicture'/>
+        <img src={urlImage+user.image} alt ='ProfilePicture' className='profilePicture'/>
         <div>
-          <h6 className='profileName'>Johanes Mikael</h6>
+          <h6 className='profileName'>{user.username}</h6>
           <p className='textEdit' onClick={handleClickEdit}><i className="material-icons iconEdit">create</i> Ubah profile</p>
         </div>
       </div>
       {list}
+      <Link to='/'>
+        <button type="button" className="btn btn-signOut" onClick={handleButtonLogOut}>Sign Out</button>
+      </Link>
     </div>
   )
 }

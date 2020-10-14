@@ -71,6 +71,7 @@ const SellingProducts =()=> {
           <textarea class="form-control" rows="10"></textarea>
         </div>
       </div>
+      <button type="button" className="btn btn-jual">Jual</button>
     </div>
   )
 }
