@@ -17,17 +17,10 @@
   display: flex;
   flex: 3;
 }
-.logo {
-    margin-top: -10px;
-  display: flex;
-  margin-right: 20px;
-  justify-content: space-around;
-  padding: 0 10px;
-  align-items: center;
-}
+
 .blanja-logo {
-  width: 30px;
-  height: 35px;
+  width: 90%;
+  height: 6vh;
 }
 .blanja {
   color: #db3022;
@@ -103,6 +96,26 @@
   justify-content: flex-end;
 
 }
+.trolly{
+  display: flex;
+}
+.badge-mybag{
+  background: #DB3022;
+  border-radius: 50%;
+  width: 19px;
+  height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: smaller;
+  position: absolute;
+  margin-top: -8px;
+  margin-left: 1vw;
+  color: white;
+  padding: 10px;
+}
+
+
 .btn-auth{
   display: none;
   background-color: red;

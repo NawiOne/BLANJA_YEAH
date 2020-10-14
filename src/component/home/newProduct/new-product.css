@@ -4,6 +4,7 @@
 .card-item-new{
     height: 42vh ;
     border: none;
+    padding-bottom: 1vh;
 }
 .img-new-product{
     width: 100%;
@@ -16,7 +17,7 @@
     justify-content: space-between;
 }
 .new-product-name{
-    /* margin-top: -1vh; */
+    margin-top: -1vh;
     font-weight: bold;
     margin-bottom: 2vh;
     min-height: 50%;

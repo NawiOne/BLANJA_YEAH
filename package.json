@@ -10,7 +10,6 @@
     "formik": "^2.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-
     "react-hook-form": "^6.9.2",
     "yup": "^0.29.3",
     "react-redux": "^7.2.1",
@@ -21,8 +20,7 @@
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^6.1.2",
-    "slick-carousel": "^1.8.1",
-    "yup": "^0.29.3"
+    "slick-carousel": "^1.8.1"
   },
   "scripts": {
     "start": "react-scripts start",

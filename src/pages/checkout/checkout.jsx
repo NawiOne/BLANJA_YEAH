@@ -1,5 +1,6 @@
 import React from "react";
 import "./checkout.css";
+import { useSelector, useDispatch } from "react-redux";
 
 import Navbar from "../../component/home/navbar/navbar";
 import Sidebar from "../../component/home/sidebar-menu/sidebar-menu";
@@ -7,9 +8,9 @@ import SelectAddress from "../../component/modals/selectAddress";
 import SelectPayment from "../../component/modals/selectPayment";
 import NewAddress from "../../component/modals/addAddress";
 
-import kaos from "../../assets/image/kaos.jpg";
-
 const Checkout = () => {
+  const { product } = useSelector((state) => state);
+
   return (
     <>
       <div>
@@ -46,30 +47,36 @@ const Checkout = () => {
                   </div>
                 </div>
               </div>
-              <div className='row'>
-                <div className='col-12 mb-4'>
-                  <div class='card product-checkout'>
-                    <div class='card-body item-checkout'>
-                      <div style={{ display: "flex" }}>
-                        <img
-                          src='https://s2.bukalapak.com/img/2013996922/w-1000/baju_muslim_keren_kaos_kurta__busana_muslim_hijrah_bajukoko_.jpg'
-                          alt=''
-                          className='img-item-checkout'
-                        />
-                        <div className='product-checkout-name'>
-                          <p>Men's formal suit - Black</p>
-                          <p style={{ color: "#9B9B9B", fontSize: "small" }}>
-                            Zalora Cloth
-                          </p>
+              {product.bagItem.map((item, index) => {
+                return (
+                  <div className='row'>
+                    <div className='col-12 mb-4'>
+                      <div class='card product-checkout'>
+                        <div class='card-body item-checkout'>
+                          <div style={{ display: "flex" }}>
+                            <img
+                              src={item.image.split(",")[0]}
+                              alt=''
+                              className='img-item-checkout'
+                            />
+                            <div className='product-checkout-name'>
+                              <div>{item.name_product}</div>
+                              <div
+                                style={{ color: "#9B9B9B", fontSize: "small" }}
+                              >
+                                {item.brand}
+                              </div>
+                            </div>
+                          </div>
+                          <div style={{ textAlign: "right", width: "500px" }}>
+                            <p style={{ fontWeight: "bold" }}>$ {item.price}</p>
+                          </div>
                         </div>
-                      </div>
-                      <div style={{ textAlign: "right", width: "500px" }}>
-                        <p style={{ fontWeight: "bold" }}>$ 100.0</p>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
+                );
+              })}
             </div>
             <div className='col-md-4'>
               <div class='card checkout-detail-payment'>
@@ -111,12 +118,12 @@ const Checkout = () => {
             </div>
           </div>
         </div>
-        {/* Modal */}
-        <SelectAddress />
-        <SelectPayment />
-        <NewAddress />
-        {/* end modal */}
       </div>
+      {/* Modal */}
+      <SelectAddress />
+      <SelectPayment />
+      <NewAddress />
+      {/* end modal */}
     </>
   );
 };
