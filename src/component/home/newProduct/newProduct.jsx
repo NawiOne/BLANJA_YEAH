@@ -2,34 +2,46 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./new-product.css";
 
-import kaos from "../../../assets/image/kaos.jpg";
+import { useSelector, useDispatch } from "react-redux";
+import {getDetailCreator} from '../../../redux/action/product';
+
 import star from "../../../assets/image/Star.png";
-const data = [1, 2, 3, 4, 5, 6, 8, 9, 0];
 
 const NewProduct = () => {
+  const { product } = useSelector((state) => state);
+  const dispatch = useDispatch();
+
   return (
     <>
       <div className='col-12 mb-3'>
         <h2 className='section-title'>New</h2>
         <p className='title-description'>You’ve never seen it before!</p>
       </div>
-      {data.map((item, index) => {
+      {product.newProduct.map((item, index) => {
+        console.log(item.id)
         return (
-          <div className='col-6 col-md-3 col-xl-2 item-new-product' key={index}>
-            <Link to='/product' style={{textDecoration: 'none', color: 'inherit'}}>
+          <div
+            className='col-6 col-md-3 col-xl-2 item-new-product'
+            key={index}
+            onClick={() => {
+                dispatch(getDetailCreator(item.id))
+            }}
+          >
+            <Link
+              to='/product'
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
               <div className='card card-item-new shadow'>
                 <img
-                  src={kaos}
+                  src={item.image.split(",")[0]}
                   className='card-img-top img-new-product img-fluid'
                   alt='...'
                 />
                 <div className='card-body card-body-new-product'>
-                  <p className='new-product-name'>
-                    Men's formal suit - Black & White
-                  </p>
+                  <p className='new-product-name'>{item.name_product}</p>
                   <div className='new-product-description'>
-                    <p className='product-price'>$ 40.0</p>
-                    <p className='product-store'>Zahra cloth</p>
+                    <p className='product-price'>$ {item.price}</p>
+                    <p className='product-store'>{item.brand}</p>
                     <div className='product-rating'>
                       <div>
                         <img src={star} alt='' />

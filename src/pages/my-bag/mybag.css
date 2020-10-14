@@ -65,8 +65,8 @@
 .mybag-item .quantity-handle {
   display: flex;
   align-items: center;
-  width: 12%;
-  justify-content: space-evenly;
+  width: 20%;
+  justify-content: space-around;
 }
 .mybag-item .quantity-handle .handle-minus {
   width: 30px;
@@ -76,6 +76,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  
 }
 .mybag-item .quantity-handle .handle-plus {
   width: 30px;
@@ -86,6 +88,7 @@
   background-color: #fff;
   align-items: center;
   box-shadow: 0px 0px 4px rgba(142, 142, 142, 0.25);
+  cursor: pointer;
 }
 .img-item-bag {
   width: 14%;

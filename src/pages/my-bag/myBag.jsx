@@ -1,11 +1,23 @@
 import React from "react";
 import "./mybag.css";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { addQtyCreator, minusQtyCreator } from "../../redux/action/product";
 
 import Navbar from "../../component/home/navbar/navbar";
 import Sidebar from "../../component/home/sidebar-menu/sidebar-menu";
 
 const MyBag = () => {
+  const { product } = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  const price = product.bagItem.map((el) => {
+    return el.price * el.quantity;
+  });
+  const total = price.reduce((total, index) => {
+    return total + index;
+  }, 0);
+
   return (
     <>
       <div>
@@ -50,68 +62,59 @@ const MyBag = () => {
                   </div>
                 </div>
               </div>
-              <div className='row'>
-                <div className='col-12' style={{ marginBottom: "1.8vh" }}>
-                  <div className='card mybag-item'>
-                    <div className='card-body'>
-                      <div className='item-bag-name-img'>
-                        <input type='checkbox' name='' id='' />
-                        <img
-                          src='https://ae01.alicdn.com/kf/HTB1vq98hwnH8KJjSspcq6z3QFXaY/Simplee-Embroidery-faux-leather-coat-Motorcycle-zipper-wine-red-leather-jacket-women-Fashion-cool-outerwear-winter.jpg_640x640.jpg'
-                          alt=''
-                          className='img-item-bag img-fluid'
-                        />
-                        <div className='mybag-item-name'>
-                          <p style={{ fontWeight: "bold" }}>
-                            Mens formal suit -Blcak
-                          </p>
-                          <p style={{ fontSize: "small", color: "#9B9B9B" }}>
-                            Zalora Cloth
-                          </p>
+              {product.bagItem.map((item) => {
+                return (
+                  <div className='row'>
+                    <div className='col-12 ' style={{ marginBottom: "1.8vh" }}>
+                      <div className='card mybag-item'>
+                        <div className='card-body'>
+                          <div className='item-bag-name-img'>
+                            <input type='checkbox' name='' id='' />
+                            <img
+                              src={item.image.split(",")[0]}
+                              alt=''
+                              className='img-item-bag img-fluid'
+                            />
+                            <div className='mybag-item-name'>
+                              <p style={{ fontWeight: "bold" }}>
+                                {item.name_product}
+                              </p>
+                              <p
+                                style={{ fontSize: "small", color: "#9B9B9B" }}
+                              >
+                                {item.brand}
+                              </p>
+                            </div>
+                          </div>
+
+                          <div className='quantity-handle'>
+                            <div
+                              className='handle-minus'
+                              onClick={() => {
+                                dispatch(minusQtyCreator(item.id));
+                              }}
+                            >
+                              -
+                            </div>
+                            <div>{item.quantity}</div>
+                            <div
+                              className='handle-plus'
+                              onClick={() => {
+                                dispatch(addQtyCreator(item.id));
+                              }}
+                            >
+                              +
+                            </div>
+                          </div>
+                          <div style={{ fontWeight: "bold" }}>
+                            $ {item.price * item.quantity}
+                          </div>
                         </div>
                       </div>
-
-                      <div className='quantity-handle'>
-                        <div className='handle-minus'>-</div>
-                        <div>1</div>
-                        <div className='handle-plus'>+</div>
-                      </div>
-                      <div style={{ fontWeight: "bold" }}>$ 20.0</div>
                     </div>
                   </div>
-                </div>
-              </div>
-              <div className='row'>
-                <div className='col-12 ' style={{ marginBottom: "1.8vh" }}>
-                  <div className='card mybag-item'>
-                    <div className='card-body'>
-                      <div className='item-bag-name-img'>
-                        <input type='checkbox' name='' id='' />
-                        <img
-                          src='https://ae01.alicdn.com/kf/HTB1vq98hwnH8KJjSspcq6z3QFXaY/Simplee-Embroidery-faux-leather-coat-Motorcycle-zipper-wine-red-leather-jacket-women-Fashion-cool-outerwear-winter.jpg_640x640.jpg'
-                          alt=''
-                          className='img-item-bag img-fluid'
-                        />
-                        <div className='mybag-item-name'>
-                          <p style={{ fontWeight: "bold" }}>
-                            Mens formal suit -Blcak
-                          </p>
-                          <p style={{ fontSize: "small", color: "#9B9B9B" }}>
-                            Zalora Cloth
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className='quantity-handle'>
-                        <div className='handle-minus'>-</div>
-                        <div>1</div>
-                        <div className='handle-plus'>+</div>
-                      </div>
-                      <div style={{ fontWeight: "bold" }}>$ 20.0</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                );
+              })}
             </div>
             <div className='col-md-4'>
               <div className='card right-section'>
@@ -119,7 +122,7 @@ const MyBag = () => {
                   <h5>Shopping summary</h5>
                   <div className='mybag-total'>
                     <p>Total price</p>
-                    <p>$ 40.0</p>
+                    <p style={{fontWeight: 'bold'}}>$ {total}</p>
                   </div>
                   <Link to='/checkout'>
                     <button className='btn-buy-mybag'>Buy</button>
