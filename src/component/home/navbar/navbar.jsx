@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { hideMenuCreator } from "../../../redux/action/animate";
 import "./navbar.css";
-import bagLogo from "../../../assets/image/bag.png";
+import bagLogo from "../../../assets/image/logo-blanja.png";
 import searchLogo from "../../../assets/image/glass.png";
 import filterLogo from "../../../assets/image/filter.png";
 import trolly from "..//../../assets/image/basket.png";
@@ -14,10 +14,13 @@ import userPlaceholder from "../../../assets/image/user.jpg";
 import cross from "../../../assets/image/cross.png";
 
 const Navbar = () => {
+
   // const [isLogin] = useState(true);
   const isLogin = useSelector((state)=>state.auth.isLogin)
   // console.log(isLogin)
-  const { animate } = useSelector((state) => state);
+  
+  const { animate, product } = useSelector((state) => state);
+
   const dispatch = useDispatch();
 
   const handleSearch = (e) => {
@@ -35,10 +38,11 @@ const Navbar = () => {
         }
       >
         <div className='left'>
-          <div className='logo'>
-            <img src={bagLogo} alt='' className='blanja-logo' />
-            <p className='blanja'>Blanja</p>
-          </div>
+          <Link to='/'>
+            <div>
+              <img src={bagLogo} alt='' className='blanja-logo' />
+            </div>
+          </Link>
           <div className='form'>
             <form action=''>
               <div className='inputCont'>
@@ -61,7 +65,16 @@ const Navbar = () => {
         <div className='right'>
           {isLogin ? (
             <div className='operation-btn-nav'>
-              <img src={trolly} alt='' className='navbar-icon' />
+              <div className='trolly'>
+                <Link to='/mybag'>
+                  <img src={trolly} alt='' className='navbar-icon' />
+                </Link>
+                {product.bagItem.length === 0 ? null : (
+                  <div className='badge-mybag'>
+                    <div>{product.bagItem.length}</div>
+                  </div>
+                )}
+              </div>
               <img
                 src={notif}
                 className='navbar-icon'
@@ -70,8 +83,10 @@ const Navbar = () => {
                 data-placement='top'
                 data-content='Vivamus sagittis lacus vel augue laoreet rutrum faucibus.'
               ></img>
+
                 <Link to='/chat'><img src={mail} className='navbar-icon' alt='' /></Link>  
                 <Link to='/profile'><img src={userPlaceholder} alt='' className='user-pic' /></Link>
+
             </div>
           ) : (
               <div className='operation-btn-nav-auth'>

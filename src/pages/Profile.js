@@ -1,8 +1,8 @@
 import React,{useState} from 'react'
 import Navbar from '../component/home/navbar/navbar';
-import Sidbar from '../component/home/sidebar-menu/sidebar-menu';
 import ProfileList from '../component/profile/ProfileList';
 import ProfileDetails from '../component/profile/profileDetailes/ProfileDetailes';
+import SidebarMenu from '../component/home/sidebar-menu/sidebar-menu';
 
 const Profile = ()=> {
   const[data,setData]=useState({
@@ -20,7 +20,7 @@ const Profile = ()=> {
   return (
     <div className='profile'>
       <Navbar/>
-      <Sidbar/>
+      <SidebarMenu/>
       <div>
         <div className='row no-gutters'>
           <div className='col col-md-4 col-lg-4'><ProfileList data={[data,setData]}/></div>

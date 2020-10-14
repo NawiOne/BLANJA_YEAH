@@ -37,9 +37,7 @@
 .product-checkout-name {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  line-height: 10px;
-  margin-top: 1vh;
+  justify-content: space-evenly;
 }
 
 .checkout-detail-payment {

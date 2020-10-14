@@ -9,6 +9,7 @@ import handbag from "../assets/image/category/hand-bag.png";
 import highHeel from "../assets/image/category/high-heel.png";
 import shock from "../assets/image/category/shock.png";
 import tie from "../assets/image/category/tie.png";
+import shoe from '../assets/image/category/shoes.png'
 
 export const category = [
     {   name: 'T-Shirt',
@@ -55,6 +56,11 @@ export const category = [
         image: shock,
         color: '#D85089',
     },
+    {
+        name: 'Shoes',
+        image: shoe,
+        color: '#57CD9E',
+    }
 
 
 
