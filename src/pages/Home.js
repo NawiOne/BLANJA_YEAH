@@ -17,10 +17,13 @@ import {getUserCreator} from '../redux/action/user';
 
 const Home = () => {
  const dispatch = useDispatch();
+
+ const id_login = useSelector((state)=>state.auth.data.id_user)
   
  useEffect(() => {
-   dispatch(getNewProductCreator())
-   dispatch(getPopularCreator())
+   dispatch(getNewProductCreator());
+   dispatch(getPopularCreator());
+   dispatch(getUserCreator(id_login));
  }, [])
 
   return (
