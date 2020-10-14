@@ -78,26 +78,24 @@ const Navbar = () => {
                 data-placement='top'
                 data-content='Vivamus sagittis lacus vel augue laoreet rutrum faucibus.'
               ></img>
-              <Link to='/chat'>
-                <img src={mail} className='navbar-icon' alt='' />
-              </Link>
-              <Link to='/profile'>
-                <img src={userPlaceholder} alt='' className='user-pic' />
-              </Link>
+
+                <Link to='/chat'><img src={mail} className='navbar-icon' alt='' /></Link>  
+                <Link to='/profile'><img src={userPlaceholder} alt='' className='user-pic' /></Link>
+
             </div>
           ) : (
-            <div className='operation-btn-nav-auth'>
-              <img src={trolly} alt='' className='trolly' />
-              <div className='btn-auth'>
-                <button type='button' className='btn btn-login'>
-                  Login
+              <div className='operation-btn-nav-auth'>
+                <img src={trolly} alt='' className='trolly' />
+                <div className='btn-auth'>
+                  <button type='button' className='btn btn-login'>
+                    Login
                 </button>
-                <button type='button' className='btn btn-signup'>
-                  Signup
+                  <button type='button' className='btn btn-signup'>
+                    Signup
                 </button>
+                </div>
               </div>
-            </div>
-          )}
+            )}
         </div>
         <button
           className='humberger-menu'
@@ -108,8 +106,8 @@ const Navbar = () => {
           {animate.menuDisplayed ? (
             <img src={cross} className='humberger' alt='' />
           ) : (
-            <img src={hambMenu} className='humberger' alt='' />
-          )}
+              <img src={hambMenu} className='humberger' alt='' />
+            )}
         </button>
       </div>
     </>

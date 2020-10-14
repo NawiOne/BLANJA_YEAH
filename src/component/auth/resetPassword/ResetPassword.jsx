@@ -2,9 +2,25 @@ import React, { useState } from 'react'
 import './resetPassword.css'
 import { Formik } from 'formik';
 import * as yup from 'yup';
+import Axios from 'axios'
 import logoBlanja from '../../../assets/image/logo-blanja.png'
+import Modal from '../../modals/sendEmail';
 
 const ResetPassword = ({ changeToRegister }) => {
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+
+    const sendEmail = (email) => {
+        const api = `http://localhost:8000/auth/sendEmail`
+        Axios.post(api, { email: email })
+            .then(data => {
+                handleShow()
+            })
+            .catch(err => console.log(err))
+    }
 
     const reviewSchema = yup.object({
         email: yup.string().required().email(),
@@ -24,7 +40,7 @@ const ResetPassword = ({ changeToRegister }) => {
                         initialValues={{ email: '' }}
                         validationSchema={reviewSchema}
                         onSubmit={(values, { resetForm }) => {
-                            console.log(values)
+                            sendEmail(values.email)
                             resetForm({ values: '' })
                         }}>
                         {(props) => (
@@ -47,6 +63,7 @@ const ResetPassword = ({ changeToRegister }) => {
                     </div>
                 </div>
             </form>
+            <Modal show={show} handleShow={handleShow} handleClose={handleClose} />
         </div >
     )
 }
