@@ -1,7 +1,20 @@
 import React from 'react';
 import profilePicture from '../../../assets/image/profilePicture.png'
 
-const MyAccountStore =()=> {
+const MyAccountStore =({data})=> {
+  const handleClickEdit = ()=>{
+    data[1]({
+      ...data[0],
+      isEditProfile:true,
+      isMyAccount:false,
+      isAddres :false,
+      isMyOrder:false,
+      isEditAccountStore:false,
+      isMyAccountStore:false,
+      isMyProductStore:false,
+      isSellingProduct:false,
+    })
+  }
   return (
     <div className='detailWrapper'>
       <h4 className='titleDetail'>My Profile Store</h4>
@@ -38,7 +51,7 @@ const MyAccountStore =()=> {
         <div className='col col-md-3'>
           <div className='imageUserWrapper'>
             <img src={profilePicture} className='imageUser' alt='profilePicture'/>
-            <h6 className='edit'>Edit Profile</h6>
+            <h6 className='edit' onClick={handleClickEdit}>Edit Profile</h6>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import box from '../../../assets/image/box 5.png';
 
 const SellingProducts =()=> {
   return (
@@ -41,11 +42,11 @@ const SellingProducts =()=> {
         <div className='border'/>
         <div className='container uploadPhoto'>
           <div className='cardWrapper'>
-            <div className='cardImageUtama'><i className="material-icons">person_outline</i></div>
-            <div className='cardImage'>2</div>
-            <div className='cardImage'>3</div>
-            <div className='cardImage'>4</div>
-            <div className='cardImage'>5</div>
+            <div className='cardImageUtama'><img src={box} alt='' className='box'/></div>
+            <div className='cardImage'><img src={box} alt='' className='box'/></div>
+            <div className='cardImage'><img src={box} alt='' className='box'/></div>
+            <div className='cardImage'><img src={box} alt='' className='box'/></div>
+            <div className='cardImage'><img src={box} alt='' className='box'/></div>
           </div>
           <label className='labelPhoto'>Foto Utama</label>
           <div className='border'/>

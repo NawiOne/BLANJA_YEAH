@@ -1,4 +1,5 @@
 export const hideMenuAction = 'HIDE_MENU';
+export const fetchUser = 'FETCH_USER';
 
 export const getByCategoryAction = 'GET_BY_CATEGORY';
 export const getNewProductAction = 'GET_NEW_PRODUCT';
@@ -15,3 +16,4 @@ export const checkAlredyExistAction = 'CHECK_ALREADY';
 export const pending = "_PENDING";
 export const fulfilled = "_FULFILLED";
 export const rejected = "_REJECTED";
+

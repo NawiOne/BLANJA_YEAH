@@ -1,4 +1,5 @@
 import React from 'react';
+import {useSelector } from "react-redux";
 import EditAccount from './EditAccount';
 import ShippingAddress from './ShippingAddress';
 import MyOrder from './MyOrder';
@@ -10,12 +11,30 @@ import SellingProducts from './SellingProducts';
 
 const ProfileDetailes =({data})=> {
   
+  const level_id = useSelector((state)=>state.auth.data.level_id)
+
   let detail;
   if(data[0].isEditProfile){
-    detail = <EditAccount/>
+    if(level_id === 1){
+      detail=<EditAccountStore/>
+    }
+    else if(level_id === 2){
+      detail = <EditAccount/>
+    }
+    else{
+      return null
+    } 
   }
   else if(data[0].isMyAccount){
-    detail=<MyAccount data={data}/>
+    if(level_id === 1){
+      detail=<MyAccountStore data={data}/>
+    }
+    else if(level_id === 2){
+      detail = <MyAccount data={data}/>
+    }
+    else{
+      return null
+    } 
   }
   else if(data[0].isAddres){
     detail=<ShippingAddress/>

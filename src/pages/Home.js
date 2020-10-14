@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
+
+import React,{useEffect} from 'react';
+import {useSelector,useDispatch } from "react-redux";
 import "./home.css";
-
-import {useDispatch} from 'react-redux';
 import {getNewProductCreator, getPopularCreator} from '../redux/action/product'
-
 import Navbar from "../component/home/navbar/navbar";
 import SidebarMenu from "../component/home/sidebar-menu/sidebar-menu";
 import SliderTop from "../component/home/slider-top/sliderTop";
@@ -12,12 +11,13 @@ import PopularProduct from "../component/home/popular/popular";
 import CategorySlider from '../component/categorySlider';
 
 import "../component/home/category-slider/categorySlider.css";
+import {getUserCreator} from '../redux/action/user';
 
 
 
 const Home = () => {
  const dispatch = useDispatch();
-
+  
  useEffect(() => {
    dispatch(getNewProductCreator())
    dispatch(getPopularCreator())

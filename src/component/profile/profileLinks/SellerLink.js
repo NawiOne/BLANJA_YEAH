@@ -4,7 +4,48 @@ import product from '../../../assets/image/package.png';
 import basket from '../../../assets/image/cart.png';
 
 
-const SellerLink =()=> {
+const SellerLink =({data})=> {
+
+  const handleClickStore = ()=>{
+    data[1]({
+      ...data[0],
+      isEditProfile:false,
+      isMyAccount:false,
+      isAddres :false,
+      isMyOrder:false,
+      isEditAccountStore:true,
+      isMyAccountStore:false,
+      isMyProductStore:false,
+      isSellingProduct:false,
+    })
+  }
+  const handleClickMyProduct = ()=>{
+    data[1]({
+      ...data[0],
+      isEditProfile:false,
+      isMyAccount:false,
+      isAddres :false,
+      isMyOrder:false,
+      isEditAccountStore:false,
+      isMyAccountStore:false,
+      isMyProductStore:true,
+      isSellingProduct:false,
+    })
+  }
+  const handleClickSelling = ()=>{
+    data[1]({
+      ...data[0],
+      isEditProfile:false,
+      isMyAccount:false,
+      isAddres :false,
+      isMyOrder:false,
+      isEditAccountStore:false,
+      isMyAccountStore:false,
+      isMyProductStore:false,
+      isSellingProduct:true,
+      
+    })
+  }
 
   const[select,setSelect]=useState({
     isSelectStore:false,
@@ -43,7 +84,7 @@ const SellerLink =()=> {
           <i className="material-icons iconArrow">expand_more</i>
         } 
       </div>
-      {select.isSelectStore ? <h6 className='selectLink'>Store profile</h6> : null}
+      {select.isSelectStore ? <h6 className='selectLink' onClick={handleClickStore}>Store profile</h6> : null}
       <div className='linkWrapper'>
         <h6 className='textLink' onClick={handleClickSelectProduct}><img src={product} alt='' className='iconAddress'/>Product</h6>
         {select.isSelectProduct ?
@@ -54,8 +95,8 @@ const SellerLink =()=> {
       </div>
       {select.isSelectProduct ?
         <>
-          <h6 className='selectLink'>My product</h6>
-          <h6 className='selectLink'>Selling product</h6>
+          <h6 className='selectLink' onClick={handleClickMyProduct}>My product</h6>
+          <h6 className='selectLink' onClick={handleClickSelling}>Selling product</h6>
         </>
         :
         null
