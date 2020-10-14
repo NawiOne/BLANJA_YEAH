@@ -209,6 +209,17 @@
   padding-top: 3vh;
   padding-bottom: 3vh;
 }
+.addressNull{
+  text-align: center;
+  border: 1px solid #DB3022;
+  margin-top: 5vh;
+  margin-left: 3vw;
+  margin-right: 3vw;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  padding-top: 5vh;
+  padding-bottom: 3vh;
+}
 .titleAddress{
   font-size: 1em;
   color:#222222;

@@ -13,6 +13,9 @@ export const pluseQuantityAction = 'PLUS_QUANTITY';
 export const minusQuantityAction = 'MINUS_QUANTITY';
 export const checkAlredyExistAction = 'CHECK_ALREADY';
 
+export const addAddressAction = 'ADD_ADDRESS';
+export const getAddressAction = 'GET_ADDRESS';   
+
 export const pending = "_PENDING";
 export const fulfilled = "_FULFILLED";
 export const rejected = "_REJECTED";
