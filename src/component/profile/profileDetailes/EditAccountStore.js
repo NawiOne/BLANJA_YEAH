@@ -20,6 +20,13 @@ const EditAccountStore =()=> {
     dispatch(updateSellerCreator(form.id_user,form.phone_number,form.email,form.username,form.image,form.desc_store));
       dispatch(getUserCreator(user.id_user))
   }
+
+  const hiddenFileInput = React.useRef(null);
+  
+  const handleClick = event => {
+    hiddenFileInput.current.click();
+  };
+
   return (
     <div className='detailWrapper'>
       <h4 className='titleDetail'>My Profile Store</h4>
@@ -67,10 +74,11 @@ const EditAccountStore =()=> {
         <div className='col col-md-3'>
           <div className='imageUserWrapper'>
             <img src={urlImage+user.image} className='imageUser' alt='profilePicture'/>
-            <input type="file" className="form-control form-control-sm " id="colFormLabel"
+            <button type="button" className="btn btn-selectImage" onClick={handleClick}>Select image</button>
+            <input type="file" className="form-control form-control-sm" 
+            ref={hiddenFileInput} style={{display:'none'}} id="colFormLabel"
             onChange={(e)=>setForm({...form,image:e.target.files[0]})}
             />
-            {/* <button type="button" className="btn btn-selectImage">Select image</button> */}
           </div>
         </div>
       </div>

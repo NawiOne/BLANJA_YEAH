@@ -46,9 +46,15 @@ const MyAccountStore =({data})=> {
             </div>
             <div className='form-group row'>
               <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label-sm labelName">Store description</label>
-              <div className="col-sm-8 informationProfile">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.Donec non magna rutrum, pellentesque augue eu, sagittis velit. Phasellus quis laoreet dolor.
-              </div>
+              {user.desc_store === null || user.desc_store === '' ?
+                <div className="col-sm-8 informationProfile">
+                  -
+                </div>
+                :
+                <div className="col-sm-8 informationProfile">
+                  {user.desc_store}
+                </div>
+              }
             </div>
           </form>
         </div>
