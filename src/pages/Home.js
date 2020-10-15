@@ -14,6 +14,7 @@ import Search from '../component/modals/search';
 import "../component/home/category-slider/categorySlider.css";
 import {getUserCreator} from '../redux/action/user';
 import {getAddressCreator} from '../redux/action/address';
+import {getHistorySellerCreator, getHistoryCustomerCreator} from '../redux/action/history';
 
 
 
@@ -34,6 +35,8 @@ const Home = () => {
    dispatch(getPopularCreator());
    dispatch(getUserCreator(id_login));
    dispatch(getAddressCreator(id_login))
+   dispatch(getHistorySellerCreator(id_login))
+   dispatch(getHistoryCustomerCreator(id_login))
  }, [])
 
   return (

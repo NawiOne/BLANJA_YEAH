@@ -26,7 +26,11 @@ export const doTransAction = 'DO_TRANSACTION';
 export const clearStatusAction = 'CLEAR_STATUS';
 
 export const addAddressAction = 'ADD_ADDRESS';
-export const getAddressAction = 'GET_ADDRESS';   
+export const getAddressAction = 'GET_ADDRESS';
+
+export const getHistorySellerAction = 'GET_HISTORY_SELLER';
+export const getHistoryCustomerAction = 'GET_HISTORY_CUSTOMER';
+
 
 export const pending = "_PENDING";
 export const fulfilled = "_FULFILLED";
