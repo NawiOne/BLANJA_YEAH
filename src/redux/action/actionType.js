@@ -2,7 +2,9 @@ export const hideMenuAction = 'HIDE_MENU';
 export const fetchUser = 'FETCH_USER';
 
 export const getByCategoryAction = 'GET_BY_CATEGORY';
+export const getMoreCategoryAction = 'GET_MORE';
 export const getNewProductAction = 'GET_NEW_PRODUCT';
+export const getMoreNewProductAction = 'GET_MORE_NEW';
 export const getDetailProductAction = 'GET_DETAIL_PRODUCT';
 export const getPopularAction = 'GET_POPULER_PRODUCT';
 export const searchAction = 'SEARCH_PRODUCT';

@@ -2,19 +2,29 @@ import Axios from "axios";
 
 export const getByCategory = (category) => {
   return Axios.get(
-    `http://localhost:8000/product/category?category=${category}`,
+    `http://localhost:8000/product/category?category=${category}&page=1&limit=10`,
   );
 };
+export const getMoreProduct = (category,page) => {
+    return Axios.get(`http://localhost:8000/product/category?category=${category}&page=${page}&limit=10`)
+}
 
 export const getNewProduct = () => {
-  return Axios.get("http://localhost:8000/product/new?page=1&limit=100");
+  return Axios.get("http://localhost:8000/product/new?page=1&limit=6");
 };
+
+export const getMoreNewProduct = (page) => {
+    return Axios.get(`http://localhost:8000/product/new?page=${page}&limit=6`)
+}
+
 export const getProductDetail = (id) => {
   return Axios.get(`http://localhost:8000/product/detail?id=${id}`);
 };
 export const getPopular = () => {
   return Axios.get("http://localhost:8000/product/popular?page=1&limit=100");
 };
+
+
 
 export const searchProduct = (name) => {
   return Axios.get(`http://localhost:8000/product?search=${name}&filter=asc`);
