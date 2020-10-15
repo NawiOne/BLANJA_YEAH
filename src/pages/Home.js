@@ -1,4 +1,5 @@
-import React,{useEffect} from 'react';
+import React,{useEffect, useState} from 'react';
+
 import {useSelector,useDispatch } from "react-redux";
 import "./home.css";
 import {getNewProductCreator, getPopularCreator} from '../redux/action/product'
@@ -8,11 +9,22 @@ import SliderTop from "../component/home/slider-top/sliderTop";
 import NewProduct from "../component/home/newProduct/newProduct";
 import PopularProduct from "../component/home/popular/popular";
 import CategorySlider from '../component/categorySlider';
+import Search from '../component/modals/search';
 
 import "../component/home/category-slider/categorySlider.css";
 import {getUserCreator} from '../redux/action/user';
+import {getAddressCreator} from '../redux/action/address';
+
+
+
 
 const Home = () => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+
  const dispatch = useDispatch();
 
  const id_login = useSelector((state)=>state.auth.data.id_user)
@@ -21,14 +33,15 @@ const Home = () => {
    dispatch(getNewProductCreator());
    dispatch(getPopularCreator());
    dispatch(getUserCreator(id_login));
+   dispatch(getAddressCreator(id_login))
  }, [])
 
   return (
     <>
       <div>
         <div>
-          <Navbar />
-          <SidebarMenu />
+          <Navbar handleShow={handleShow}/>
+          <SidebarMenu handleShow={handleShow}/>
         </div>
       </div>
       <div className='content'>
@@ -57,6 +70,8 @@ const Home = () => {
           <PopularProduct />
         </div>
       </div>
+      <Search show={show} handleClose={handleClose}/>
+      
     </>
   );
 };

@@ -87,9 +87,7 @@
   display: flex;
   justify-content: flex-end;
 }
-.btn-close {
-  /* width: 2vw; */
-}
+
 .add-new-address {
   border: 1px dashed #9b9b9b;
   box-sizing: border-box;

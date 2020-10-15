@@ -37,7 +37,7 @@ const PrevArrow = (props) => {
         display: "block",
         background: "white",
         marginLeft: "3vw",
-        zIndex: 9999,
+        zIndex: 1,
         padding: "1.5vw",
         display: "flex",
         alignItems: "center",
