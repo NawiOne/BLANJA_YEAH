@@ -11,6 +11,7 @@ import CategorySlider from '../component/categorySlider';
 
 import "../component/home/category-slider/categorySlider.css";
 import {getUserCreator} from '../redux/action/user';
+import {getAddressCreator} from '../redux/action/address';
 
 const Home = () => {
  const dispatch = useDispatch();
@@ -21,6 +22,7 @@ const Home = () => {
    dispatch(getNewProductCreator());
    dispatch(getPopularCreator());
    dispatch(getUserCreator(id_login));
+   dispatch(getAddressCreator(id_login))
  }, [])
 
   return (

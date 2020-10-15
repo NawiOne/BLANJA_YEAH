@@ -1,7 +1,39 @@
 import React from "react";
 import btnClose from "../../assets/image/cross2.png";
+import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+
+import {addAddressCreator} from '../../redux/action/address'
 
 const AddAddress = () => {
+
+  const dispatch = useDispatch()
+  const user =useSelector(state => state.user.user[0])
+
+  const [form, setForm]=useState({
+    user_id:user.id_user ,
+    save_address:null,
+    receipt_name:null,
+    telephone_number:null,
+    address:null,
+    postal_code:null,
+    city_or_subdistric:null
+  })
+  const handleChange= ()=>{
+      setForm({
+        save_address:null,
+        receipt_name:null,
+        telephone_number:null,
+        address:null,
+        postal_code:null,
+        city_or_subdistric:null
+      })
+   
+  }
+
+  const handleSubmit = ()=>{
+    dispatch(addAddressCreator(form))
+  }
   return (
     <div
       class='modal fade mt-5'
@@ -32,6 +64,8 @@ const AddAddress = () => {
                   class='form-control'
                   id='address'
                   aria-describedby='emailHelp'
+                  value={form.save_address}
+                  onChange={(text)=>handleChange(text, form.save_address )}
                 />
               </div>
               <div className='row'>
@@ -43,6 +77,8 @@ const AddAddress = () => {
                       class='form-control'
                       id='receipt'
                       aria-describedby='emailHelp'
+                      value={form.receipt_name}
+                      onChange={(text)=>handleChange(text, form.receipt_name )}
                     />
                   </div>
                 </div>
@@ -54,6 +90,8 @@ const AddAddress = () => {
                       class='form-control'
                       id='phone'
                       aria-describedby='emailHelp'
+                      value={form.telephone_number}
+                      onChange={(text)=>handleChange(text, form.telephone_number )}
                     />
                   </div>
                 </div>
@@ -67,6 +105,8 @@ const AddAddress = () => {
                       class='form-control'
                       id='receipt-address'
                       aria-describedby='emailHelp'
+                      value={form.address}
+                      onChange={(text)=>handleChange(text, form.address )}
                     />
                   </div>
                 </div>
@@ -78,6 +118,8 @@ const AddAddress = () => {
                       class='form-control'
                       id='postal'
                       aria-describedby='emailHelp'
+                      value={form.postal_code}
+                      onChange={(text)=>handleChange(text, form.postal_code )}
                     />
                   </div>
                 </div>
@@ -91,6 +133,8 @@ const AddAddress = () => {
                       class='form-control'
                       id='city'
                       aria-describedby='emailHelp'
+                      value={form.city_or_subdistric}
+                      onChange={(text)=>handleChange(text, form.city_or_subdistric )}
                     />
                   </div>
                 </div>
