@@ -15,4 +15,10 @@ export const authRegisterCreator = (data) => {
   };
 };
 
+export const authLogOutCreator =()=>{
+  return {
+    type:actionType.authLogOut,
+  }
+}
+
 

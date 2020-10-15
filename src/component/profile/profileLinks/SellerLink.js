@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import user from '../../../assets/image/user.png';
+import user from '../../../assets/image/iconUser.png';
 import product from '../../../assets/image/package.png';
 import basket from '../../../assets/image/cart.png';
 
@@ -13,8 +13,8 @@ const SellerLink =({data})=> {
       isMyAccount:false,
       isAddres :false,
       isMyOrder:false,
-      isEditAccountStore:true,
-      isMyAccountStore:false,
+      isEditAccountStore:false,
+      isMyAccountStore:true,
       isMyProductStore:false,
       isSellingProduct:false,
     })

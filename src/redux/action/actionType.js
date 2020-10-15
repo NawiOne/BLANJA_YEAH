@@ -23,6 +23,9 @@ export const doTransAction = 'DO_TRANSACTION';
 
 export const clearStatusAction = 'CLEAR_STATUS';
 
+export const addAddressAction = 'ADD_ADDRESS';
+export const getAddressAction = 'GET_ADDRESS';   
+
 export const pending = "_PENDING";
 export const fulfilled = "_FULFILLED";
 export const rejected = "_REJECTED";

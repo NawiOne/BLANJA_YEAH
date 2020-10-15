@@ -1,7 +1,11 @@
 import React from 'react';
+import {useSelector,useDispatch} from "react-redux";
 import profilePicture from '../../../assets/image/profilePicture.png'
 
 const MyAccount =({data})=> {
+
+  const user = useSelector((state)=>state.user.user[0])
+
   const handleClickEdit = ()=>{
     data[1]({
       ...data[0],
@@ -25,20 +29,26 @@ const MyAccount =({data})=> {
             <div className='form-group row'>
               <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label labelName">Name</label>
               <div className="col-sm-7 informationProfile">
-                Johanes Mikael
+                {user.username}
               </div>
             </div>
             <div className='form-group row'>
               <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label labelName">Email</label>
               <div className="col-sm-7 informationProfile">
-                johanes@gmail.com
+                {user.email}
               </div>
             </div>
             <div className='form-group row'>
               <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label labelName">Phone Number</label>
-              <div className="col-sm-7 informationProfile">
-                08901289012
-              </div>
+              {user.phone_number === null ?
+                <div className="col-sm-7 informationProfile">
+                  -
+                </div>
+                :
+                <div className="col-sm-7 informationProfile">
+                  {user.phone_number}
+                </div>
+              }
             </div>
             <div className='form-group row'>
               <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label-sm labelName">Gender</label>
@@ -48,9 +58,15 @@ const MyAccount =({data})=> {
             </div>
             <div className='form-group row'>
               <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label labelName">Date of birth</label>
-              <div className='col-sm-7 informationProfile'>
-                1 Januari 1990
-              </div>
+              {user.date_of_Birth === ''?
+                <div className='col-sm-7 informationProfile'>
+                  -
+                </div> 
+                :
+                <div className='col-sm-7 informationProfile'>
+                  {user.date_of_Birth}
+                </div> 
+              }
             </div>
           </form>
         </div>
