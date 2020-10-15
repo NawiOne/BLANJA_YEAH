@@ -13,7 +13,9 @@ import Search from "../../component/modals/search";
 import { cleanPaymentCreator, clearStatusCreator } from "../../redux/action/product";
 
 const Checkout = (props) => {
-  const { product, user } = useSelector((state) => state);
+  const { product, user} = useSelector((state) => state);
+  const address = useSelector(state => state.address.address)
+  console.log(address[0])
   const dispatch = useDispatch();
   const delivery = 50;
 
@@ -66,7 +68,7 @@ const Checkout = (props) => {
                       <p style={{ fontWeight: "bold" }}>
                         {user.user[0].username}
                       </p>
-                      <p>{user.user[0].address}</p>
+  <p>({address[0].save_address}), {address[0].address}, {address[0].city_or_subdistric}, {address[0].postal_code}, {address[0].telephone_number}</p>
                       <button
                         type='button'
                         class='btn btn-another-address'
