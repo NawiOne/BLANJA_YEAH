@@ -21,9 +21,17 @@ const Navbar = ({handleShow}) => {
   const isLogin = useSelector((state)=>state.auth.isLogin)
 
   const { animate, product } = useSelector((state) => state);
+  const id_user = useSelector((state)=>state.auth.data.id_user);
+ 
 
   const dispatch = useDispatch();
 
+  useEffect(()=>{
+    dispatch(getUserCreator(id_user))
+  },[])
+
+  const user = useSelector((state)=>state.user.user)
+  
   const handleSearch = (e) => {
     e.preventDefault();
     if(e.target.value === ''){
@@ -91,7 +99,7 @@ const Navbar = ({handleShow}) => {
               ></img>
 
                 <Link to='/chat'><img src={mail} className='navbar-icon' alt='' /></Link>  
-                <Link to='/profile'><img src={userPlaceholder} alt='' className='user-pic' /></Link>
+                <Link to='/profile'><img src={urlImage+user[0].image} alt='' className='user-pic' /></Link>
 
             </div>
           ) : (
