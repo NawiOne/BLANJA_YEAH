@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./checkout.css";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -6,10 +6,44 @@ import Navbar from "../../component/home/navbar/navbar";
 import Sidebar from "../../component/home/sidebar-menu/sidebar-menu";
 import SelectAddress from "../../component/modals/selectAddress";
 import SelectPayment from "../../component/modals/selectPayment";
-import NewAddress from "../../component/modals/addAddress";
+import NewAddress from "../../component/profile/profileDetailes/ModalAddNewAddress";
+import Search from "../../component/modals/search";
 
-const Checkout = () => {
-  const { product } = useSelector((state) => state);
+
+import { cleanPaymentCreator, clearStatusCreator } from "../../redux/action/product";
+
+const Checkout = (props) => {
+  const { product, user } = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const delivery = 50;
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const amount = product.paymentItem.map((item) => {
+    return item.price * item.quantity;
+  });
+  const amountOrder = amount.reduce((total, index) => {
+    return total + index;
+  }, 0);
+
+  useEffect(() => {
+    if (product.isPending) {
+      return;
+    }
+    return function cleanup() {
+      dispatch(cleanPaymentCreator());
+    };
+  });
+  useEffect(() => {
+    if(product.status === 200){
+     props.history.push('/')
+     dispatch(clearStatusCreator())
+     dispatch(cleanPaymentCreator())
+    }
+  }, [product.status])
 
   return (
     <>
@@ -29,12 +63,10 @@ const Checkout = () => {
                 <div className='col-12 mb-4'>
                   <div class='card address-checkout'>
                     <div class='card-body'>
-                      <p style={{ fontWeight: "bold" }}>Andrea Jane</p>
-                      <p>
-                        Perumahan Sapphire Mediterania, Wiradadi, Kec. Sokaraja,
-                        Kabupaten Banyumas, Jawa Tengah, 53181 [Tokopedia Note:
-                        blok c 16] Sokaraja, Kab. Banyumas, 53181
+                      <p style={{ fontWeight: "bold" }}>
+                        {user.user[0].username}
                       </p>
+                      <p>{user.user[0].address}</p>
                       <button
                         type='button'
                         class='btn btn-another-address'
@@ -47,9 +79,9 @@ const Checkout = () => {
                   </div>
                 </div>
               </div>
-              {product.bagItem.map((item, index) => {
+              {product.paymentItem.map((item, index) => {
                 return (
-                  <div className='row'>
+                  <div className='row' key={index}>
                     <div className='col-12 mb-4'>
                       <div class='card product-checkout'>
                         <div class='card-body item-checkout'>
@@ -69,7 +101,9 @@ const Checkout = () => {
                             </div>
                           </div>
                           <div style={{ textAlign: "right", width: "500px" }}>
-                            <p style={{ fontWeight: "bold" }}>$ {item.price}</p>
+                            <p style={{ fontWeight: "bold" }}>
+                              $ {item.price * item.quantity}
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -90,8 +124,8 @@ const Checkout = () => {
                       <p style={{ color: "#9B9B9B" }}>Delivery</p>
                     </div>
                     <div>
-                      <p style={{ fontWeight: "bold" }}>$ 40.0</p>
-                      <p style={{ fontWeight: "bold" }}>$ 5.0</p>
+                      <p style={{ fontWeight: "bold" }}>$ {amountOrder}</p>
+                      <p style={{ fontWeight: "bold" }}>$ {delivery}</p>
                     </div>
                   </div>
                   <hr style={{ marginTop: "-.1px", marginBottom: "20px" }} />
@@ -101,7 +135,7 @@ const Checkout = () => {
                     </div>
                     <div>
                       <p style={{ fontWeight: "bold", color: "#DB3022" }}>
-                        $ 45.0
+                        $ {amountOrder + delivery}
                       </p>
                     </div>
                   </div>
@@ -123,6 +157,7 @@ const Checkout = () => {
       <SelectAddress />
       <SelectPayment />
       <NewAddress />
+      <Search show={show} handleClose={handleClose} />
       {/* end modal */}
     </>
   );
