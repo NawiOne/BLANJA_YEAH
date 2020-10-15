@@ -47,10 +47,10 @@ const SidebarMenu = ({handleShow}) => {
       </div>
       {isLogin ? null : (
         <div className='sidebar-btn-auth'>
-          <button type='button' class='btn btn-sidebar-login btn-lg btn-block'>
+          <button type='button' className='btn btn-sidebar-login btn-lg btn-block'>
             Login
           </button>
-          <button type='button' class='btn btn-sidebar-signup btn-lg btn-block'>
+          <button type='button' className='btn btn-sidebar-signup btn-lg btn-block'>
             Sign Up
           </button>
         </div>

@@ -1,7 +1,9 @@
 import {
   getByCategoryAction,
+  getMoreCategoryAction,
   getCategoryNameAction,
   getNewProductAction,
+  getMoreNewProductAction,
   getDetailProductAction,
   getPopularAction,
   addToBagAction,
@@ -62,6 +64,27 @@ const product = (prevState = initialState, { type, payload }) => {
         isPending: false,
         product: payload.data.data,
       };
+    case getMoreCategoryAction + pending:
+      return {
+        ...prevState,
+        isPending: true,
+        isFulfilled: false,
+      };
+    case getMoreCategoryAction + rejected:
+      return {
+        ...prevState,
+        isRejected: true,
+        isPending: false,
+      };
+    case getMoreCategoryAction + fulfilled:
+      const newProductCat = prevState.product.concat(payload.data.data);
+
+      return {
+        ...prevState,
+        isFulfilled: true,
+        isPending: false,
+        product: newProductCat,
+      };
     case getCategoryNameAction:
       return {
         ...prevState,
@@ -87,6 +110,30 @@ const product = (prevState = initialState, { type, payload }) => {
         isPending: false,
         newProduct: payload.data.data,
       };
+
+      case getMoreNewProductAction + pending:
+        return {
+          ...prevState,
+          isPending: true,
+          isFulfilled: false,
+        };
+      case getMoreNewProductAction + rejected:
+        return {
+          ...prevState,
+          isRejected: true,
+          isPending: false,
+        };
+      case getMoreNewProductAction + fulfilled:
+        const moreProduct = prevState.newProduct.concat(payload.data.data);
+  
+        return {
+          ...prevState,
+          isFulfilled: true,
+          isPending: false,
+          newProduct: moreProduct,
+        };
+
+
     case getDetailProductAction + pending:
       return {
         ...prevState,
@@ -273,7 +320,7 @@ const product = (prevState = initialState, { type, payload }) => {
           dataToTransaction: prevState.dataToTransaction.concat(payload),
         };
       }
-      case doTransAction + pending:
+    case doTransAction + pending:
       return {
         ...prevState,
         isPending: true,
@@ -297,7 +344,7 @@ const product = (prevState = initialState, { type, payload }) => {
         ...prevState,
         status: null,
         dataToTransaction: [],
-      }
+      };
 
     default:
       return prevState;

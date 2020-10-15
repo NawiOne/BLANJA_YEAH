@@ -18,7 +18,7 @@ const Search = ({ show, handleClose }) => {
         show={show}
         onHide={handleClose}
         className='search-modal'
-        size='lg'
+        size='xl'
       >
         <Modal.Header closeButton>
           <Modal.Title className='modal-search-title'>

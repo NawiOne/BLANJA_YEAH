@@ -1,6 +1,8 @@
 import {
   getByCategory,
+  getMoreProduct,
   getNewProduct,
+  getMoreNewProduct,
   getProductDetail,
   getPopular,
   searchProduct,
@@ -8,8 +10,10 @@ import {
 } from "../../utils/API";
 import {
   getByCategoryAction,
+  getMoreCategoryAction,
   getCategoryNameAction,
   getNewProductAction,
+  getMoreNewProductAction,
   getDetailProductAction,
   getPopularAction,
   searchAction,
@@ -34,6 +38,13 @@ export const getByCategoryCreator = (category) => {
   };
 };
 
+export const getMoreCatCreator = (category, page) => {
+  return {
+    type: getMoreCategoryAction,
+    payload: getMoreProduct(category, page),
+  };
+};
+
 export const getCategoryNameCreator = (nameCategory) => {
   return {
     type: getCategoryNameAction,
@@ -49,6 +60,13 @@ export const getNewProductCreator = () => {
     payload: getNewProduct(),
   };
 };
+
+export const getMoreNewProductCreator = (page) => {
+  return {
+    type: getMoreNewProductAction,
+    payload: getMoreNewProduct(page)
+  }
+}
 
 export const getDetailCreator = (id) => {
   return {
