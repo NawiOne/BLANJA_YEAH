@@ -2,6 +2,8 @@ import React, { useEffect} from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { hideMenuCreator } from "../../../redux/action/animate";
+import {searchCreator} from '../../../redux/action/product';
+
 import "./navbar.css";
 import bagLogo from "../../../assets/image/logo-blanja.png";
 import searchLogo from "../../../assets/image/glass.png";
@@ -15,20 +17,28 @@ import cross from "../../../assets/image/cross.png";
 import {urlImage} from '../../../utils/http';
 import {getUserCreator} from '../../../redux/action/user';
 
-const Navbar = () => {
+const Navbar = ({handleShow}) => {
+  const isLogin = useSelector((state)=>state.auth.isLogin)
 
-  const isLogin = useSelector((state)=>state.auth.isLogin);
- 
-  // const user = useSelector((state)=>state.user.user[0]);
-  // console.log(user)
-  
   const { animate, product } = useSelector((state) => state);
+  const id_user = useSelector((state)=>state.auth.data.id_user);
+ 
 
   const dispatch = useDispatch();
 
+  useEffect(()=>{
+    dispatch(getUserCreator(id_user))
+  },[])
+
+  const user = useSelector((state)=>state.user.user)
+  
   const handleSearch = (e) => {
-    console.log("seacrh");
     e.preventDefault();
+    if(e.target.value === ''){
+      return;
+    }
+    handleShow()
+    dispatch(searchCreator(e.target.value))
   };
 
   return (
@@ -53,14 +63,15 @@ const Navbar = () => {
                   type='text'
                   className='input-search'
                   placeholder='Search'
-                  onClick={(e) => {
-                    console.log(e);
-                  }}
+                 onKeyPress={(event) => {
+                   if(event.key === 'Enter')
+                   handleSearch(event)
+                 }}
                 />
                 <img src={searchLogo} alt='' />
               </div>
             </form>
-            <div className='filter'>
+            <div className='filter' >
               <img src={filterLogo} alt='' />
             </div>
           </div>
@@ -88,19 +99,23 @@ const Navbar = () => {
               ></img>
 
                 <Link to='/chat'><img src={mail} className='navbar-icon' alt='' /></Link>  
-                <Link to='/profile'><img src={userPlaceholder} alt='' className='user-pic' /></Link>
+                <Link to='/profile'><img src={urlImage+user[0].image} alt='' className='user-pic' /></Link>
 
             </div>
           ) : (
               <div className='operation-btn-nav-auth'>
                 <img src={trolly} alt='' className='trolly' />
                 <div className='btn-auth'>
+                  <Link to='/auth'>
                   <button type='button' className='btn btn-login'>
                     Login
-                </button>
-                  <button type='button' className='btn btn-signup'>
-                    Signup
-                </button>
+                  </button>
+                  </Link>
+                  <Link to='/auth'>
+                    <button type='button' className='btn btn-signup'>
+                      Signup
+                    </button>
+                  </Link>
                 </div>
               </div>
             )}

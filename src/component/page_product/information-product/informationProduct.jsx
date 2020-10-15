@@ -16,13 +16,13 @@ const ProductInforamtion = () => {
           <h2 className='product-info-title'>Informasi Produk</h2>
           <div className='product-condition'>
             <h4 style={{ fontWeight: "600" }}>Condition</h4>
-      <h4 className='condition-status'>{productDetail[0].product_condition}</h4>
+            <h4 className='condition-status'>
+              {productDetail[0].product_condition}
+            </h4>
           </div>
           <div className='description-text'>
             <h4 style={{ fontWeight: "600" }}>Description</h4>
-            <p>
-             {productDetail[0].description}
-            </p>
+            <p>{productDetail[0].description}</p>
           </div>
           <div className='product-review'>
             <h2 className='product-review-title'>Product review</h2>
@@ -37,14 +37,35 @@ const ProductInforamtion = () => {
                 </div>
               </div>
               <div className='col-12 col-md-6 rating-description'>
-                <div className='rating-star-number'>
-                  <div className='rating-star'>
-                    <img src={star} alt='' />
+                <div style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  width: '100%'
+                }}>
+                  <div className='rating-star-number'>
+                    <div className='rating-star'>
+                      <img src={star} alt='' />
+                    </div>
+                    <div className='rating-number-right'>1</div>
                   </div>
-                  <div className='rating-number-right'>1</div>
+                  <div className='rating-progress'></div>
+                  <div className='rating-number-end'>4</div>
                 </div>
-                <div className='rating-progress'></div>
-                <div className='rating-number-end'>4</div>
+                <div style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  width: '100%'
+                }}>
+                  <div className='rating-star-number'>
+                    <div className='rating-star'>
+                      <img src={star} alt='' />
+                    </div>
+                    <div className='rating-number-right'>1</div>
+                  </div>
+                  <div className='rating-progress'></div>
+                  <div className='rating-number-end'>4</div>
+                </div>
+                
               </div>
             </div>
           </div>

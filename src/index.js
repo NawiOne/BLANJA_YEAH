@@ -6,14 +6,16 @@ import "slick-carousel/slick/slick-theme.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
-import reduxStore from "./redux/store";
-
-
+// import reduxStore from "./redux/store";
+import { store, persiststor } from "./redux/store";
+import { PersistGate } from "redux-persist/integration/react";
 
 const AppRedux = () => {
   return (
-    <Provider store={reduxStore}>
-      <App />
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persiststor}>
+        <App />
+      </PersistGate>
     </Provider>
   );
 };

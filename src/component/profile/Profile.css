@@ -385,6 +385,7 @@
   margin-top: 3vh;
 }
 .cardImageUtama{
+  position: relative;
   width: 10.875em;
   height:10.875em ;
   background-color: #D4D4D4;
@@ -397,6 +398,7 @@
   margin-top: 5vh;
 }
 .cardImage{
+  position: relative;
   width: 6.5em;
   height: 6.5em;
   background-color: #D4D4D4;
@@ -457,6 +459,16 @@
   margin-top: 3vh;
   margin-left: 54vw;
   margin-bottom: 10vh;
+}
+.box{
+  position: absolute;
+  top:20%;
+  left:20%;
+}
+.boxUtama{
+  position: absolute;
+  top:30%;
+  left:30%;
 }
 
 

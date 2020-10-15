@@ -42,7 +42,7 @@ const SellingProducts =()=> {
         <div className='border'/>
         <div className='container uploadPhoto'>
           <div className='cardWrapper'>
-            <div className='cardImageUtama'><img src={box} alt='' className='box'/></div>
+            <div className='cardImageUtama'><img src={box} alt='' className='boxUtama'/></div>
             <div className='cardImage'><img src={box} alt='' className='box'/></div>
             <div className='cardImage'><img src={box} alt='' className='box'/></div>
             <div className='cardImage'><img src={box} alt='' className='box'/></div>

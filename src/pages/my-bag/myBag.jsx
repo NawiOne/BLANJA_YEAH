@@ -1,15 +1,21 @@
-import React from "react";
+import React, {useState} from "react";
 import "./mybag.css";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { addQtyCreator, minusQtyCreator } from "../../redux/action/product";
+import { addQtyCreator, minusQtyCreator, addToPaymentCreator, addDataTransCreator } from "../../redux/action/product";
 
 import Navbar from "../../component/home/navbar/navbar";
 import Sidebar from "../../component/home/sidebar-menu/sidebar-menu";
+import Search from "../../component/modals/search";
 
 const MyBag = () => {
   const { product } = useSelector((state) => state);
   const dispatch = useDispatch();
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
 
   const price = product.bagItem.map((el) => {
     return el.price * el.quantity;
@@ -22,8 +28,8 @@ const MyBag = () => {
     <>
       <div>
         <div>
-          <Navbar />
-          <Sidebar />
+          <Navbar handleShow={handleShow} />
+          <Sidebar handleShow={handleShow} />
         </div>
         <div className='section-mybag'>
           <div className='row'>
@@ -47,6 +53,9 @@ const MyBag = () => {
                             id=''
                             style={{ marginRight: "1.5vw", marginTop: "-3px" }}
                             className='checkbox-selected'
+                            onClick={() => {
+                              console.log('cheked')
+                            }}
                           />
                         </div>
 
@@ -69,7 +78,27 @@ const MyBag = () => {
                       <div className='card mybag-item'>
                         <div className='card-body'>
                           <div className='item-bag-name-img'>
-                            <input type='checkbox' name='' id='' />
+                            <input type='checkbox' name='' id='' onClick={() => {
+                              dispatch(addToPaymentCreator(
+                                item.id,
+                                item.image.split(',')[0],
+                                item.name_product,
+                                item.brand,
+                                item.price,
+                                total,
+                                item.quantity,
+                                item.size,
+                                item.color,
+                                item.seller_id
+                              ));
+                              dispatch(addDataTransCreator(
+                                item.id,
+                                item.color,
+                                item.size,
+                                item.quantity,
+                              ))
+                            }}
+                            />
                             <img
                               src={item.image.split(",")[0]}
                               alt=''
@@ -133,6 +162,7 @@ const MyBag = () => {
           </div>
         </div>
       </div>
+      <Search show={show} handleClose={handleClose}/>
     </>
   );
 };

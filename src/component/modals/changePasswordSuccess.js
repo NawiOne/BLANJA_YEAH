@@ -10,7 +10,7 @@ const changePasswordSuccess = ({show, handleClose, redirect}) => {
           </Modal.Header>
           <Modal.Body>Change password successfully, please login</Modal.Body>
           <Modal.Footer>
-            <Button variant="primary" onClick={() => {handleClose(); redirect.push('/auth')}}>
+            <Button variant="primary" onClick={() => {handleClose(); redirect.push('/')}}>
               Login
             </Button>
           </Modal.Footer>

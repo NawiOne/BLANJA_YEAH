@@ -1,7 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
+
 import btnClose from "../../assets/image/cross2.png";
 
-const selectAddress = () => {
+const SelectAddress = () => {
+  const { user } = useSelector((state) => state);
+
   return (
     <div
       class='modal fade mt-5'
@@ -25,18 +29,14 @@ const selectAddress = () => {
             <div
               className='add-new-address'
               data-toggle='modal'
-              data-target='#new-address'
+              data-target='#addNewAddressModal'
               data-dismiss='modal'
             >
               <p>Add new address</p>
             </div>
             <div className='change-address'>
-              <p>Andrea jane</p>
-              <p>
-                Perumahan Sapphire Mediterania, Wiradadi, Kec. Sokaraja,
-                Kabupaten Banyumas, Jawa Tengah, 53181 [Tokopedia Note: blok c
-                16] Sokaraja, Kab. Banyumas, 53181
-              </p>
+              <p>{user.user[0].username}</p>
+              <p>{user.user[0].address}</p>
               <button className='btn-change-address'>Change address</button>
             </div>
           </div>
@@ -46,4 +46,4 @@ const selectAddress = () => {
   );
 };
 
-export default selectAddress;
+export default SelectAddress;
