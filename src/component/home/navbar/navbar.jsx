@@ -95,12 +95,16 @@ const Navbar = () => {
               <div className='operation-btn-nav-auth'>
                 <img src={trolly} alt='' className='trolly' />
                 <div className='btn-auth'>
+                  <Link to='/auth'>
                   <button type='button' className='btn btn-login'>
                     Login
-                </button>
-                  <button type='button' className='btn btn-signup'>
-                    Signup
-                </button>
+                  </button>
+                  </Link>
+                  <Link to='/auth'>
+                    <button type='button' className='btn btn-signup'>
+                      Signup
+                    </button>
+                  </Link>
                 </div>
               </div>
             )}

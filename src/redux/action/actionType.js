@@ -17,3 +17,6 @@ export const pending = "_PENDING";
 export const fulfilled = "_FULFILLED";
 export const rejected = "_REJECTED";
 
+export const updateCustommer = 'UPDATE_CUSTOMMER';
+export const updateSeller = 'UPDATE_SELLER';
+

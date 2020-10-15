@@ -1,6 +1,7 @@
 import React from 'react';
 import {useSelector,useDispatch} from "react-redux";
-import profilePicture from '../../../assets/image/profilePicture.png'
+import profilePicture from '../../../assets/image/profilePicture.png';
+import {urlImage} from '../../../utils/http';
 
 const MyAccount =({data})=> {
 
@@ -52,9 +53,15 @@ const MyAccount =({data})=> {
             </div>
             <div className='form-group row'>
               <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label-sm labelName">Gender</label>
-              <div className="col-sm-7 informationProfile">
-                Laki-Laki
-              </div>
+              {user.gender === '' ?
+                <div className="col-sm-7 informationProfile">
+                  -
+                </div> 
+                :
+                <div className="col-sm-7 informationProfile">
+                  {user.gender}
+                </div>
+              }
             </div>
             <div className='form-group row'>
               <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label labelName">Date of birth</label>
@@ -72,7 +79,7 @@ const MyAccount =({data})=> {
         </div>
         <div className='col col-md-3'>
           <div className='imageUserWrapper'>
-            <img src={profilePicture} className='imageUser' alt='profilePicture'/>
+            <img src={urlImage+user.image} className='imageUser' alt='profilePicture'/>
             <h6 className='edit' onClick={handleClickEdit}>Edit Profile</h6>
           </div>
         </div>

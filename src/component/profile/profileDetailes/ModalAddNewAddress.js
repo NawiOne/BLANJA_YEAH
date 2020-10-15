@@ -16,28 +16,28 @@ const ModalAddNewAddress =()=> {
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="inputEmail4" className='labelName'>Recipient’s name</label>
-                  <input type="email" class="form-control" id="inputEmail4"/>
+                  <label for="inputRecipient" className='labelName'>Recipient’s name</label>
+                  <input type="text" class="form-control" id="inputRecipient"/>
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputPassword4" className='labelName'>Recipient's telephone number</label>
-                  <input type="password" class="form-control" id="inputPassword4"/>
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="inputEmail4" className='labelName'>Address</label>
-                  <input type="email" class="form-control" id="inputEmail4"/>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputPassword4" className='labelName'>Postal code</label>
-                  <input type="password" class="form-control" id="inputPassword4"/>
+                  <label for="phone" className='labelName'>Recipient's telephone number</label>
+                  <input type="text" class="form-control" id="phone"/>
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="inputEmail4" className='labelName'>City or Subdistrict</label>
-                  <input type="email" class="form-control" id="inputEmail4"/>
+                  <label for="addres" className='labelName'>Address</label>
+                  <input type="text" class="form-control" id="addres"/>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="postalCode" className='labelName'>Postal code</label>
+                  <input type="text" class="form-control" id="postalCode"/>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="city" className='labelName'>City or Subdistrict</label>
+                  <input type="text" class="form-control" id="city"/>
                 </div>
               </div>
               <div class="form-group">

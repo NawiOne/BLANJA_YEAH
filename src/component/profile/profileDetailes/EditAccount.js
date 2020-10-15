@@ -1,6 +1,7 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {useSelector,useDispatch} from "react-redux";
 import {urlImage} from '../../../utils/http';
+import {updateCustommerCreator,getUserCreator} from '../../../redux/action/user';
 
 const EditAccount =()=> {
 
@@ -8,6 +9,28 @@ const EditAccount =()=> {
 
   const date = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31];
   const month =['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+  
+  const dispatch = useDispatch();
+
+  const [form,setForm]=useState({
+    id_user:user.id_user,
+    phone_number:user.phone_number,
+    email :user.email,
+    username:user.username,
+    gender_id:null,
+    date:null,
+    month:null,
+    year:null,
+    image:user.image,
+  })
+  
+  const date_of_birth = `${form.date} ${form.month} ${form.year}`;
+
+  const handleSubmit = ()=>{
+    dispatch(updateCustommerCreator(form.id_user,form.phone_number,form.email,form.username
+      ,form.gender_id,date_of_birth,form.image));
+    dispatch(getUserCreator(user.id_user))
+  }
 
   return (
     <div className='detailWrapper'>
@@ -19,30 +42,39 @@ const EditAccount =()=> {
             <div className='form-group row'>
               <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label labelName">Name</label>
               <div className="col-sm-9">
-                <input type="email" className="form-control form-control-sm " id="colFormLabel" placeholder="Johanes Mikael"></input>
+                <input type="text" className="form-control form-control-sm " id="colFormLabel" placeholder={user.username}
+                  onChange={(e)=>setForm({...form,username:e.target.value})}
+                />
               </div>
             </div>
             <div className='form-group row'>
               <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label labelName">Email</label>
               <div className="col-sm-9">
-                <input type="email" className="form-control form-control-sm" id="colFormLabel" placeholder="johanes@gmail.com"></input>
+                <input type="email" className="form-control form-control-sm" id="colFormLabel" placeholder={user.email}
+                onChange={(e)=>setForm({...form,email:e.target.value})}
+                />
               </div>
             </div>
             <div className='form-group row'>
               <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label labelName">Phone Number</label>
               <div className="col-sm-9">
-                <input type="email" className="form-control form-control-sm" id="colFormLabel" placeholder="08901289012"></input>
+                <input type="text" className="form-control form-control-sm" id="colFormLabel" placeholder={user.phone_number}
+                onChange={(e)=>setForm({...form,phone_number:e.target.value})}
+                />
               </div>
             </div>
             <div className='form-group row'>
               <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label-sm labelName">Gender</label>
               <div className="col-sm-9">
                 <div className="custom-control custom-radio custom-control-inline">
-                  <input type="radio" id="customRadioInline1" name="customRadioInline1" className="custom-control-input"/>
+                  <input type="radio" id="customRadioInline1" name="customRadioInline1" className="custom-control-input"
+                  onChange={()=>setForm({...form,gender_id:1})}/>
                   <label className="custom-control-label labelRadio" for="customRadioInline1">Laki-Laki</label>
                 </div>
                 <div className="custom-control custom-radio custom-control-inline">
-                  <input type="radio" id="customRadioInline2" name="customRadioInline1" className="custom-control-input"/>
+                  <input type="radio" id="customRadioInline2" name="customRadioInline1" className="custom-control-input"
+                  onChange={()=>setForm({...form,gender_id:2})}
+                  />
                   <label className="custom-control-label labelRadio" for="customRadioInline2">Perempuan</label>
                 </div>
               </div>
@@ -52,24 +84,29 @@ const EditAccount =()=> {
               <div className="col-sm-9 no-gutters">
                 <div className='row'>
                   <div className='col-sm-4'>
-                    <select id="inputState" className="form-control labelSelect">
+                    {/* <input type="number" className="form-control form-control-sm " id="colFormLabel" placeholder='1'></input> */}
+                    <select id="inputState" className="form-control labelSelect"
+                    onChange={(e)=>setForm({...form,date:e.target.value})}>
                       {date.map(item=>{ return(
-                        <option>{item}</option>
+                        <option value={item}>{item}</option>
                       )})}
                     </select>
                   </div>
                   <div className='col-sm-4'>
-                    <select id="inputState" className="form-control labelSelect">
+                    <select id="inputState" className="form-control labelSelect"
+                    onChange={(e)=>setForm({...form,month:e.target.value})}>
                       {month.map(item=>{ return(
                           <option>{item}</option>
                         )})}
                     </select>
                   </div>
                   <div className='col-sm-4'>
-                    <select id="inputState" className="form-control labelSelect">
+                    <input type="year" className="form-control form-control-sm " id="colFormLabel" placeholder='2020'
+                    onChange={(e)=>setForm({...form,year:e.target.value})}/>
+                    {/* <select id="inputState" className="form-control labelSelect">
                       <option selected>Choose...</option>
                       <option>...</option>
-                    </select>
+                    </select> */}
                   </div>
                 </div>
               </div>
@@ -77,7 +114,7 @@ const EditAccount =()=> {
             <div className='form-group row'>
               <div className='col-sm-3'></div>
               <div className="col-sm-8">
-                <button type="button" className="btn btn-save">Save</button>
+                <button type="button" className="btn btn-save" onClick={handleSubmit}>Save</button>
               </div>
             </div>
           </form>
@@ -85,7 +122,10 @@ const EditAccount =()=> {
         <div className='col col-md-3'>
           <div className='imageUserWrapper'>
             <img src={urlImage+user.image} className='imageUser' alt='profilePicture'/>
-            <button type="button" className="btn btn-selectImage">Select image</button>
+            <input type="file" className="form-control form-control-sm " id="colFormLabel"
+            onChange={(e)=>setForm({...form,image:e.target.files[0]})}
+            />
+            {/* <button type="button" className="btn btn-selectImage">Select image</button> */}
           </div>
         </div>
       </div>
