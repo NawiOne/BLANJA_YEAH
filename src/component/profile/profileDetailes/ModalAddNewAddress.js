@@ -51,6 +51,7 @@ const ModalAddNewAddress =()=> {
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
+
                   <label for="inputEmail4" className='labelName'>Address</label>
                   <input type="text" class="form-control" id="inputEmail4" 
                       onChange={(e)=> setForm({...form, address:e.target.value})}/>
