@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./product-detail.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import {
   addToBagCreator,
   checkAlreadyCreator,
+  addToPaymentCreator,
+  addDataTransCreator,
 } from "../../../redux/action/product";
 
 import star from "../../../assets/image/Star.png";
@@ -13,16 +15,23 @@ const ProductDetail = () => {
   const { product } = useSelector((state) => state);
   const productDetail = product.detailProduct;
   const dispatch = useDispatch();
+  const [qty, setQty] = useState(1)
+  const [price, setPrice ]= useState(0)
+  const amount = price * qty
+
+  const [size, setsize] = useState(25)
+  const [color, setColor] = useState('Black')
+
 
   useEffect(() => {
     if (product.isPending) {
       return;
     } else {
       dispatch(checkAlreadyCreator(productDetail[0].id));
+      setPrice(productDetail[0].price)
     }
   }, [product.isPending, productDetail, dispatch]);
 
-  // console.log(productDetail)
 
   return (
     <>
@@ -87,16 +96,24 @@ const ProductDetail = () => {
               <div className='color-pallet-select'>
                 <p>Color</p>
                 <div className='color-pallets'>
-                  <button className='pallet '>
+                  <button className='pallet ' onClick={() => {
+                    setColor('Black')
+                  }}>
                     <div className='pallet-black'></div>
                   </button>
-                  <button className='pallet'>
+                  <button className='pallet' onClick={() => {
+                    setColor('Red')
+                  }}>
                     <div className='pallet-red'></div>
                   </button>
-                  <button className='pallet'>
+                  <button className='pallet' onClick={() => {
+                    setColor('Blue')
+                  }}>
                     <div className='pallet-blue'></div>
                   </button>
-                  <button className='pallet'>
+                  <button className='pallet' onClick={() => {
+                    setColor('Green')
+                  }}>
                     <div className='pallet-green'></div>
                   </button>
                 </div>
@@ -105,17 +122,29 @@ const ProductDetail = () => {
                 <div className='size'>
                   <p>Size</p>
                   <div className='handle-size'>
-                    <div className='btn-minus '>-</div>
-                    <p>28</p>
-                    <div className='btn-plus '>+</div>
+                    <div className='btn-minus ' onClick={() => {
+                      if(size > 1){
+                        setsize(size-1)
+                      }
+                    }}>-</div>
+                    <p>{size}</p>
+                    <div className='btn-plus ' onClick={() => {
+                      setsize(size+1)
+                    }}>+</div>
                   </div>
                 </div>
                 <div className='quantity'>
                   <p>Jumlah</p>
                   <div className='handle-size'>
-                    <div className='btn-minus '>-</div>
-                    <p>28</p>
-                    <div className='btn-plus '>+</div>
+                    <div className='btn-minus ' onClick={() => {
+                      if(qty > 1){
+                        setQty(qty-1)
+                      }
+                    }}>-</div>
+                    <p>{qty}</p>
+                    <div className='btn-plus ' onClick={() => {
+                      setQty(qty+1)
+                    }}>+</div>
                   </div>
                 </div>
               </div>
@@ -142,9 +171,14 @@ const ProductDetail = () => {
                             productDetail[0].name_product,
                             productDetail[0].brand,
                             productDetail[0].price,
+                            qty,
+                            size,
+                            color,
+                            productDetail[0].seller_id,
                           ),
                         );
-                        dispatch(checkAlreadyCreator(productDetail[0].id))
+                        dispatch(checkAlreadyCreator(productDetail[0].id));
+
                       }}
                     >
                       Add bag
@@ -153,7 +187,32 @@ const ProductDetail = () => {
                 )}
               </div>
               <Link to='/checkout'>
-                <button type='button' class='btn btn-buy'>
+                <button
+                  type='button'
+                  class='btn btn-buy'
+                  onClick={() => {
+                    dispatch(
+                      addToPaymentCreator(
+                        productDetail[0].id,
+                        productDetail[0].image.split(",")[0],
+                        productDetail[0].name_product,
+                        productDetail[0].brand,
+                        productDetail[0].price,
+                        amount,
+                        qty,
+                        size,
+                        color,
+                        productDetail[0].seller_id,
+                      ),
+                    );
+                    dispatch(addDataTransCreator(
+                      productDetail[0].id,
+                      color,
+                      size,
+                      qty,
+                    ))
+                  }}
+                >
                   Buy Now
                 </button>
               </Link>

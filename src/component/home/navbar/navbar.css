@@ -11,7 +11,7 @@
   overflow-x: hidden;
   align-items: center;
   position: relative;
-  transition: 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  /* transition: 0.5s cubic-bezier(0.215, 0.61, 0.355, 1); */
 }
 .left {
   display: flex;

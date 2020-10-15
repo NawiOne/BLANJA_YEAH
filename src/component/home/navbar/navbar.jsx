@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { hideMenuCreator } from "../../../redux/action/animate";
+import {searchCreator} from '../../../redux/action/product';
+
 import "./navbar.css";
 import bagLogo from "../../../assets/image/logo-blanja.png";
 import searchLogo from "../../../assets/image/glass.png";
@@ -13,19 +15,19 @@ import notif from "../../../assets/image/notif.png";
 import userPlaceholder from "../../../assets/image/user.jpg";
 import cross from "../../../assets/image/cross.png";
 
-const Navbar = () => {
-
-  // const [isLogin] = useState(true);
+const Navbar = ({handleShow}) => {
   const isLogin = useSelector((state)=>state.auth.isLogin)
-  // console.log(isLogin)
-  
   const { animate, product } = useSelector((state) => state);
 
   const dispatch = useDispatch();
 
   const handleSearch = (e) => {
-    console.log("seacrh");
     e.preventDefault();
+    if(e.target.value === ''){
+      return;
+    }
+    handleShow()
+    dispatch(searchCreator(e.target.value))
   };
 
   return (
@@ -50,14 +52,15 @@ const Navbar = () => {
                   type='text'
                   className='input-search'
                   placeholder='Search'
-                  onClick={(e) => {
-                    console.log(e);
-                  }}
+                 onKeyPress={(event) => {
+                   if(event.key === 'Enter')
+                   handleSearch(event)
+                 }}
                 />
                 <img src={searchLogo} alt='' />
               </div>
             </form>
-            <div className='filter'>
+            <div className='filter' >
               <img src={filterLogo} alt='' />
             </div>
           </div>

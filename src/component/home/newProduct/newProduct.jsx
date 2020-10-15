@@ -18,7 +18,6 @@ const NewProduct = () => {
         <p className='title-description'>You’ve never seen it before!</p>
       </div>
       {product.newProduct.map((item, index) => {
-        console.log(item.id)
         return (
           <div
             className='col-6 col-md-3 col-xl-2 item-new-product'

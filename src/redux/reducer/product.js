@@ -8,6 +8,14 @@ import {
   pluseQuantityAction,
   minusQuantityAction,
   checkAlredyExistAction,
+  addToPaymentAction,
+  checkedPaymentExistAction,
+  cleanPaymentAction,
+  searchAction,
+  clearSearchAction,
+  addDataTransaction,
+  doTransAction,
+  clearStatusAction,
   pending,
   rejected,
   fulfilled,
@@ -15,12 +23,16 @@ import {
 
 const initialState = {
   product: [],
+  searchProduct: [],
   newProduct: [],
   popularProduct: [],
   detailProduct: [],
   categoryName: "",
   bagItem: [],
+  paymentItem: [],
+  dataToTransaction: [],
   bagAlreadyExist: false,
+  paymentAlreadyExist: false,
   pageInfo: {},
   isPending: false,
   isRejected: false,
@@ -113,6 +125,30 @@ const product = (prevState = initialState, { type, payload }) => {
         isPending: false,
         popularProduct: payload.data.data,
       };
+    case searchAction + pending:
+      return {
+        ...prevState,
+        isPending: true,
+        isFulfilled: false,
+      };
+    case searchAction + rejected:
+      return {
+        ...prevState,
+        isRejected: true,
+        isPending: false,
+      };
+    case searchAction + fulfilled:
+      return {
+        ...prevState,
+        isFulfilled: true,
+        isPending: false,
+        searchProduct: payload.data.data,
+      };
+    case clearSearchAction:
+      return {
+        ...prevState,
+        searchProduct: [],
+      };
 
     // ADD BAG
 
@@ -127,6 +163,7 @@ const product = (prevState = initialState, { type, payload }) => {
       const plusQuantity = prevState.bagItem.findIndex((el) => {
         return payload.id === el.id;
       });
+
       let newCartPlus = [...prevState.bagItem];
       newCartPlus[plusQuantity] = {
         ...newCartPlus[plusQuantity],
@@ -142,6 +179,10 @@ const product = (prevState = initialState, { type, payload }) => {
         return payload.id === el.id;
       });
 
+      const deleteItemPayment = prevState.paymentItem.findIndex((el) => {
+        return payload.id === el.id;
+      });
+
       let newCartMin = [...prevState.bagItem];
       newCartMin[minQuantity] = {
         ...newCartMin[minQuantity],
@@ -149,6 +190,8 @@ const product = (prevState = initialState, { type, payload }) => {
       };
       if (newCartMin[minQuantity].quantity === 0) {
         prevState.bagItem.splice(minQuantity, 1);
+        prevState.paymentItem.splice(deleteItemPayment, 1);
+
         return {
           ...prevState,
           bagItem: prevState.bagItem,
@@ -174,6 +217,86 @@ const product = (prevState = initialState, { type, payload }) => {
           ...prevState,
           bagAlreadyExist: false,
         };
+      }
+    case addToPaymentAction:
+      const index = prevState.paymentItem.findIndex((el) => {
+        return payload.id === el.id;
+      });
+      if (index >= 0) {
+        prevState.paymentItem.splice(index, 1);
+        return {
+          ...prevState,
+          paymentItem: prevState.paymentItem,
+        };
+      } else {
+        return {
+          ...prevState,
+          paymentItem: prevState.paymentItem.concat(payload),
+        };
+      }
+    case checkedPaymentExistAction:
+      const checkPayment = prevState.paymentItem.findIndex((el) => {
+        return payload.id === el.id;
+      });
+
+      if (checkPayment >= 0) {
+        return {
+          ...prevState,
+          paymentAlreadyExist: true,
+        };
+      } else {
+        return {
+          ...prevState,
+          paymentAlreadyExist: false,
+        };
+      }
+    case cleanPaymentAction:
+      return {
+        ...prevState,
+        paymentItem: [],
+        dataToTransaction: [],
+      };
+    // transaction
+    case addDataTransaction:
+      const idx = prevState.dataToTransaction.findIndex((el) => {
+        return payload.product_id === el.product_id;
+      });
+      if (idx >= 0) {
+        prevState.dataToTransaction.splice(idx, 1);
+        return {
+          ...prevState,
+          dataToTransaction: prevState.dataToTransaction,
+        };
+      } else {
+        return {
+          ...prevState,
+          dataToTransaction: prevState.dataToTransaction.concat(payload),
+        };
+      }
+      case doTransAction + pending:
+      return {
+        ...prevState,
+        isPending: true,
+        isFulfilled: false,
+      };
+    case doTransAction + rejected:
+      return {
+        ...prevState,
+        isRejected: true,
+        isPending: false,
+      };
+    case doTransAction + fulfilled:
+      return {
+        ...prevState,
+        isFulfilled: true,
+        isPending: false,
+        status: payload.data.status,
+      };
+    case clearStatusAction:
+      return {
+        ...prevState,
+        status: null,
+        dataToTransaction: [],
       }
 
     default:
