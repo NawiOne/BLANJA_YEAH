@@ -21,3 +21,11 @@ export const addNewAddress = (user_id, save_address, receipt_name, telephone_num
 export const getAddress = (id) => {
     return Axios.get(`http://localhost:8000/Address?user_id=${id}`)
 }
+
+export const getHistorySeller = (id) => {
+    return Axios.get(`http://localhost:8000/history/seller?id=${id}`)
+}
+
+export const getHistoryCustomer = (id) => {
+    return Axios.get(`http://localhost:8000/history/customer?id=${id}`)
+}
