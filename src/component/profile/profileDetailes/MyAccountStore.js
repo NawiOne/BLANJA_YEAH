@@ -6,19 +6,6 @@ const MyAccountStore =({data})=> {
 
   const user = useSelector((state)=>state.user.user[0])
 
-  const handleClickEdit = ()=>{
-    data[1]({
-      ...data[0],
-      isEditProfile:true,
-      isMyAccount:false,
-      isAddres :false,
-      isMyOrder:false,
-      isEditAccountStore:false,
-      isMyAccountStore:false,
-      isMyProductStore:false,
-      isSellingProduct:false,
-    })
-  }
   return (
     <div className='detailWrapper'>
       <h4 className='titleDetail'>My Profile Store</h4>
@@ -61,7 +48,6 @@ const MyAccountStore =({data})=> {
         <div className='col col-md-3'>
           <div className='imageUserWrapper'>
             <img src={urlImage+user.image} className='imageUser' alt='profilePicture'/>
-            <h6 className='edit' onClick={handleClickEdit}>Edit Profile</h6>
           </div>
         </div>
       </div>

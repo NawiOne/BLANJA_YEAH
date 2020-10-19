@@ -7,8 +7,16 @@ const EditAccount =()=> {
 
   const user = useSelector((state)=>state.user.user[0])
 
-  const date = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31];
-  const month =['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+  const date = [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31];
+  const month =['Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+  const year = ()=>{
+    const results =[]
+    for(let i=1880;i<2020;i++){
+      results.push(i)
+    }
+    return results
+  }
+
   
   const dispatch = useDispatch();
 
@@ -17,10 +25,10 @@ const EditAccount =()=> {
     phone_number:user.phone_number,
     email :user.email,
     username:user.username,
-    gender_id:null,
-    date:null,
-    month:null,
-    year:null,
+    gender_id:3,
+    date:1,
+    month:'Januari',
+    year:2020,
     image:user.image,
   })
   
@@ -47,7 +55,7 @@ const EditAccount =()=> {
             <div className='form-group row'>
               <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label labelName">Name</label>
               <div className="col-sm-9">
-                <input type="text" className="form-control form-control-sm " id="colFormLabel" placeholder={user.username}
+                <input type="text" className="form-control form-control-sm " id="colFormLabel" placeholder={user.username} defaultValue={user.username}
                   onChange={(e)=>setForm({...form,username:e.target.value})}
                 />
               </div>
@@ -55,7 +63,7 @@ const EditAccount =()=> {
             <div className='form-group row'>
               <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label labelName">Email</label>
               <div className="col-sm-9">
-                <input type="email" className="form-control form-control-sm" id="colFormLabel" placeholder={user.email}
+                <input type="email" className="form-control form-control-sm" id="colFormLabel" placeholder={user.email} defaultValue={user.email}
                 onChange={(e)=>setForm({...form,email:e.target.value})}
                 />
               </div>
@@ -63,7 +71,7 @@ const EditAccount =()=> {
             <div className='form-group row'>
               <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label labelName">Phone Number</label>
               <div className="col-sm-9">
-                <input type="text" className="form-control form-control-sm" id="colFormLabel" placeholder={user.phone_number}
+                <input type="text" className="form-control form-control-sm" id="colFormLabel" placeholder={user.phone_number} defaultValue={user.phone_number}
                 onChange={(e)=>setForm({...form,phone_number:e.target.value})}
                 />
               </div>
@@ -92,6 +100,7 @@ const EditAccount =()=> {
                     {/* <input type="number" className="form-control form-control-sm " id="colFormLabel" placeholder='1'></input> */}
                     <select id="inputState" className="form-control labelSelect"
                     onChange={(e)=>setForm({...form,date:e.target.value})}>
+                      <option selected>1</option>
                       {date.map(item=>{ return(
                         <option value={item}>{item}</option>
                       )})}
@@ -100,18 +109,20 @@ const EditAccount =()=> {
                   <div className='col-sm-4'>
                     <select id="inputState" className="form-control labelSelect"
                     onChange={(e)=>setForm({...form,month:e.target.value})}>
+                      <option selected>Januari</option>
                       {month.map(item=>{ return(
                           <option>{item}</option>
                         )})}
                     </select>
                   </div>
                   <div className='col-sm-4'>
-                    <input type="year" className="form-control form-control-sm " id="colFormLabel" placeholder='2020'
-                    onChange={(e)=>setForm({...form,year:e.target.value})}/>
-                    {/* <select id="inputState" className="form-control labelSelect">
-                      <option selected>Choose...</option>
-                      <option>...</option>
-                    </select> */}
+                    <select id="inputState" className="form-control labelSelect"
+                    onChange={(e)=>setForm({...form,year:e.target.value})}>
+                      {year().map(item=>{return(
+                        <option>{item}</option>
+                      )})}
+                      <option selected>2020</option>
+                    </select>
                   </div>
                 </div>
               </div>

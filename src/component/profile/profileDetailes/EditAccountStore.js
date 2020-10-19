@@ -58,7 +58,7 @@ const EditAccountStore =()=> {
             <div className="form-group row">
               <label for="exampleFormControlTextarea1" className='col-sm-3 labelName'>Store description</label>
               <div className="col-sm-9">
-                <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"
+                <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" placeholder={user.desc_store}
                 onChange={(e)=>setForm({...form,desc_store:e.target.value})}
                 />
               </div>
