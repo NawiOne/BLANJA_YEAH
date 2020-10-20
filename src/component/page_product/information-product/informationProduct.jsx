@@ -28,44 +28,90 @@ const ProductInforamtion = () => {
             <h2 className='product-review-title'>Product review</h2>
             <div className='row rating-review'>
               <div className='col-12 col-md-6 rating-number'>
-                <p>5.0</p>
+                <p style={{
+                  fontWeight: 'bold',
+                  fontSize: '5rem'
+                }}>5.0</p>
                 <div>
-                  <img src={star} alt='' />
-                  <img src={star} alt='' />
-                  <img src={star} alt='' />
-                  <img src={star} alt='' />
+                  <img src={star} alt='' className='star-review'/>
+                  <img src={star} alt='' className='star-review' />
+                  <img src={star} alt='' className='star-review' />
+                  <img src={star} alt='' className='star-review' />
                 </div>
               </div>
               <div className='col-12 col-md-6 rating-description'>
-                <div style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  width: '100%'
-                }}>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    width: "100%",
+                  }}
+                >
                   <div className='rating-star-number'>
                     <div className='rating-star'>
                       <img src={star} alt='' />
                     </div>
-                    <div className='rating-number-right'>1</div>
+                    <div className='rating-number-right'>5</div>
                   </div>
-                  <div className='rating-progress'></div>
+                  <div className='rating-progress'>
+                    <div className="progress"></div>
+                  </div>
                   <div className='rating-number-end'>4</div>
-                </div>
-                <div style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  width: '100%'
-                }}>
+                </div> 
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    width: "100%",
+                  }}
+                >
                   <div className='rating-star-number'>
                     <div className='rating-star'>
                       <img src={star} alt='' />
                     </div>
-                    <div className='rating-number-right'>1</div>
+                    <div className='rating-number-right'>4</div>
                   </div>
-                  <div className='rating-progress'></div>
-                  <div className='rating-number-end'>4</div>
+                  <div className='rating-progress'>
+                    <div className="progress"></div>
+                  </div>
+                  <div className='rating-number-end'>0</div>
+                </div>  
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    width: "100%",
+                  }}
+                >
+                  <div className='rating-star-number'>
+                    <div className='rating-star'>
+                      <img src={star} alt='' />
+                    </div>
+                    <div className='rating-number-right'>3</div>
+                  </div>
+                  <div className='rating-progress'>
+                    <div className="progress"></div>
+                  </div>
+                  <div className='rating-number-end'>0</div>
                 </div>
-                
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    width: "100%",
+                  }}
+                >
+                  <div className='rating-star-number'>
+                    <div className='rating-star'>
+                      <img src={star} alt='' />
+                    </div>
+                    <div className='rating-number-right'>2</div>
+                  </div>
+                  <div className='rating-progress'>
+                    <div className="progress"></div>
+                  </div>
+                  <div className='rating-number-end'>0</div>
+                </div>                   
               </div>
             </div>
           </div>

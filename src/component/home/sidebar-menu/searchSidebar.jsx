@@ -6,7 +6,7 @@ import "./sidebar.css";
 import searchLogo from "../../../assets/image/glass.png";
 import filterLogo from "../../../assets/image/filter.png";
 
-const SidebarMenu = (props) => {
+const SearchSidebar = (props) => {
   const [isLogin] = useState(false);
   const { animate } = useSelector((state) => state);
   const [filter, setFilter] = useState('ASC')
@@ -19,10 +19,6 @@ const SidebarMenu = (props) => {
     }
     dispatch(searchCreator(e.target.value, filter))
     dispatch(getSearchKeyCreator(e.target.value, filter))
-    props.history.push({
-      pathname: '/search',
-      data: e.target.value,
-    })
   };
 
 
@@ -62,4 +58,4 @@ const SidebarMenu = (props) => {
     </div>
   );
 };
-export default SidebarMenu;
+export default SearchSidebar;

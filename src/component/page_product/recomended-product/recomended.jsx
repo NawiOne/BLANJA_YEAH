@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../../home/newProduct/new-product.css";
 import { useSelector, useDispatch } from "react-redux";
-import {getDetailCreator} from '../../../redux/action/product';
+import { getDetailCreator } from "../../../redux/action/product";
 
 import star from "../../../assets/image/Star.png";
 
@@ -18,9 +18,13 @@ const RecomendedProduct = () => {
       </div>
       {product.popularProduct.map((item, index) => {
         return (
-          <div className='col-6 col-md-3 col-xl-2 item-new-product' key={index} onClick={() => {
-            dispatch(getDetailCreator(item.id))
-          }}>
+          <div
+            className='col-6 col-md-3 col-xl-2 item-new-product'
+            key={index}
+            onClick={() => {
+              dispatch(getDetailCreator(item.id));
+            }}
+          >
             <Link
               to='/product'
               style={{ textDecoration: "none", color: "inherit" }}
@@ -34,7 +38,12 @@ const RecomendedProduct = () => {
                 <div className='card-body card-body-new-product'>
                   <p className='new-product-name'>{item.name_product}</p>
                   <div>
-                    <p className='product-price'>$ {item.price}</p>
+                    <p className='product-price'>
+                      {new Intl.NumberFormat("USD", {
+                        style: "currency",
+                        currency: "USD",
+                      }).format(item.price)}
+                    </p>
                     <p className='product-store'>{item.brand}</p>
                     <div className='product-rating'>
                       <div>
