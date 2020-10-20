@@ -11,6 +11,7 @@ import CategoryPage from './pages/category-page/categoryPage';
 import Checkout from './pages/checkout/checkout';
 import Chat from './pages/chatting/chatting';
 import MyBag from './pages/my-bag/myBag';
+import SearchPage from './pages/searching/searching';
 
 function App() {
    const isLogin = useSelector((state)=>state.auth.isLogin)
@@ -25,6 +26,7 @@ function App() {
           <Route path='/chat' exact component={Chat} />
           <Route path='/mybag' exact component={MyBag} />
           <Route path='/profile' exact component={Profile} />
+          <Route path='/search' exact component={SearchPage} />
         </>
         :
         <>

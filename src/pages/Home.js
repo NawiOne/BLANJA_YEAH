@@ -19,7 +19,7 @@ import {getHistorySellerCreator, getHistoryCustomerCreator} from '../redux/actio
 
 
 
-const Home = () => {
+const Home = ({history}) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -31,6 +31,8 @@ const Home = () => {
  const id_login = useSelector((state)=>state.auth.data.id_user)
  
  useEffect(() => {
+  console.log('ini dispatchh...')
+
    dispatch(getNewProductCreator());
    dispatch(getPopularCreator());
    dispatch(getUserCreator(id_login));
@@ -43,8 +45,8 @@ const Home = () => {
     <>
       <div>
         <div>
-          <Navbar handleShow={handleShow}/>
-          <SidebarMenu handleShow={handleShow}/>
+          <Navbar history={history}/>
+          <SidebarMenu history={history} />
         </div>
       </div>
       <div className='content'>

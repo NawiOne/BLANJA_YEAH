@@ -147,6 +147,10 @@
   border-radius: 50%;
   object-fit: cover;
 }
+.modal-filter .modal-header, .modal-filter .modal-footer{
+  border: none;
+}
+
 
 /* responsive */
 

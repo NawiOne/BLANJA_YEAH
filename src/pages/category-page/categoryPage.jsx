@@ -1,25 +1,18 @@
-import React, {useState} from "react";
-import InfiniteScroll from 'react-infinite-scroll-component';
+import React  from "react";
 import "./category-page.css";
 import Navbar from "../../component/home/navbar/navbar";
 import SideBar from "../../component/home/sidebar-menu/sidebar-menu";
 import CategoryItem from "../../component/category-page/category";
-import Search from "../../component/modals/search";
+// import Search from "../../component/modals/search";
 
-
-const CategoryPage = () => {
-  const [show, setShow] = useState(false);
-  const [page, setPage] = useState(2)
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+const CategoryPage = ({history}) => {
 
   return (
     <>
     <div>
       <div>
-        <Navbar handleShow={handleShow}/>
-        <SideBar handleShow={handleShow}/>
+        <Navbar history={history} />
+        <SideBar history={history} />
       </div>
       <div className='section-product-category'>
         <div className='row'>
@@ -27,7 +20,6 @@ const CategoryPage = () => {
         </div>
       </div>
     </div>
-    <Search show={show} handleClose={handleClose}/>
     </>
   );
 };

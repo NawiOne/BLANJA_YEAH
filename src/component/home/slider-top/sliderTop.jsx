@@ -81,6 +81,7 @@ const SliderTop = () => {
     centerMode: true,
     infinite: true,
     slidesToShow: 2,
+    // centerPadding: '160px',
     speed: 500,
     autoplaySpeed: 5000,
     autoplay: true,

@@ -37,7 +37,10 @@ const PopularProduct = () => {
                 <div className='card-body card-body-new-product'>
                   <p className='new-product-name'>{item.name_product}</p>
                   <div>
-                    <p className='product-price'>{item.price}</p>
+                    <p className='product-price'>{new Intl.NumberFormat("USD", {
+                        style: "currency",
+                        currency: "USD",
+                      }).format(item.price)}</p>
                     <p className='product-store'>{item.brand}</p>
                     <div className='product-rating'>
                       <div>
