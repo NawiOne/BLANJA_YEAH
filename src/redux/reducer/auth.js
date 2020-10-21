@@ -55,7 +55,8 @@ const auth = (state = initialState, { type, payload }) => {
             ...state,
             data: payload.data.data,
             msgInvalid: '',
-            isLogin: true
+            isLogin: true,
+            isFulfilled:true,
           };
       case actionType.authLogOut:
         return {

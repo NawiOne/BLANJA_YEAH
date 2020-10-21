@@ -31,8 +31,6 @@ const Home = ({history}) => {
  const id_login = useSelector((state)=>state.auth.data.id_user)
  
  useEffect(() => {
-  console.log('ini dispatchh...')
-
    dispatch(getNewProductCreator());
    dispatch(getPopularCreator());
    dispatch(getUserCreator(id_login));

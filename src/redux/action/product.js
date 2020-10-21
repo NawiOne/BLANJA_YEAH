@@ -8,6 +8,7 @@ import {
   searchProduct,
   searchMoreProduct,
   doTransaction,
+  uploadProduct,
 } from "../../utils/API";
 import {
   getByCategoryAction,
@@ -31,6 +32,7 @@ import {
   addDataTransaction,
   doTransAction,
   clearStatusAction,
+  uploadNewProduct,
   getSearchKey,
 } from "./actionType";
 
@@ -243,6 +245,13 @@ export const clearStatusCreator = () => {
   }
 }
 
+export const uploadProductCreator = (seller_id,name_product,price,stock,product_condition,description,image1,image2,image3,image4,image5)=>{
+  return {
+    type:uploadNewProduct,
+    payload:uploadProduct(seller_id,name_product,price,stock,product_condition,description,image1,image2,image3,image4,image5)
+  }
+}
+
 export const getSearchKeyCreator = (key, filter) => {
   return {
     type: getSearchKey,
@@ -252,3 +261,4 @@ export const getSearchKeyCreator = (key, filter) => {
     }
   }
 }
+
