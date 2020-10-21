@@ -9,7 +9,6 @@ const MyOrder =()=> {
 
   const {historySeller, historyCustomer} =useSelector(state => state.history)
   
-  
 
   return (
     <div className='detailWrapper'>

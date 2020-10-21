@@ -19,6 +19,7 @@ export const checkAlredyExistAction = 'CHECK_ALREADY';
 export const addToPaymentAction = 'ADD_TO_PAYMENT';
 export const checkedPaymentExistAction = 'CHECK_ALREADY_PAYMENT';
 export const cleanPaymentAction = 'CLEAN_PAYMENT';
+export const uploadNewProduct = 'UPLOAD_NEW_PRODUCT';
 
 export const addDataTransaction = 'ADD_DATA_TRANSACTION';
 export const doTransAction = 'DO_TRANSACTION';

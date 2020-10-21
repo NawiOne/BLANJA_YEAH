@@ -24,8 +24,6 @@ export const getPopular = () => {
   return Axios.get("http://localhost:8000/product/popular?page=1&limit=100");
 };
 
-
-
 export const searchProduct = (name) => {
   return Axios.get(`http://localhost:8000/product?search=${name}&filter=asc`);
 };
@@ -66,5 +64,33 @@ export const getHistorySeller = (id) => {
 
 export const getHistoryCustomer = (id) => {
     return Axios.get(`http://localhost:8000/history/customer?id=${id}`)
+}
+
+export const uploadProduct = (seller_id,name_product,price,stock,product_condition,description,image1,image2,image3,image4,image5)=>{
+  let formData = new FormData();
+  formData.append('seller_id',seller_id);
+  formData.append('name_product',name_product);
+  formData.append('price',price);
+  formData.append('stock',stock);
+  formData.append('product_condition',product_condition);
+  formData.append('description',description);
+  formData.append('image',image1);
+  formData.append('image',image2);
+  formData.append('image',image3);
+  formData.append('image',image4);
+  formData.append('image',image5);
+  
+  const configHeader = {
+    headers: {
+      'content-type': 'multipart/form-data',
+      contentType: false,
+      mimeType: 'multipart/form-data',
+      'cache-control': 'no-cache',
+      accept: 'application/json',
+    },
+  };
+
+  return Axios.post('http://localhost:8000/product',formData,configHeader);
+
 }
 

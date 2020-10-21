@@ -7,6 +7,7 @@ import {
   getPopular,
   searchProduct,
   doTransaction,
+  uploadProduct,
 } from "../../utils/API";
 import {
   getByCategoryAction,
@@ -29,6 +30,7 @@ import {
   addDataTransaction,
   doTransAction,
   clearStatusAction,
+  uploadNewProduct,
 } from "./actionType";
 
 export const getByCategoryCreator = (category) => {
@@ -221,5 +223,12 @@ export const doTransCreator = (
 export const clearStatusCreator = () => {
   return{
     type: clearStatusAction,
+  }
+}
+
+export const uploadProductCreator = (seller_id,name_product,price,stock,product_condition,description,image1,image2,image3,image4,image5)=>{
+  return {
+    type:uploadNewProduct,
+    payload:uploadProduct(seller_id,name_product,price,stock,product_condition,description,image1,image2,image3,image4,image5)
   }
 }

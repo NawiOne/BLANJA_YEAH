@@ -12,7 +12,6 @@ import trolly from "..//../../assets/image/basket.png";
 import hambMenu from "../../../assets/image/hamb-menu.png";
 import mail from "../../../assets/image/mail.png";
 import notif from "../../../assets/image/notif.png";
-import userPlaceholder from "../../../assets/image/user.jpg";
 import cross from "../../../assets/image/cross.png";
 import {urlImage} from '../../../utils/http';
 import {getUserCreator} from '../../../redux/action/user';

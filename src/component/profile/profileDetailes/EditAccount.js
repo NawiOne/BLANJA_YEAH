@@ -55,7 +55,7 @@ const EditAccount =()=> {
             <div className='form-group row'>
               <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label labelName">Name</label>
               <div className="col-sm-9">
-                <input type="text" className="form-control form-control-sm " id="colFormLabel" placeholder={user.username} defaultValue={user.username}
+                <input type="text" className="form-control form-control-sm " id="colFormLabel" placeholder={user.username}
                   onChange={(e)=>setForm({...form,username:e.target.value})}
                 />
               </div>
@@ -63,7 +63,7 @@ const EditAccount =()=> {
             <div className='form-group row'>
               <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label labelName">Email</label>
               <div className="col-sm-9">
-                <input type="email" className="form-control form-control-sm" id="colFormLabel" placeholder={user.email} defaultValue={user.email}
+                <input type="email" className="form-control form-control-sm" id="colFormLabel" placeholder={user.email} 
                 onChange={(e)=>setForm({...form,email:e.target.value})}
                 />
               </div>
@@ -71,7 +71,7 @@ const EditAccount =()=> {
             <div className='form-group row'>
               <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label labelName">Phone Number</label>
               <div className="col-sm-9">
-                <input type="text" className="form-control form-control-sm" id="colFormLabel" placeholder={user.phone_number} defaultValue={user.phone_number}
+                <input type="text" className="form-control form-control-sm" id="colFormLabel" placeholder={user.phone_number} 
                 onChange={(e)=>setForm({...form,phone_number:e.target.value})}
                 />
               </div>
