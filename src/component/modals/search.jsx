@@ -14,7 +14,7 @@ const Search = ({ show, handleClose }) => {
   
   return (
     <>
-      <Modal
+      {/* <Modal
         show={show}
         onHide={handleClose}
         className='search-modal'
@@ -90,7 +90,7 @@ const Search = ({ show, handleClose }) => {
             Oke
           </Button>
         </Modal.Footer>
-      </Modal>
+      </Modal> */}
     </>
   );
 };

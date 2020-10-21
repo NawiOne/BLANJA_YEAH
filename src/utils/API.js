@@ -2,15 +2,15 @@ import Axios from "axios";
 
 export const getByCategory = (category) => {
   return Axios.get(
-    `http://localhost:8000/product/category?category=${category}&page=1&limit=10`,
+    `http://localhost:8000/product/category?category=${category}&page=1&limit=7`,
   );
 };
 export const getMoreProduct = (category,page) => {
-    return Axios.get(`http://localhost:8000/product/category?category=${category}&page=${page}&limit=10`)
+    return Axios.get(`http://localhost:8000/product/category?category=${category}&page=${page}&limit=7`)
 }
 
 export const getNewProduct = () => {
-  return Axios.get("http://localhost:8000/product/new?page=1&limit=6");
+  return Axios.get("http://localhost:8000/product/new?page=1&limit=20");
 };
 
 export const getMoreNewProduct = (page) => {
@@ -21,12 +21,18 @@ export const getProductDetail = (id) => {
   return Axios.get(`http://localhost:8000/product/detail?id=${id}`);
 };
 export const getPopular = () => {
-  return Axios.get("http://localhost:8000/product/popular?page=1&limit=100");
+  return Axios.get("http://localhost:8000/product/popular?page=1&limit=20");
 };
 
-export const searchProduct = (name) => {
-  return Axios.get(`http://localhost:8000/product?search=${name}&filter=asc`);
+
+export const searchProduct = (name, filter) => {
+  return Axios.get(`http://localhost:8000/product?search=${name}&filter=${filter}&page=1&limit=15`);
 };
+
+export const searchMoreProduct = (name,filter, page) => {
+  return Axios.get(`http://localhost:8000/product?search=${name}&filter=${filter}&page=${page}&limit=15`);
+};
+
 
 export const doTransaction = (
   invoice,
@@ -38,7 +44,7 @@ export const doTransaction = (
   product,
 ) => {
     const data = {
-        id: invoice,
+        invoice: invoice,
         seller_id: seller_id,
         customer_id: customer_id,
         address: address,

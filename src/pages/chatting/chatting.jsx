@@ -6,13 +6,13 @@ import Sidebar from "../../component/home/sidebar-menu/sidebar-menu";
 
 import sendIcon from "../../assets/image/send.png";
 
-const Chat = () => {
+const Chat = ({history}) => {
   return (
     <>
       <div>
         <div>
-          <Navbar />
-          <Sidebar />
+          <Navbar history={history} />
+          <Sidebar history={history} />
         </div>
         <div className='section-chat'>
           <div className='row'>
