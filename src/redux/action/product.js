@@ -34,11 +34,8 @@ import {
   doTransAction,
   clearStatusAction,
   uploadNewProduct,
-<<<<<<< HEAD
   fetchSellerProduct,
-=======
   getSearchKey,
->>>>>>> 698fb22e3f780d529c0c9b665bcb312163aa3f08
 } from "./actionType";
 
 export const getByCategoryCreator = (category) => {
