@@ -17,6 +17,7 @@ import hambMenu from "../../../assets/image/hamb-menu.png";
 import mail from "../../../assets/image/mail.png";
 import notif from "../../../assets/image/notif.png";
 import cross from "../../../assets/image/cross.png";
+import userImage from '../../../assets/image/user.png';
 import emptyNotif from "../../../assets/image/no-notif.png";
 import { urlImage } from "../../../utils/http";
 import { getUserCreator } from "../../../redux/action/user";
@@ -113,6 +114,21 @@ const Navbar = (props) => {
                   </div>
                 )}
               </div>
+              <img
+                src={notif}
+                className='navbar-icon'
+                alt=''
+                data-toggle='popover'
+                data-placement='top'
+                data-content='Vivamus sagittis lacus vel augue laoreet rutrum faucibus.'
+              ></img>
+
+                <Link to='/chat'><img src={mail} className='navbar-icon' alt='' /></Link>
+                {user === null ?
+                  <Link to='/profile'><img src={userImage} alt='' className='user-pic' /></Link>
+                  :
+                  <Link to='/profile'><img src={urlImage+user[0].image} alt='' className='user-pic' /></Link>
+                } 
               <OverlayTrigger
                 trigger='click'
                 placement='bottom'
@@ -120,6 +136,7 @@ const Navbar = (props) => {
               >
                 <img src={notif} className='navbar-icon' alt=''></img>
               </OverlayTrigger>
+
 
               <Link to='/chat'>
                 <img src={mail} className='navbar-icon' alt='' />

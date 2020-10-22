@@ -20,44 +20,17 @@ const SellingProducts =()=> {
     stock:null,
     product_condition:null,
     description:null,
-    image1:null,
-    image2:null,
-    image3:null,
-    image4:null,
-    image5:null,
+    files:[],
   })
 
-  console.log(form)
-  console.log(user.id_user)
-
-  const hiddenFileInputImage1 = React.useRef(null);
-  const hiddenFileInputImage2 = React.useRef(null);
-  const hiddenFileInputImage3 = React.useRef(null);
-  const hiddenFileInputImage4 = React.useRef(null);
-  const hiddenFileInputImage5 = React.useRef(null);
+  const hiddenFileInput = React.useRef(null);
   
-  const handleClickImage1 = event => {
-    hiddenFileInputImage1.current.click();
-  };
-
-  const handleClickImage2 = event => {
-    hiddenFileInputImage2.current.click();
-  };
-
-  const handleClickImage3 = event => {
-    hiddenFileInputImage3.current.click();
-  };
-
-  const handleClickImage4 = event => {
-    hiddenFileInputImage4.current.click();
-  };
-
-  const handleClickImage5 = event => {
-    hiddenFileInputImage5.current.click();
+  const handleClickUpload = event => {
+    hiddenFileInput.current.click();
   };
 
   const handleSubmit = ()=>{
-    dispatch(uploadProductCreator(user.id_user,form.name_product,form.price,form.stock,form.product_condition,form.description,form.image1,form.image2,form.image3,form.image4,form.image5))
+    dispatch(uploadProductCreator(user.id_user,form.name_product,form.price,form.stock,form.product_condition,form.description,form.files[0],form.files[1],form.files[2],form.files[3],form.files[4]))
   }
 
   return (
@@ -105,35 +78,39 @@ const SellingProducts =()=> {
         <div className='border'/>
         <div className='container uploadPhoto'>
           <div className='cardWrapper'>
-            <button type='button' className='btn cardImageUtama' onClick={handleClickImage1}><img src={box} alt='' className='boxUtama'/></button>
-            <input type="file" className="form-control form-control-sm" 
-            ref={hiddenFileInputImage1} style={{display:'none'}} id="colFormLabel"
-            onChange={(e)=>setForm({...form,image1:e.target.files[0]})}
-            />
-            <button type='button' className='btn cardImage' onClick={handleClickImage2}><img src={box} alt='' className='box'/></button>
-            <input type="file" className="form-control form-control-sm" 
-            ref={hiddenFileInputImage2} style={{display:'none'}} id="colFormLabel"
-            onChange={(e)=>setForm({...form,image2:e.target.files[0]})}
-            />
-            <button type='button' className='btn cardImage' onClick={handleClickImage3}><img src={box} alt='' className='box'/></button>
-            <input type="file" className="form-control form-control-sm" 
-            ref={hiddenFileInputImage3} style={{display:'none'}} id="colFormLabel"
-            onChange={(e)=>setForm({...form,image3:e.target.files[0]})}
-            />
-            <button type='button' className='btn cardImage' onClick={handleClickImage4}><img src={box} alt='' className='box'/></button>
-            <input type="file" className="form-control form-control-sm" 
-            ref={hiddenFileInputImage4} style={{display:'none'}} id="colFormLabel"
-            onChange={(e)=>setForm({...form,image4:e.target.files[0]})}
-            />
-            <button type='button' className='btn cardImage' onClick={handleClickImage5}><img src={box} alt='' className='box'/></button>
-            <input type="file" className="form-control form-control-sm" 
-            ref={hiddenFileInputImage5} style={{display:'none'}} id="colFormLabel"
-            onChange={(e)=>setForm({...form,image5:e.target.files[0]})}
-            />
+            {form.files[0] === undefined ?
+              <div className='cardImageUtama'><img src={box} alt='' className='boxUtama'/></div>
+              :
+              <img src={URL.createObjectURL(form.files[0])} alt='' className='imageUtama'/>
+            }
+            {form.files[1] === undefined ?
+              <div className='cardImage'><img src={box} alt='' className='box'/></div>
+              :
+              <img src={URL.createObjectURL(form.files[1])} alt='' className='image'/>
+            }
+            {form.files[2] === undefined ?
+              <div className='cardImage'><img src={box} alt='' className='box'/></div>
+              :
+              <img src={URL.createObjectURL(form.files[2])} alt='' className='image'/>
+            }
+            {form.files[3] === undefined ?
+              <div className='cardImage'><img src={box} alt='' className='box'/></div>
+              :
+              <img src={URL.createObjectURL(form.files[3])} alt='' className='image'/>
+            }
+            {form.files[4] === undefined ?
+              <div className='cardImage'><img src={box} alt='' className='box'/></div>
+              :
+              <img src={URL.createObjectURL(form.files[4])} alt='' className='image'/>
+            }
           </div>
           <label className='labelPhoto'>Foto Utama</label>
           <div className='border'/>
-          <button type="button" className="btn btn-upload">Upload foto</button>
+          <button type="button" className="btn btn-upload" onClick={handleClickUpload}>Upload foto</button>
+          <input type="file" multiple className="form-control form-control-sm" 
+            ref={hiddenFileInput} style={{display:'none'}} id="colFormLabel"
+            onChange={(e)=>setForm({...form,files:e.target.files})}
+          />
         </div>
       </div>
       <div className='descriptionForm'>
