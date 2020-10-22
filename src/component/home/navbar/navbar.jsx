@@ -13,6 +13,7 @@ import hambMenu from "../../../assets/image/hamb-menu.png";
 import mail from "../../../assets/image/mail.png";
 import notif from "../../../assets/image/notif.png";
 import cross from "../../../assets/image/cross.png";
+import user from '../../../assets/image/user.png';
 import {urlImage} from '../../../utils/http';
 import {getUserCreator} from '../../../redux/action/user';
 
@@ -97,8 +98,12 @@ const Navbar = ({handleShow}) => {
                 data-content='Vivamus sagittis lacus vel augue laoreet rutrum faucibus.'
               ></img>
 
-                <Link to='/chat'><img src={mail} className='navbar-icon' alt='' /></Link>  
-                <Link to='/profile'><img src={urlImage+user[0].image} alt='' className='user-pic' /></Link>
+                <Link to='/chat'><img src={mail} className='navbar-icon' alt='' /></Link>
+                {user === null ?
+                  <Link to='/profile'><img src={user} alt='' className='user-pic' /></Link>
+                  :
+                  <Link to='/profile'><img src={urlImage+user[0].image} alt='' className='user-pic' /></Link>
+                } 
 
             </div>
           ) : (

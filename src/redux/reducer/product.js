@@ -21,6 +21,8 @@ import {
   pending,
   rejected,
   fulfilled,
+  uploadNewProduct,
+  fetchSellerProduct,
 } from "../action/actionType";
 
 const initialState = {
@@ -41,6 +43,8 @@ const initialState = {
   isFulfilled: false,
   status: null,
   errorMsg: null,
+  uploadSuccess:false,
+  sellerProduct:null,
 };
 
 const product = (prevState = initialState, { type, payload }) => {
@@ -346,6 +350,54 @@ const product = (prevState = initialState, { type, payload }) => {
         dataToTransaction: [],
       };
 
+    // Upload Product
+
+    case uploadNewProduct + pending:
+      return {
+        ...prevState,
+        isPending: true,
+        isFulfilled: false,
+      }
+    case uploadNewProduct + rejected:
+      return {
+        ...prevState,
+        isRejected: true,
+        isPending: false,
+      };
+    case uploadNewProduct + fulfilled:
+      let success=null
+      if(payload.data.success){
+        success=true
+      }else{
+        success=false
+      }
+      return {
+        ...prevState,
+        isFulfilled: true,
+        isPending: false,
+        isRejected:false,
+        uploadSuccess:success,
+      }
+    case fetchSellerProduct + pending:
+      return {
+        ...prevState,
+        isPending: true,
+        isFulfilled: false,
+      }
+    case fetchSellerProduct + rejected:
+      return {
+        ...prevState,
+        isRejected: true,
+        isPending: false,
+      };
+    case fetchSellerProduct + fulfilled:
+      return {
+        ...prevState,
+        isFulfilled: true,
+        isPending: false,
+        isRejected:false,
+        sellerProduct:payload.data.data,
+      }
     default:
       return prevState;
   }

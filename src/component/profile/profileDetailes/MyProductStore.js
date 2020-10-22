@@ -1,6 +1,10 @@
-import React from 'react'
+import React from 'react';
+import { useSelector } from 'react-redux'
 
 const MyProductStore =()=> {
+
+  const sellerProduct = useSelector((state)=>state.product.sellerProduct[0])
+  console.log(sellerProduct)
   return (
     <div className='detailWrapper'>
       <h4 className='titleDetail'>My order</h4>
@@ -43,6 +47,7 @@ const MyProductStore =()=> {
             </div>
           </div>
         </div>
+        
       </div>
     </div>
   )

@@ -94,3 +94,7 @@ export const uploadProduct = (seller_id,name_product,price,stock,product_conditi
 
 }
 
+export const getSellerProduct =(seller_id,page,limit)=>{
+  return Axios.get(`http://localhost:8000/product/seller?seller_id=${seller_id}&page=${page}&limit=${limit}`)
+}
+

@@ -8,6 +8,7 @@ import {
   searchProduct,
   doTransaction,
   uploadProduct,
+  getSellerProduct,
 } from "../../utils/API";
 import {
   getByCategoryAction,
@@ -31,6 +32,7 @@ import {
   doTransAction,
   clearStatusAction,
   uploadNewProduct,
+  fetchSellerProduct,
 } from "./actionType";
 
 export const getByCategoryCreator = (category) => {
@@ -230,5 +232,12 @@ export const uploadProductCreator = (seller_id,name_product,price,stock,product_
   return {
     type:uploadNewProduct,
     payload:uploadProduct(seller_id,name_product,price,stock,product_condition,description,image1,image2,image3,image4,image5)
+  }
+}
+
+export const getSellerProductCreator =(seller_id,page,limit)=>{
+  return {
+    type:fetchSellerProduct,
+    payload:getSellerProduct(seller_id,page,limit)
   }
 }

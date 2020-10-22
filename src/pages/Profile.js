@@ -1,11 +1,16 @@
-import React,{useState} from 'react'
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import Navbar from '../component/home/navbar/navbar';
 import ProfileList from '../component/profile/ProfileList';
 import ProfileDetails from '../component/profile/profileDetailes/ProfileDetailes';
 import SidebarMenu from '../component/home/sidebar-menu/sidebar-menu';
 import Search from '../component/modals/search';
+import {getSellerProductCreator} from '../redux/action/product';
 
 const Profile = ()=> {
+
+  const user = useSelector((state)=>state.user.user[0])
+
   const[data,setData]=useState({
     isEditProfile:false,
     isMyAccount:true,
@@ -21,6 +26,11 @@ const Profile = ()=> {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const dispatch =useDispatch();
+
+  useEffect(()=>{
+    dispatch(getSellerProductCreator(user.id_user,1,10))
+  },[])
 
   return (
     <div className='profile'>
