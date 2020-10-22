@@ -8,7 +8,9 @@ export const getMoreNewProductAction = 'GET_MORE_NEW';
 export const getDetailProductAction = 'GET_DETAIL_PRODUCT';
 export const getPopularAction = 'GET_POPULER_PRODUCT';
 export const searchAction = 'SEARCH_PRODUCT';
+export const searchMoreAction = 'SEARCH_MORE_PRODUCT';
 export const clearSearchAction = 'CLEAR_SEARCH';
+export const getSearchKey = 'GET_SEARCH_KEY';
 
 export const getCategoryNameAction = 'GET_CATEGORY_NAME';
 export const addToBagAction  = 'ADD_TO_BAG';

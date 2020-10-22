@@ -168,20 +168,34 @@
   margin-top: 6vh;
   border-bottom: 1px solid #d4d4d4;
   padding-bottom: 4vh;
+  /* width: 80%; */
+  display: flex;
+  flex-direction: column;
 }
 .product-review-title {
   font-weight: 600;
   color: #222222;
+  margin-bottom: 8vh;
 }
 .rating-review {
   display: flex;
   width: 40%;
+  /* height: 20vh; */
+}
+.rating-number{
+  padding-top: 3vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 5vh;
+  margin-bottom: 3vh;
 }
 
 .rating-description {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   flex-direction: column;
+  align-self: center;
   margin-top: 1vh;
   line-height: 25px;
 }
@@ -193,14 +207,26 @@
     margin-right: 10px;
     background-color: #4290d8;
 }
+.rating-progress{
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.progress{
+  background-color: #d84242;
+  width: 100%;
+  height: 15%;
+}
+
 .rating-number-right{
 
     background-color: coral;
 }
-
-
-
-
+.star-review{
+  width: 30px;
+}
 
 @media screen and (min-width: 576px) {
   .card-img-detail {

@@ -91,7 +91,10 @@ const ProductDetail = () => {
               </div>
               <div className='product-price-detail'>
                 <p>Price</p>
-                <h2>$ {productDetail[0].price}</h2>
+                <h2>{new Intl.NumberFormat("USD", {
+                        style: "currency",
+                        currency: "USD",
+                      }).format(productDetail[0].price)}</h2>
               </div>
               <div className='color-pallet-select'>
                 <p>Color</p>

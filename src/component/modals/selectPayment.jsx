@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Redirect } from "react-router-dom";
 import { doTransCreator, clearStatusCreator } from "../../redux/action/product";
 import randomInvoice from "crypto-random-string";
 
@@ -14,11 +13,10 @@ const SelectPayment = (props) => {
   const delivery = 50;
   const invoice = randomInvoice({ length: 6, type: "numeric" });
   const dispatch = useDispatch();
-
-  const [payment, setPayment] = useState("");
   const [disable, setDisable] = useState(true)
 
-
+  const [payment, setPayment] = useState("");
+  console.log(payment)
   const amount = product.paymentItem.map((item) => {
     return item.price * item.quantity;
   });
@@ -29,8 +27,14 @@ const SelectPayment = (props) => {
   const seller_id = product.paymentItem.map((item) => {
     return item.seller_id;
   });
-
   const totalAmount = amountOrder + delivery;
+
+useEffect(() => {
+  if(payment !== ""){
+    setDisable(false)
+  }
+},[payment])
+
 
   return (
     <div
@@ -69,9 +73,9 @@ const SelectPayment = (props) => {
                   type='checkbox'
                   name='select-payment'
                   id=''
-                  onClick={() => {
-                    setPayment("Gopay");
-                    setDisable(!disable)
+                  onFocusCapture={() => {
+                    setPayment('Gopay')
+                    setDisable(false)
                   }}
                 />
               </div>
@@ -86,9 +90,9 @@ const SelectPayment = (props) => {
                   name='select-payment'
                   id=''
                   onClick={() => {
-                    setPayment("Pos Indonesia");
-                    setDisable(!disable)
+                    setPayment("Pos Indonesia"); 
                   }}
+                  autoFocus={true}
                 />
               </div>
             </div>
@@ -103,7 +107,6 @@ const SelectPayment = (props) => {
                   id=''
                   onClick={() => {
                     setPayment("MasterCard");
-                    setDisable(!disable)
                   }}
                 />
               </div>
@@ -119,7 +122,10 @@ const SelectPayment = (props) => {
                   className='col-4 payment-amount'
                   style={{ fontWeight: "bold" }}
                 >
-                  $ {amountOrder}
+                  {new Intl.NumberFormat("USD", {
+                        style: "currency",
+                        currency: "USD",
+                      }).format(amountOrder)}
                 </div>
               </div>
               <div className='row'>
@@ -130,7 +136,10 @@ const SelectPayment = (props) => {
                   className='col-4 payment-amount'
                   style={{ fontWeight: "bold" }}
                 >
-                  $ {delivery}
+                  {new Intl.NumberFormat("USD", {
+                        style: "currency",
+                        currency: "USD",
+                      }).format(delivery)}
                 </div>
               </div>
             </div>
@@ -153,7 +162,10 @@ const SelectPayment = (props) => {
                   color: "#db3022",
                 }}
               >
-                $ {amountOrder + delivery}
+                {new Intl.NumberFormat("USD", {
+                        style: "currency",
+                        currency: "USD",
+                      }).format(amountOrder + delivery)}
               </p>
             </div>
 
@@ -173,10 +185,10 @@ const SelectPayment = (props) => {
                       product.dataToTransaction,
                     ),
                   );
-                }
+                } 
               }}
               data-dismiss='modal'
-              disabled = {disable}
+              disabled={disable}
             >
               Buy
             </button>

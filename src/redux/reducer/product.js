@@ -7,6 +7,7 @@ import {
   getDetailProductAction,
   getPopularAction,
   addToBagAction,
+  DeleteBagItemAction,
   pluseQuantityAction,
   minusQuantityAction,
   checkAlredyExistAction,
@@ -14,10 +15,12 @@ import {
   checkedPaymentExistAction,
   cleanPaymentAction,
   searchAction,
+  searchMoreAction,
   clearSearchAction,
   addDataTransaction,
   doTransAction,
   clearStatusAction,
+  getSearchKey,
   pending,
   rejected,
   fulfilled,
@@ -28,6 +31,7 @@ import {
 const initialState = {
   product: [],
   searchProduct: [],
+  searchKey: '',
   newProduct: [],
   popularProduct: [],
   detailProduct: [],
@@ -67,6 +71,7 @@ const product = (prevState = initialState, { type, payload }) => {
         isFulfilled: true,
         isPending: false,
         product: payload.data.data,
+        pageInfo: payload.data.pageInfo
       };
     case getMoreCategoryAction + pending:
       return {
@@ -88,6 +93,7 @@ const product = (prevState = initialState, { type, payload }) => {
         isFulfilled: true,
         isPending: false,
         product: newProductCat,
+        pageInfo: payload.data.pageInfo
       };
     case getCategoryNameAction:
       return {
@@ -113,6 +119,7 @@ const product = (prevState = initialState, { type, payload }) => {
         isFulfilled: true,
         isPending: false,
         newProduct: payload.data.data,
+        // pageInfo: payload.data.pageInfo
       };
 
       case getMoreNewProductAction + pending:
@@ -135,6 +142,7 @@ const product = (prevState = initialState, { type, payload }) => {
           isFulfilled: true,
           isPending: false,
           newProduct: moreProduct,
+          // pageInfo: payload.data.pageInfo
         };
 
 
@@ -194,7 +202,36 @@ const product = (prevState = initialState, { type, payload }) => {
         isFulfilled: true,
         isPending: false,
         searchProduct: payload.data.data,
+        pageInfo: payload.data.pageInfo
       };
+
+      case searchMoreAction + pending:
+        return {
+          ...prevState,
+          isPending: true,
+          isFulfilled: false,
+        };
+      case searchMoreAction + rejected:
+        return {
+          ...prevState,
+          isRejected: true,
+          isPending: false,
+        };
+      case searchMoreAction + fulfilled:
+        const newSearch = prevState.searchProduct.concat(payload.data.data)
+        return {
+          ...prevState,
+          isFulfilled: true,
+          isPending: false,
+          searchProduct: newSearch,
+          pageInfo: payload.data.pageInfo
+        };
+      case getSearchKey:
+        return{
+          ...prevState,
+          searchKey: payload,
+        }
+
     case clearSearchAction:
       return {
         ...prevState,
@@ -269,6 +306,26 @@ const product = (prevState = initialState, { type, payload }) => {
           bagAlreadyExist: false,
         };
       }
+
+    case DeleteBagItemAction:
+      const indexBagItem = prevState.bagItem.findIndex((item) => {
+        return payload.id === item.id
+      })
+      if(indexBagItem >=0){
+        let newCart=[...prevState.bagItem.filter((itm) => {
+          return itm.id !== payload.id
+        })]
+        return {
+          ...prevState,
+          bagItem: [...newCart],
+          paymentItem: [...newCart]
+        }
+      }else {
+        return {
+          ...prevState,
+        }
+      }
+
     case addToPaymentAction:
       const index = prevState.paymentItem.findIndex((el) => {
         return payload.id === el.id;

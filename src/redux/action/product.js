@@ -6,6 +6,7 @@ import {
   getProductDetail,
   getPopular,
   searchProduct,
+  searchMoreProduct,
   doTransaction,
   uploadProduct,
   getSellerProduct,
@@ -19,6 +20,7 @@ import {
   getDetailProductAction,
   getPopularAction,
   searchAction,
+  searchMoreAction,
   DeleteBagItemAction,
   addToBagAction,
   pluseQuantityAction,
@@ -32,7 +34,11 @@ import {
   doTransAction,
   clearStatusAction,
   uploadNewProduct,
+<<<<<<< HEAD
   fetchSellerProduct,
+=======
+  getSearchKey,
+>>>>>>> 698fb22e3f780d529c0c9b665bcb312163aa3f08
 } from "./actionType";
 
 export const getByCategoryCreator = (category) => {
@@ -135,6 +141,15 @@ export const checkAlreadyCreator = (id) => {
   };
 };
 
+export const deleteBagItem = (id) => {
+  return {
+    type: DeleteBagItemAction,
+    payload: {
+      id: id,
+    }
+  }
+}
+
 export const addToPaymentCreator = (
   id,
   image,
@@ -176,12 +191,19 @@ export const cleanPaymentCreator = () => {
     type: cleanPaymentAction,
   };
 };
-export const searchCreator = (name) => {
+export const searchCreator = (name, filter) => {
   return {
     type: searchAction,
-    payload: searchProduct(name),
+    payload: searchProduct(name, filter),
   };
 };
+export const searchMoreCreator = (name,filter, page) => {
+  return {
+    type: searchMoreAction,
+    payload: searchMoreProduct(name,filter, page),
+  };
+};
+
 export const clearSearchCreator = () => {
   return {
     type: clearSearchAction,
@@ -241,3 +263,14 @@ export const getSellerProductCreator =(seller_id,page,limit)=>{
     payload:getSellerProduct(seller_id,page,limit)
   }
 }
+
+export const getSearchKeyCreator = (key, filter) => {
+  return {
+    type: getSearchKey,
+    payload: {
+      key: key,
+      filter: filter
+    }
+  }
+}
+
