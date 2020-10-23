@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getDetailCreator, searchMoreCreator } from "../redux/action/product";
 
 import star from "../assets/image/Star.png";
+import loadingIndicator from "../assets/image/spinner.svg";
 
 const Empty = () => {
   return (
@@ -33,7 +34,6 @@ const SearchItem = (props) => {
   const { product } = useSelector((state) => state);
   const [page, setPage] = useState(2);
   const dispatch = useDispatch();
-  const data = props.props.location.data;
   console.log(props.props);
 
   const searchMoreData = () => {
@@ -58,14 +58,16 @@ const SearchItem = (props) => {
           Searching for '{product.searchKey.key}'
         </h2>
       </div>
-      {!product.searchProduct.length ? (
+      {product.isPending ? (
+        null
+      ) : !product.searchProduct.length ? (
         <Empty />
       ) : (
         <InfiniteScroll
           dataLength={product.searchProduct.length}
           next={searchMoreData}
           hasMore={true}
-          className='row'
+          className='row infinite'
           loader={
             product.pageInfo === undefined ? null : product.pageInfo
                 .nextPage === "" ? null : (

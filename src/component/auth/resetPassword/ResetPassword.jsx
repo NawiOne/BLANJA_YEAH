@@ -14,7 +14,7 @@ const ResetPassword = ({ changeToRegister }) => {
 
 
     const sendEmail = (email) => {
-        const api = `http://localhost:8000/auth/sendEmail`
+        const api = `http://3.87.168.244:8000/auth/sendEmail`
         Axios.post(api, { email: email })
             .then(data => {
                 handleShow()
