@@ -10,6 +10,7 @@ import {
 } from "../../../redux/action/product";
 
 import star from "../../../assets/image/Star.png";
+import loading from '../../../assets/image/spinner.svg'
 
 const ProductDetail = () => {
   const { product } = useSelector((state) => state);
@@ -36,7 +37,13 @@ const ProductDetail = () => {
   return (
     <>
       {product.isPending ? (
-        <p>Loading...</p>
+        <div className="col-md-5">
+          <div className="row">
+            <div className="col-12 d-flex justify-content-center">
+              <img src={loading} alt=""/>
+            </div>
+          </div>
+        </div>
       ) : (
         <>
           <div className='col-md-5'>

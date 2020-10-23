@@ -17,7 +17,7 @@ import hambMenu from "../../../assets/image/hamb-menu.png";
 import mail from "../../../assets/image/mail.png";
 import notif from "../../../assets/image/notif.png";
 import cross from "../../../assets/image/cross.png";
-import userImage from '../../../assets/image/user.png';
+import userImage from "../../../assets/image/user.png";
 import emptyNotif from "../../../assets/image/no-notif.png";
 import { urlImage } from "../../../utils/http";
 import { getUserCreator } from "../../../redux/action/user";
@@ -44,8 +44,8 @@ const Navbar = (props) => {
   const isLogin = useSelector((state) => state.auth.isLogin);
   const { animate, product } = useSelector((state) => state);
   const id_user = useSelector((state) => state.auth.data.id_user);
-  const [filter, setFilter] = useState('ASC')
-  console.log(filter)
+  const [filter, setFilter] = useState("ASC");
+  console.log(filter);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -114,21 +114,6 @@ const Navbar = (props) => {
                   </div>
                 )}
               </div>
-              <img
-                src={notif}
-                className='navbar-icon'
-                alt=''
-                data-toggle='popover'
-                data-placement='top'
-                data-content='Vivamus sagittis lacus vel augue laoreet rutrum faucibus.'
-              ></img>
-
-                <Link to='/chat'><img src={mail} className='navbar-icon' alt='' /></Link>
-                {user === null ?
-                  <Link to='/profile'><img src={userImage} alt='' className='user-pic' /></Link>
-                  :
-                  <Link to='/profile'><img src={urlImage+user[0].image} alt='' className='user-pic' /></Link>
-                } 
               <OverlayTrigger
                 trigger='click'
                 placement='bottom'
@@ -137,17 +122,22 @@ const Navbar = (props) => {
                 <img src={notif} className='navbar-icon' alt=''></img>
               </OverlayTrigger>
 
-
               <Link to='/chat'>
                 <img src={mail} className='navbar-icon' alt='' />
               </Link>
-              <Link to='/profile'>
-                <img
-                  src={urlImage + user[0].image}
-                  alt=''
-                  className='user-pic'
-                />
-              </Link>
+              {user === null ? (
+                <Link to='/profile'>
+                  <img src={userImage} alt='' className='user-pic' />
+                </Link>
+              ) : (
+                <Link to='/profile'>
+                  <img
+                    src={urlImage + user[0].image}
+                    alt=''
+                    className='user-pic'
+                  />
+                </Link>
+              )}
             </div>
           ) : (
             <div className='operation-btn-nav-auth'>
@@ -181,41 +171,50 @@ const Navbar = (props) => {
         </button>
       </div>
       <div
-      className='modal fade modal-filter rounded'
-      id='filter'
-      tabindex='-1'
-      aria-labelledby='exampleModalLabel'
-      aria-hidden='true'
-    >
-      <div className='modal-dialog'>
-        <div className='modal-content'>
-          <div className='modal-header'>
-            <h5 className='modal-title' id='exampleModalLabel'>
-              Filter by price
-            </h5>
-          </div>
-          <div className='modal-body'>
-            <form>
-              <label className='mr-sm-2 sr-only' for='inlineFormCustomSelect'>
-                Preference
-              </label>
-              <select className='custom-select mr-sm-2' id='inlineFormCustomSelect' onChange={(event) => {
-                setFilter(event.target.value)
-              }}>
-                <option disabled>Choose...</option>
-                <option value='ASC'>cheap to expensive</option>
-                <option value='DESC'>expensive to cheap</option>
-              </select>
-            </form>
-          </div>
-          <div className='modal-footer'>
-            <button type='button' className='btn' data-dismiss = 'modal' style={{background: '#DB3022', color:'white'}}>
-              Ok
-            </button>
+        className='modal fade modal-filter rounded'
+        id='filter'
+        tabindex='-1'
+        aria-labelledby='exampleModalLabel'
+        aria-hidden='true'
+      >
+        <div className='modal-dialog'>
+          <div className='modal-content'>
+            <div className='modal-header'>
+              <h5 className='modal-title' id='exampleModalLabel'>
+                Filter by price
+              </h5>
+            </div>
+            <div className='modal-body'>
+              <form>
+                <label className='mr-sm-2 sr-only' for='inlineFormCustomSelect'>
+                  Preference
+                </label>
+                <select
+                  className='custom-select mr-sm-2'
+                  id='inlineFormCustomSelect'
+                  onChange={(event) => {
+                    setFilter(event.target.value);
+                  }}
+                >
+                  <option disabled>Choose...</option>
+                  <option value='ASC'>cheap to expensive</option>
+                  <option value='DESC'>expensive to cheap</option>
+                </select>
+              </form>
+            </div>
+            <div className='modal-footer'>
+              <button
+                type='button'
+                className='btn'
+                data-dismiss='modal'
+                style={{ background: "#DB3022", color: "white" }}
+              >
+                Ok
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </>
   );
 };

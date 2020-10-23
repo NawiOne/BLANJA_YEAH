@@ -1,6 +1,6 @@
 import Axios from 'axios';
 
-const linkApi = `http://localhost:8000/`;
+const linkApi = `http://3.87.168.244:8000/`;
 
 export const authLogin = (email, password) => {
   const URI = `${linkApi}auth/login`;
@@ -17,7 +17,7 @@ export const getUser =(id)=>{
   return Axios.get(URI);
 }
 
-export const urlImage = 'http://localhost:8000/images/';
+export const urlImage = 'http://3.87.168.244:8000/images/';
 
 export const editCustummer = (id_user,phone_number,email,username,gender_id,date_of_birth,image)=>{
   let formData = new FormData();

@@ -21,7 +21,7 @@ const ConfirmationPassword = ({ changeToRegister, changeToReset, location }) => 
     }
 
     const resetPassword = (data) => {
-        const api = `http://localhost:8000/auth/changePassword`
+        const api = `http://3.87.168.244:8000/auth/changePassword`
         Axios.post(api, data).then(data => {
             handleShow()
 
