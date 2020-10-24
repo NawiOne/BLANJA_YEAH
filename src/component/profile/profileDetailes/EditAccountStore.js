@@ -2,7 +2,10 @@ import React,{useState} from 'react';
 import {useSelector,useDispatch} from "react-redux";
 import {urlImage} from '../../../utils/http';
 import {updateSellerCreator,getUserCreator} from '../../../redux/action/user';
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure();
 const EditAccountStore =()=> {
   const user = useSelector((state)=>state.user.user[0])
   const dispatch = useDispatch();
@@ -73,7 +76,11 @@ const EditAccountStore =()=> {
         </div>
         <div className='col col-md-3'>
           <div className='imageUserWrapper'>
-            <img src={urlImage+user.image} className='imageUser' alt='profilePicture'/>
+            {form.image === user.image ?
+              <img src={urlImage+user.image} className='imageUser' alt='profilePicture'/>
+              :
+              <img src={URL.createObjectURL(form.image)} className='imageUser' alt='profilePicture'/>
+            }
             <button type="button" className="btn btn-selectImage" onClick={handleClick}>Select image</button>
             <input type="file" className="form-control form-control-sm" 
             ref={hiddenFileInput} style={{display:'none'}} id="colFormLabel"

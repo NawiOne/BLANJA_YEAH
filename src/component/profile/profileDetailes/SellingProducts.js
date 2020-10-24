@@ -6,8 +6,11 @@ import bold from '../../../assets/image/bold-text.png';
 import italic from '../../../assets/image/italic.png';
 import numberList from '../../../assets/image/number-list.png';
 import bulletList from '../../../assets/image/bullet-list.png';
-import {uploadProductCreator} from '../../../redux/action/product'
+import {uploadProductCreator} from '../../../redux/action/product';
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure();
 const SellingProducts =()=> {
 
   const user = useSelector((state)=>state.user.user[0])
@@ -30,12 +33,13 @@ const SellingProducts =()=> {
   };
 
   const handleSubmit = ()=>{
-    dispatch(uploadProductCreator(user.id_user,form.name_product,form.price,form.stock,form.product_condition,form.description,form.files[0],form.files[1],form.files[2],form.files[3],form.files[4]))
+    dispatch(uploadProductCreator(user.id_user,form.name_product,form.price,form.stock,form.product_condition,form.description,form.files[0],form.files[1],form.files[2],form.files[3],form.files[4]));
   }
-
+  
   return (
     <div>
       <div className='inventory'>
+        {/* <button onClick={notify}>notify</button> */}
         <h5 className='title'>Inventory</h5>
         <div className='border'/>
         <div class="form-group formGroup">

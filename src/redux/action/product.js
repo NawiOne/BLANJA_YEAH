@@ -36,6 +36,7 @@ import {
   uploadNewProduct,
   fetchSellerProduct,
   getSearchKey,
+  resetToast,
 } from "./actionType";
 
 export const getByCategoryCreator = (category) => {
@@ -268,6 +269,12 @@ export const getSearchKeyCreator = (key, filter) => {
       key: key,
       filter: filter
     }
+  }
+}
+
+export const resetToastCreator = ()=>{
+  return {
+    type:resetToast
   }
 }
 
