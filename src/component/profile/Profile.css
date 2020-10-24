@@ -169,7 +169,7 @@
 .btn-selectImage{
   border:0.0625em solid #9B9B9B;
   border-radius:  1.5em;
-  font-size: 0.875em;
+  font-size: 0.870em;
   color: #9B9B9B;
   margin-top: 3vh;
   padding-left: 1vw;
@@ -178,10 +178,6 @@
 .form-control{
   color: #222222;
 }
-/* .form-control::-webkit-input-placeholder {
-  color: #222222;
-  font-size: 0.875em;
-} */
 
 /* Shipping Address */
 .shippingAddress{
@@ -491,5 +487,11 @@
   width:100px;
   height:100px;
   border-radius: 5px;
+}
+
+/* Styling Toast */
+.uploadFailed{
+  color:red;
+  padding: 5px;
 }
 

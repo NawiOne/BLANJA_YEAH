@@ -45,7 +45,6 @@ const Navbar = (props) => {
   const { animate, product } = useSelector((state) => state);
   const id_user = useSelector((state) => state.auth.data.id_user);
   const [filter, setFilter] = useState("ASC");
-  console.log(filter);
   const dispatch = useDispatch();
 
   useEffect(() => {

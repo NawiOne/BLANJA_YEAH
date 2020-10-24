@@ -37,6 +37,8 @@ import {
   fetchSellerProduct,
   getSearchKey,
   clearBagAction,
+  resetToast,
+
 } from "./actionType";
 
 export const getByCategoryCreator = (category) => {
@@ -277,3 +279,10 @@ export const clearBagCreator = () => {
     type: clearBagAction,
   }
 }
+
+export const resetToastCreator = ()=>{
+  return {
+    type:resetToast
+  }
+}
+
