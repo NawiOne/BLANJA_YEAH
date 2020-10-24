@@ -30,6 +30,17 @@ const Empty = () => {
   );
 };
 
+const Loading = () => {
+  return (
+    <div
+      className='col-12'
+      style={{ display: "flex", justifyContent: "center" }}
+    >
+      <img src={loadingIndicator} alt=""/>
+    </div>
+  );
+};
+
 const SearchItem = (props) => {
   const { product } = useSelector((state) => state);
   const [page, setPage] = useState(2);
@@ -58,9 +69,7 @@ const SearchItem = (props) => {
           Searching for '{product.searchKey.key}'
         </h2>
       </div>
-      {product.isPending ? (
-        null
-      ) : !product.searchProduct.length ? (
+      {product.isPending ? <Loading /> : !product.searchProduct.length ? (
         <Empty />
       ) : (
         <InfiniteScroll

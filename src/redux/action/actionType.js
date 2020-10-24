@@ -23,6 +23,7 @@ export const checkedPaymentExistAction = 'CHECK_ALREADY_PAYMENT';
 export const cleanPaymentAction = 'CLEAN_PAYMENT';
 export const uploadNewProduct = 'UPLOAD_NEW_PRODUCT';
 export const fetchSellerProduct ='FETCH_SELLER_PRODUCT';
+export const clearBagAction = 'CLEAR_BAG';
 
 export const addDataTransaction = 'ADD_DATA_TRANSACTION';
 export const doTransAction = 'DO_TRANSACTION';

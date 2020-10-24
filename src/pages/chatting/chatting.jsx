@@ -40,7 +40,7 @@ const Chat = ({history}) => {
                 </div>
                 <div className='messaging'>
                   <div className='chatting'>
-                      hkljhkh
+                      ...
                   </div>
                   <div className='input-message'>
                     <div class='form-group' style={{ width: "90%" }}>
