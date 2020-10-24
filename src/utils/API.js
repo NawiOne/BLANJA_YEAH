@@ -1,4 +1,6 @@
 import Axios from "axios";
+import {toast,Bounce} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const getByCategory = (category) => {
   return Axios.get(
@@ -96,8 +98,31 @@ export const uploadProduct = (seller_id,name_product,price,stock,product_conditi
     },
   };
 
-  return Axios.post('http://3.87.168.244:8000/product',formData,configHeader);
-
+  return Axios.post('http://3.87.168.244:8000/product',formData,configHeader)
+  .then(res=>{
+    if(res.data.success){
+      toast('Upload Product Success',{
+        className:'upoloadSuccess',
+        draggable:true,
+        autoClose:false,
+        transition:Bounce,
+      })
+    }
+    else{
+      toast('Upload Product Failed!, please fill in the form first',{
+        className:'uploadFailed',
+        draggable:true,
+        autoClose:false,
+        transition:Bounce,
+      })
+    }
+  })
+  .catch(err=>{
+    toast.error('Network Error',{
+      draggable:true,
+      autoClose:false,
+    })
+  })
 }
 
 export const getSellerProduct =(seller_id,page,limit)=>{

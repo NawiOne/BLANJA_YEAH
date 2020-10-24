@@ -1,4 +1,6 @@
 import Axios from 'axios';
+import {toast,Bounce} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const linkApi = `http://3.87.168.244:8000/`;
 
@@ -40,7 +42,31 @@ export const editCustummer = (id_user,phone_number,email,username,gender_id,date
   };
 
   const URI =`${linkApi}user`;
-  return Axios.patch(URI,formData,configHeader);
+  return Axios.patch(URI,formData,configHeader)
+  .then(res=>{
+    if(res.data.success){
+      toast('Edit Profile Success',{
+        className:'upoloadSuccess',
+        draggable:true,
+        autoClose:false,
+        transition:Bounce,
+      })
+    }
+    else{
+      toast('Edit profile Failed!, please fill in the form first',{
+        className:'uploadFailed',
+        draggable:true,
+        autoClose:false,
+        transition:Bounce,
+      })
+    }
+  })
+  .catch(err=>{
+    toast.error('Network Error',{
+      draggable:true,
+      autoClose:false,
+    })
+  });
 
 }
 
@@ -64,5 +90,29 @@ export const editSeller =(id_user,phone_number,email,username,image,desc_store)=
   };
 
   const URI =`${linkApi}user`;
-  return Axios.patch(URI,formData,configHeader);
+  return Axios.patch(URI,formData,configHeader)
+  .then(res=>{
+    if(res.data.success){
+      toast('Edit Profile Success',{
+        className:'upoloadSuccess',
+        draggable:true,
+        autoClose:false,
+        transition:Bounce,
+      })
+    }
+    else{
+      toast('Edit profile Failed!, please fill in the form first',{
+        className:'uploadFailed',
+        draggable:true,
+        autoClose:false,
+        transition:Bounce,
+      })
+    }
+  })
+  .catch(err=>{
+    toast.error('Network Error',{
+      draggable:true,
+      autoClose:false,
+    })
+  });;
 }

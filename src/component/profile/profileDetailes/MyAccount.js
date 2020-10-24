@@ -1,6 +1,5 @@
 import React from 'react';
 import {useSelector} from "react-redux";
-import profilePicture from '../../../assets/image/profilePicture.png';
 import {urlImage} from '../../../utils/http';
 
 const MyAccount =({data})=> {
