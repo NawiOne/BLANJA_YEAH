@@ -6,6 +6,7 @@ import profilePicture from '../../assets/image/profilePicture.png';
 import CustommerLink from './profileLinks/CustommerLink';
 import SellerLink from './profileLinks/SellerLink';
 import {authLogOutCreator} from '../../redux/action/auth';
+import {clearBagCreator} from '../../redux/action/product'
 import {urlImage} from '../../utils/http';
 
 const ProfileList =({data})=> {
@@ -41,6 +42,7 @@ const ProfileList =({data})=> {
 
   const handleButtonLogOut =()=>{
     dispatch(authLogOutCreator());
+    dispatch(clearBagCreator())
   }
 
   return (

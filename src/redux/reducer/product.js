@@ -21,6 +21,7 @@ import {
   doTransAction,
   clearStatusAction,
   getSearchKey,
+  clearBagAction,
   pending,
   rejected,
   fulfilled,
@@ -425,6 +426,11 @@ const product = (prevState = initialState, { type, payload }) => {
         isPending: false,
         isRejected:false,
         sellerProduct:payload.data.data,
+      }
+    case clearBagAction:
+      return {
+        ...prevState,
+        bagItem: [],
       }
     default:
       return prevState;
