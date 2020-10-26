@@ -2,10 +2,12 @@ import React from 'react';
 import ModalAddNewAddress from './ModalAddNewAddress';
 import { useSelector } from 'react-redux';
 
+import addressImg from "../../../assets/image/address.png";
+
 const ShippingAddress =()=>{
 
   const address = useSelector(state => state.address.address)
-    if(address.length === 0){
+    if(address.length === 0 ){
       return (
         
         <div className='detailWrapper'>
@@ -20,6 +22,7 @@ const ShippingAddress =()=>{
           <ModalAddNewAddress/>
         </div>
         <div className='addressNull'> 
+        <img src={addressImg} alt='' style={{ height: "20%", width: "20%" }} />
         <p className='address'>Please Add Your Address</p>
         </div>
       </div>

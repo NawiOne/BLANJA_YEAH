@@ -34,7 +34,7 @@ const ModalAddNewAddress =()=> {
             <form>
               <div class="form-group">
                 <label for="inputAddress" className='labelName'>Save address as (ex : home address, office address)</label>
-                <input type="text" className="form-control" id="inputAddress" placeholder="Rumah" 
+                <input type="text" className="form-control" id="inputAddress"  
                   onChange={(e)=> setForm({...form, save_address:e.target.value})}/>
               </div>
               <div class="form-row">

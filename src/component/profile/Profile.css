@@ -1,48 +1,49 @@
-.profile{
-  height:100%;
+/** @format */
+
+.profile {
+  height: 100%;
   width: 100%;
-  background-color:#F5F5F5;
+  background-color: #f5f5f5;
 }
-.profileContent{
+.profileContent {
   display: flex;
   flex-direction: row;
 }
 
-
 /* Profile List */
-.profileList{
-  background-color:#ffffff;
+.profileList {
+  background-color: #ffffff;
   height: 100%;
   padding-left: 10vw;
 }
-.infoUser{
+.infoUser {
   display: flex;
   flex-direction: row;
-  padding-top:10vh;
+  padding-top: 10vh;
 }
-.profilePicture{
-  border-radius:50%;
-  margin-right:2vw;
-  width:50px;
-  height:50px;
+.profilePicture {
+  border-radius: 50%;
+  margin-right: 2vw;
+  width: 50px;
+  height: 50px;
 }
-.profileName{
+.profileName {
   font-size: 1em;
   color: #222222;
 }
-.textEdit{
-  color: #9B9B9B;
+.textEdit {
+  color: #9b9b9b;
   font-size: 0.825em;
   cursor: pointer;
 }
-.iconEdit{
-  color:#9B9B9B;
+.iconEdit {
+  color: #9b9b9b;
   font-size: 0.825em;
   font-weight: bold;
 }
-.btn-signOut{
-  color:#ffffff;
-  background-color: #DB3022;
+.btn-signOut {
+  color: #ffffff;
+  background-color: #db3022;
   margin-top: 10vh;
   padding-left: 2vw;
   padding-right: 2vw;
@@ -52,73 +53,74 @@
 
 /* Customer link */
 
-.custommerLink, .sellerLink{
+.custommerLink,
+.sellerLink {
   display: flex;
   flex-direction: column;
   margin-top: 10vh;
 }
-.textLink{
-  color: #9B9B9B;
+.textLink {
+  color: #9b9b9b;
   font-size: 0.825em;
   font-weight: bold;
   cursor: pointer;
   margin-bottom: 3vh;
 }
-.textLink:hover{
-  color:#222222;
+.textLink:hover {
+  color: #222222;
 }
-.linkWrapper{
+.linkWrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin-right: 6vw;
 }
-.selectLink{
-  color: #9B9B9B;
+.selectLink {
+  color: #9b9b9b;
   font-size: 0.825em;
   font-weight: bold;
   margin-left: 4vw;
   cursor: pointer;
   margin-bottom: 2vh;
 }
-.selectLink:active{
-  color:#222222;
+.selectLink:active {
+  color: #222222;
 }
-.iconAccount{
+.iconAccount {
   color: #ffffff;
   font-size: 1em;
-  background-color: #456BF3;
+  background-color: #456bf3;
   padding: 0.5em;
   border-radius: 50%;
   margin-right: 2vw;
 }
-.iconAddress{
+.iconAddress {
   color: #ffffff;
   font-size: 1em;
-  background-color: #F36F45;
+  background-color: #f36f45;
   padding: 0.5em;
   border-radius: 50%;
   margin-right: 2vw;
 }
-.iconOrder{
+.iconOrder {
   color: #ffffff;
   font-size: 1em;
-  background-color: #F3456F;
+  background-color: #f3456f;
   padding: 0.5em;
   border-radius: 50%;
   margin-right: 2vw;
 }
-.iconArrow{
-  color: #9B9B9B;
+.iconArrow {
+  color: #9b9b9b;
 }
 
 /* Profile Details */
-.profileDetail{
-  background-color:#F5F5F5;
-  margin-top:6vh;
-  margin-left:2vw;
+.profileDetail {
+  background-color: #f5f5f5;
+  margin-top: 6vh;
+  margin-left: 2vw;
 }
-.detailWrapper{
+.detailWrapper {
   background-color: #ffffff;
   width: 60vw;
   height: 75vh;
@@ -127,55 +129,56 @@
   padding-top: 3vh;
   margin-bottom: 10vh;
 }
-.description{
-  color:#9B9B9B;
+.description {
+  color: #9b9b9b;
   font-size: 0.875em;
-  border-bottom: 0.0625em solid #D4D4D4;
+  border-bottom: 0.0625em solid #d4d4d4;
   padding-bottom: 2vh;
   margin-bottom: 5vh;
 }
 
 /* Edit Account */
-.titleDetail{
-  color:#222222;
+.titleDetail {
+  color: #222222;
   font-size: 1.25em;
 }
-.labelName{
+.labelName {
   text-align: right;
-  color:#9B9B9B;
+  color: #9b9b9b;
   font-size: 0.875em;
 }
-.btn-save{
-  width:6.25em;
+.btn-save {
+  width: 6.25em;
   font-size: 0.875em;
-  background-color:#DB3022;
+  background-color: #db3022;
   border-radius: 21.5625em;
-  color:#ffffff;
+  color: #ffffff;
   margin-top: 3vh;
 }
-.imageUser{
+.imageUser {
   width: 6.9375em;
-  height:  6.9375em;
+  height: 6.9375em;
   border-radius: 50%;
 }
-.imageUserWrapper{
-  border-left: 0.0625em solid #D4D4D4;
+.imageUserWrapper {
+  border-left: 0.0625em solid #d4d4d4;
   padding-left: 4vw;
 }
-.labelRadio, .labelSelect{
-  color:#9B9B9B;
+.labelRadio,
+.labelSelect {
+  color: #9b9b9b;
   font-size: 0.875em;
 }
-.btn-selectImage{
-  border:0.0625em solid #9B9B9B;
-  border-radius:  1.5em;
+.btn-selectImage {
+  border: 0.0625em solid #9b9b9b;
+  border-radius: 1.5em;
   font-size: 0.875em;
-  color: #9B9B9B;
+  color: #9b9b9b;
   margin-top: 3vh;
   padding-left: 1vw;
   padding-right: 1vw;
 }
-.form-control{
+.form-control {
   color: #222222;
 }
 /* .form-control::-webkit-input-placeholder {
@@ -184,7 +187,7 @@
 } */
 
 /* Shipping Address */
-.shippingAddress{
+.shippingAddress {
   background-color: #ffffff;
   width: 60vw;
   height: 75vh;
@@ -192,8 +195,8 @@
   padding-right: 1.5vw;
   padding-top: 3vh;
 }
-.wrapperButton{
-  border: 1px dashed #9B9B9B;
+.wrapperButton {
+  border: 1px dashed #9b9b9b;
   display: flex;
   margin-left: 3vw;
   margin-right: 3vw;
@@ -201,12 +204,12 @@
   padding-top: 3vh;
   padding-bottom: 3vh;
 }
-.btn-Address{
+.btn-Address {
   font-size: 1.125em;
-  color:#9B9B9B;
+  color: #9b9b9b;
 }
-.addressWrapper{
-  border: 1px solid #DB3022;
+.addressWrapper {
+  border: 1px solid #db3022;
   margin-top: 5vh;
   margin-left: 3vw;
   margin-right: 3vw;
@@ -215,10 +218,10 @@
   padding-top: 3vh;
   padding-bottom: 3vh;
 }
-.addressNull{
+.addressNull {
   text-align: center;
-  border: 1px solid #DB3022;
-  margin-top: 5vh;
+  /* border: 1px solid #DB3022; */
+  margin-top: 1vh;
   margin-left: 3vw;
   margin-right: 3vw;
   padding-left: 2vw;
@@ -226,36 +229,37 @@
   padding-top: 5vh;
   padding-bottom: 3vh;
 }
-.titleAddress{
+.titleAddress {
   font-size: 1em;
-  color:#222222;
+  color: #222222;
 }
-.changeAddress{
-  color: #DB3022;
+.changeAddress {
+  color: #db3022;
   font-size: 1em;
   cursor: pointer;
 }
-.address{
+.address {
   color: #222222;
   font-size: 0.875em;
+  margin-top: 3vh;
 }
 
 /* My order */
-.subTitleWrapper{
+.subTitleWrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-bottom: 0.0625em solid #D4D4D4;
+  border-bottom: 0.0625em solid #d4d4d4;
 }
-.subTitle{
-  color: #9B9B9B;
+.subTitle {
+  color: #9b9b9b;
   font-size: 1em;
   cursor: pointer;
 }
 
 /* My Account */
-.informationProfile{
-  border: 0.0625em solid #9B9B9B;
+.informationProfile {
+  border: 0.0625em solid #9b9b9b;
   border-radius: 0.3125em;
   margin-left: 1vw;
   font-size: 0.875em;
@@ -265,8 +269,8 @@
   padding-top: 0.3125em;
   padding-bottom: 0.3125em;
 }
-.edit{
-  color:#DB3022;
+.edit {
+  color: #db3022;
   font-size: 0.875em;
   text-align: center;
   margin-top: 2em;
@@ -274,35 +278,35 @@
 }
 
 /* Modal Add New Address */
-#modal{
+#modal {
   z-index: 100000000 !important;
 }
-.modalDialog{
+.modalDialog {
   margin-left: 30vw;
   margin-top: 10vh;
   height: max-content;
   width: max-content;
 }
-.titleModal{
+.titleModal {
   display: flex;
   justify-content: center;
 }
-.buttonModal{
+.buttonModal {
   display: flex;
   justify-content: flex-end;
 }
-.btn-cancelModal{
+.btn-cancelModal {
   font-size: 0.875em;
-  color: #9B9B9B;
-  border: 0.0625em solid #9B9B9B;
+  color: #9b9b9b;
+  border: 0.0625em solid #9b9b9b;
   padding-left: 3vw;
   padding-right: 3vw;
   border-radius: 1.5em;
 }
-.btn-saveModal{
+.btn-saveModal {
   font-size: 0.875em;
-  color: #9B9B9B;
-  border: 0.0625em solid #9B9B9B;
+  color: #9b9b9b;
+  border: 0.0625em solid #9b9b9b;
   padding-left: 3vw;
   padding-right: 3vw;
   border-radius: 1.5em;
@@ -310,13 +314,13 @@
 }
 
 /* My product */
-.subTitleWrapperStore{
-  border-bottom: 0.0625em solid #D4D4D4;
+.subTitleWrapperStore {
+  border-bottom: 0.0625em solid #d4d4d4;
   display: flex;
   flex-direction: row;
 }
-.subTitleStore{
-  color: #9B9B9B;
+.subTitleStore {
+  color: #9b9b9b;
   font-size: 1em;
   cursor: pointer;
   margin-right: 5vw;
@@ -325,46 +329,49 @@
   border: 0;
   box-shadow: none; /* You may want to include this as bootstrap applies these styles too */
 }
-.searchWrapper{
-  border: 0.0625em solid #D4D4D4;
+.searchWrapper {
+  border: 0.0625em solid #d4d4d4;
   margin-top: 3vh;
   display: flex;
   flex-direction: row;
   margin-right: 30vw;
   border-radius: 1.25em;
 }
-.iconSearch{
-  color:#DADADA;
+.iconSearch {
+  color: #dadada;
   align-self: center;
 }
 
-.inputSearch:focus{
+.inputSearch:focus {
   outline: none;
 }
-.table{
+.table {
   margin-top: 3vh;
-  border: 0.0625em solid #D4D4D4;
+  border: 0.0625em solid #d4d4d4;
   border-radius: 0.25em;
   height: 45vh;
 }
-.headerTable{
-  background-color: #F7F7F7;
+.headerTable {
+  background-color: #f7f7f7;
   padding-top: 1vh;
   padding-bottom: 1vh;
   border-radius: 0.25em;
 }
-.textHeaderTable{
-  color: #9B9B9B;
+.textHeaderTable {
+  color: #9b9b9b;
   font-size: 0.825em;
-  background-color: #F7F7F7;
+  background-color: #f7f7f7;
 }
 
 /* Selling Product */
-.inventory,.itemDetails,.formUploadPhoto,.descriptionForm{
+.inventory,
+.itemDetails,
+.formUploadPhoto,
+.descriptionForm {
   background-color: #ffffff;
   width: 60vw;
 }
-.title{
+.title {
   padding-top: 3vh;
   padding-bottom: 2vh;
   margin-left: 2vw;
@@ -372,124 +379,123 @@
   color: #222222;
   font-weight: bold;
 }
-.formGroup{
+.formGroup {
   margin-left: 2vw;
   margin-top: 2vh;
   padding-bottom: 3vh;
 }
-.formInputStock::placeholder{
+.formInputStock::placeholder {
   text-align: right;
   font-size: 0.75em;
 }
-.selectStock{
+.selectStock {
   margin-left: 2vw;
   padding-bottom: 3vh;
 }
-.uploadPhoto{
-  border: 0.0625em dashed #D4D4D4;
+.uploadPhoto {
+  border: 0.0625em dashed #d4d4d4;
   width: fit-content;
   margin-top: 3vh;
 }
-.cardImageUtama{
+.cardImageUtama {
   position: relative;
   width: 10.875em;
-  height:10.875em ;
-  background-color: #D4D4D4;
+  height: 10.875em;
+  background-color: #d4d4d4;
   border-radius: 0.25em;
 }
-.cardWrapper{
+.cardWrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
   margin-top: 5vh;
 }
-.cardImage{
+.cardImage {
   position: relative;
   width: 6.5em;
   height: 6.5em;
-  background-color: #D4D4D4;
+  background-color: #d4d4d4;
   margin-left: 2vw;
   border-radius: 0.25em;
 }
-.labelPhoto{
-  color:#9B9B9B;
+.labelPhoto {
+  color: #9b9b9b;
   font-size: 0.875em;
   margin-top: 1vh;
   margin-left: 5vw;
   padding-bottom: 3vh;
 }
-.btn-upload{
-  border:0.0625em solid #9B9B9B;
-  border-radius:  1.5em;
+.btn-upload {
+  border: 0.0625em solid #9b9b9b;
+  border-radius: 1.5em;
   font-size: 0.875em;
-  color: #9B9B9B;
+  color: #9b9b9b;
   margin-top: 3vh;
   margin-bottom: 3vh;
   padding-left: 2vw;
   padding-right: 2vw;
   margin-left: 45%;
 }
-.formUploadPhoto{
+.formUploadPhoto {
   padding-bottom: 5vh;
   margin-bottom: 3vh;
 }
-.descriptionForm{
+.descriptionForm {
   padding-bottom: 10vh;
 }
-.descriptionInput{
+.descriptionInput {
   margin-top: 3vh;
   margin-left: 2vw;
   margin-right: 2vw;
-  border:0.0625em solid #9B9B9B;
+  border: 0.0625em solid #9b9b9b;
 }
-.icon{
+.icon {
   display: flex;
   flex-direction: row;
   margin-top: 1vh;
   margin-bottom: 1vh;
 }
-.iconFont{
-  margin-right:1vw;
+.iconFont {
+  margin-right: 1vw;
   margin-left: 1vws;
 }
-.iconText{
+.iconText {
   padding-left: 1vw;
-  border-left: 0.0625em solid #9B9B9B;
+  border-left: 0.0625em solid #9b9b9b;
 }
-.btn-jual{
-  width:6.25em;
+.btn-jual {
+  width: 6.25em;
   font-size: 0.875em;
-  background-color:#DB3022;
+  background-color: #db3022;
   border-radius: 21.5625em;
-  color:#ffffff;
+  color: #ffffff;
   margin-top: 3vh;
   margin-left: 54vw;
   margin-bottom: 10vh;
 }
-.box{
+.box {
   position: absolute;
-  top:20%;
-  left:20%;
+  top: 20%;
+  left: 20%;
 }
-.boxUtama{
+.boxUtama {
   position: absolute;
-  top:30%;
-  left:30%;
+  top: 30%;
+  left: 30%;
 }
-.iconEditText{
+.iconEditText {
   width: 20px;
-  height:20px;
-  margin-left:1vw;
+  height: 20px;
+  margin-left: 1vw;
 }
-.imageUtama{
+.imageUtama {
   width: 150px;
   height: 150px;
   border-radius: 5px;
 }
-.image{
+.image {
   margin-left: 2vw;
-  width:100px;
-  height:100px;
+  width: 100px;
+  height: 100px;
   border-radius: 5px;
 }
-
