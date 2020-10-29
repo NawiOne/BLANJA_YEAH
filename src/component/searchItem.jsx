@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import { Link } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 import "../component/home/newProduct/new-product.css";
 import { useSelector, useDispatch } from "react-redux";
-import { getDetailCreator, searchMoreCreator } from "../redux/action/product";
+import { getDetailCreator, searchMoreCreator, clearSearchCreator } from "../redux/action/product";
 
 import star from "../assets/image/Star.png";
-import loadingIndicator from "../assets/image/spinner.svg";
 
 const Empty = () => {
   return (
@@ -30,25 +29,13 @@ const Empty = () => {
   );
 };
 
-const Loading = () => {
-  return (
-    <div
-      className='col-12'
-      style={{ display: "flex", justifyContent: "center" }}
-    >
-      <img src={loadingIndicator} alt=""/>
-    </div>
-  );
-};
-
 const SearchItem = (props) => {
   const { product } = useSelector((state) => state);
   const [page, setPage] = useState(2);
   const dispatch = useDispatch();
-  console.log(props.props);
 
   const searchMoreData = () => {
-    if (product.pageInfo !== undefined || product.pageInfo.nextPage !== "") {
+    if (product.pageInfo.nextPage !== "") {
       setPage(page + 1);
       setTimeout(() => {
         dispatch(
@@ -58,10 +45,10 @@ const SearchItem = (props) => {
             page,
           ),
         );
-        console.log("horeeee");
       }, 1000);
-    }
+    } else return;
   };
+
   return (
     <>
       <div className='col-12 mb-3'>
@@ -69,7 +56,7 @@ const SearchItem = (props) => {
           Searching for '{product.searchKey.key}'
         </h2>
       </div>
-      {product.isPending ? <Loading /> : !product.searchProduct.length ? (
+      {!product.searchProduct.length ? (
         <Empty />
       ) : (
         <InfiniteScroll
