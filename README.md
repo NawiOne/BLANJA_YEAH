@@ -12,6 +12,7 @@ Blanja adalah sebuah aplikasi marketplace(product pakaian) berbasis web. Aplikas
 
 ### Dibangun menggunakan:
 * [ReactJS](https://reactnative.dev/)
+* [NodeJs](nodejs.org)
 * [ExpressJS](https://expressjs.com/)
 * [Boostrap](https://getbootstrap.com/)
 * [MySQL](https://www.mysql.com/)
