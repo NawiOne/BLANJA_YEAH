@@ -4,22 +4,20 @@ Blanja adalah sebuah aplikasi marketplace(product pakaian) berbasis web. Aplikas
 
 ![home](/src/assets/image/blanja/home.png)
 
-<br>
-
 ![home](/src/assets/image/blanja/catgeory.png)
-
-<br>
 
 ![home](/src/assets/image/blanja/profile.png)
 
-<br>
-
 ![home](/src/assets/image/blanja/detail-product.png)
-
-<br>
 
 ![home](/src/assets/image/blanja/login.png)
 
-### untuk demo bisa klik [Blanja](http://52.91.11.189:8080/)
+### Dibangun menggunakan:
+* [ReactJS](https://reactnative.dev/)
+* [ExpressJS](https://expressjs.com/)
+* [Boostrap](https://getbootstrap.com/)
+* [MySQL](https://www.mysql.com/)
+
+### Link demo [Blanja](http://52.91.11.189:8080/)
 
 
