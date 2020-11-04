@@ -1,9 +1,9 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 import "../component/home/newProduct/new-product.css";
 import { useSelector, useDispatch } from "react-redux";
-import { getDetailCreator, searchMoreCreator, clearSearchCreator } from "../redux/action/product";
+import { getDetailCreator, searchMoreCreator } from "../redux/action/product";
 
 import star from "../assets/image/Star.png";
 
