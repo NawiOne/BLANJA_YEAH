@@ -45,6 +45,12 @@ export const doTransaction = (
   payment,
   product,
 ) => {
+
+  // const configHeaders = {
+  //   headers: {
+  //     'content-type' : 'aplication/json'
+  //   }
+  // }
     const data = {
         invoice: invoice,
         seller_id: seller_id,
