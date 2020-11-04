@@ -12,7 +12,7 @@ export const getMoreProduct = (category,page) => {
 }
 
 export const getNewProduct = () => {
-  return Axios.get(`${process.env.REACT_APP_URL}http://3.87.168.244:8000/product/new?page=1&limit=20`);
+  return Axios.get(`${process.env.REACT_APP_URL}product/new?page=1&limit=20`);
 };
 
 export const getMoreNewProduct = (page) => {
