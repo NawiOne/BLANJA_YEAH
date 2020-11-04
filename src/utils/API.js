@@ -4,37 +4,36 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export const getByCategory = (category) => {
   return Axios.get(
-    `http://3.87.168.244:8000/product/category?category=${category}&page=1&limit=7`,
+    `${process.env.REACT_APP_URL}product/category?category=${category}&page=1&limit=7`,
   );
 };
 export const getMoreProduct = (category,page) => {
-    return Axios.get(`http://3.87.168.244:8000/product/category?category=${category}&page=${page}&limit=7`)
+    return Axios.get(`${process.env.REACT_APP_URL}product/category?category=${category}&page=${page}&limit=7`)
 }
 
 export const getNewProduct = () => {
-  return Axios.get("http://3.87.168.244:8000/product/new?page=1&limit=20");
+  return Axios.get(`${process.env.REACT_APP_URL}product/new?page=1&limit=20`);
 };
 
 export const getMoreNewProduct = (page) => {
-    return Axios.get(`http://3.87.168.244:8000/product/new?page=${page}&limit=6`)
+    return Axios.get(`${process.env.REACT_APP_URL}product/new?page=${page}&limit=6`)
 }
 
 export const getProductDetail = (id) => {
-  return Axios.get(`http://3.87.168.244:8000/product/detail?id=${id}`);
+  return Axios.get(`${process.env.REACT_APP_URL}product/detail?id=${id}`);
 };
 export const getPopular = () => {
-  return Axios.get("http://3.87.168.244:8000/product/popular?page=1&limit=20");
+  return Axios.get(`${process.env.REACT_APP_URL}product/popular?page=1&limit=20`);
 };
 
 
 export const searchProduct = (name, filter) => {
-  return Axios.get(`http://3.87.168.244:8000/product?search=${name}&filter=${filter}&page=1&limit=15`);
+  return Axios.get(`${process.env.REACT_APP_URL}product?search=${name}&filter=${filter}&page=1&limit=15`);
 };
 
 export const searchMoreProduct = (name,filter, page) => {
-  return Axios.get(`http://3.87.168.244:8000/product?search=${name}&filter=${filter}&page=${page}&limit=15`);
+  return Axios.get(`${process.env.REACT_APP_URL}product?search=${name}&filter=${filter}&page=${page}&limit=15`);
 };
-
 
 export const doTransaction = (
   invoice,
@@ -46,11 +45,6 @@ export const doTransaction = (
   product,
 ) => {
 
-  // const configHeaders = {
-  //   headers: {
-  //     'content-type' : 'aplication/json'
-  //   }
-  // }
     const data = {
         invoice: invoice,
         seller_id: seller_id,
@@ -60,24 +54,24 @@ export const doTransaction = (
         payment: payment,
         product: product,
     }
-    return Axios.post('http://3.87.168.244:8000/transaction', data)
+    return Axios.post(`${process.env.REACT_APP_URL}transaction`, data)
 };
 
 export const addNewAddress = (user_id, save_address, receipt_name, telephone_number, address, postal_code, city_or_subdistric) => {
-    return Axios.post('http://3.87.168.244:8000/addAddress', {user_id:user_id, save_address:save_address, receipt_name:receipt_name, telephone_number:telephone_number, address:address, postal_code:postal_code, city_or_subdistric:city_or_subdistric })
+    return Axios.post(`${process.env.REACT_APP_URL}addAddress`, {user_id:user_id, save_address:save_address, receipt_name:receipt_name, telephone_number:telephone_number, address:address, postal_code:postal_code, city_or_subdistric:city_or_subdistric })
 }
 
 export const getAddress = (id) => {
-    return Axios.get(`http://3.87.168.244:8000/Address?user_id=${id}`)
+    return Axios.get(`${process.env.REACT_APP_URL}Address?user_id=${id}`)
 }
 
 
 export const getHistorySeller = (id) => {
-    return Axios.get(`http://3.87.168.244:8000/history/seller?id=${id}`)
+    return Axios.get(`${process.env.REACT_APP_URL}history/seller?id=${id}`)
 }
 
 export const getHistoryCustomer = (id) => {
-    return Axios.get(`http://3.87.168.244:8000/history/customer?id=${id}`)
+    return Axios.get(`${process.env.REACT_APP_URL}history/customer?id=${id}`)
 }
 
 export const uploadProduct = (seller_id,name_product,price,stock,product_condition,description,image1,image2,image3,image4,image5)=>{
@@ -104,7 +98,7 @@ export const uploadProduct = (seller_id,name_product,price,stock,product_conditi
     },
   };
 
-  return Axios.post('http://3.87.168.244:8000/product',formData,configHeader)
+  return Axios.post(`${process.env.REACT_APP_URL}product`,formData,configHeader)
   .then(res=>{
     if(res.data.success){
       toast('Upload Product Success',{
@@ -132,6 +126,6 @@ export const uploadProduct = (seller_id,name_product,price,stock,product_conditi
 }
 
 export const getSellerProduct =(seller_id,page,limit)=>{
-  return Axios.get(`http://3.87.168.244:8000/product/seller?seller_id=${seller_id}&page=${page}&limit=${limit}`)
+  return Axios.get(`${process.env.REACT_APP_URL}product/seller?seller_id=${seller_id}&page=${page}&limit=${limit}`)
 }
 
