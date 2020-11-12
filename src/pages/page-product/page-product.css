@@ -16,6 +16,7 @@
   overflow-x: hidden;
   padding-bottom: 6vh;
   padding: 7vh 8vw;
+  padding-top: 5vh;
 }
 .card-img-detail {
   display: flex;
