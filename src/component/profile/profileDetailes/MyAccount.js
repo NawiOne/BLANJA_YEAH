@@ -16,24 +16,24 @@ const MyAccount =({data})=> {
             <div className='form-group row'>
               <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label labelName">Name</label>
               <div className="col-sm-7 informationProfile">
-                {user.username}
+                : {user.username}
               </div>
             </div>
             <div className='form-group row'>
               <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label labelName">Email</label>
               <div className="col-sm-7 informationProfile">
-                {user.email}
+                : {user.email}
               </div>
             </div>
             <div className='form-group row'>
               <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label labelName">Phone Number</label>
               {user.phone_number === null ?
                 <div className="col-sm-7 informationProfile">
-                  -
+                  : -
                 </div>
                 :
                 <div className="col-sm-7 informationProfile">
-                  {user.phone_number}
+                  : {user.phone_number}
                 </div>
               }
             </div>
@@ -41,23 +41,23 @@ const MyAccount =({data})=> {
               <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label-sm labelName">Gender</label>
               {user.gender === '' ?
                 <div className="col-sm-7 informationProfile">
-                  -
+                  : -
                 </div> 
                 :
                 <div className="col-sm-7 informationProfile">
-                  {user.gender}
+                  : {user.gender}
                 </div>
               }
             </div>
             <div className='form-group row'>
               <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label labelName">Date of birth</label>
-              {user.date_of_Birth === ''?
+              {user.date_of_Birth === null?
                 <div className='col-sm-7 informationProfile'>
-                  -
+                  : -
                 </div> 
                 :
                 <div className='col-sm-7 informationProfile'>
-                  {user.date_of_Birth}
+                  : {user.date_of_Birth}
                 </div> 
               }
             </div>

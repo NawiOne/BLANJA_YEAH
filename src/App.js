@@ -1,6 +1,6 @@
 import React from 'react';
 import {useSelector } from "react-redux";
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route,Switch} from 'react-router-dom';
 import './App.css';
 import Auth from './pages/Auth';
 import ConfirmationPassword from './pages/ConfirmationPassword';
@@ -14,26 +14,20 @@ import MyBag from './pages/my-bag/myBag';
 import SearchPage from './pages/searching/searching';
 
 function App() {
-   const isLogin = useSelector((state)=>state.auth.isLogin)
   return (
     <Router>
-      {isLogin ?
-        <>
-          <Route path='/' exact component={Home} />
-          <Route path='/product' exact component={PageProduct} />
-          <Route path='/category' exact component={CategoryPage} />
-          <Route path='/checkout' exact component={Checkout} />
-          <Route path='/chat' exact component={Chat} />
-          <Route path='/mybag' exact component={MyBag} />
-          <Route path='/profile' exact component={Profile} />
-          <Route path='/search' exact component={SearchPage} />
-        </>
-        :
-        <>
-          <Route path='/' exact component={Auth} />
-          <Route path='/confirmation-password' component={ConfirmationPassword} />
-        </>
-      }
+      <Switch>
+        <Route exact path='/' component={Home} />
+        <Route path='/product' exact component={PageProduct} />
+        <Route path='/category' exact component={CategoryPage} />
+        <Route path='/checkout' exact component={Checkout} />
+        <Route path='/chat' exact component={Chat} />
+        <Route path='/mybag' exact component={MyBag} />
+        <Route path='/profile' exact component={Profile} />
+        <Route path='/search' exact component={SearchPage} />
+        <Route path='/auth' exact component={Auth} />
+        <Route path='/confirmation-password' component={ConfirmationPassword} />
+      </Switch>
     </Router>
   );
 }

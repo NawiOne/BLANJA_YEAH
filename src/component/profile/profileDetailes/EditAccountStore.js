@@ -40,28 +40,28 @@ const EditAccountStore =()=> {
             <div className='form-group row'>
               <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label labelName">Name</label>
               <div className="col-sm-9">
-                <input type="text" className="form-control form-control-sm " id="colFormLabel" placeholder={user.username}
+                <input type="text" className="form-control form-control-sm " id="colFormLabel" defaultValue={user.username}
                 onChange={(e)=>setForm({...form,username:e.target.value})}/>
               </div>
             </div>
             <div className='form-group row'>
               <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label labelName">Email</label>
               <div className="col-sm-9">
-                <input type="email" className="form-control form-control-sm" id="colFormLabel" placeholder={user.email}
+                <input type="email" className="form-control form-control-sm" id="colFormLabel" defaultValue={user.email}
                 onChange={(e)=>setForm({...form,email:e.target.value})}/>
               </div>
             </div>
             <div className='form-group row'>
               <label for="colFormLabel" className="col-sm-3 col-form-label col-form-label labelName">Phone Number</label>
               <div className="col-sm-9">
-                <input type="text" className="form-control form-control-sm" id="colFormLabel" placeholder={user.phone_number}
+                <input type="text" className="form-control form-control-sm" id="colFormLabel" defaultValue={user.phone_number}
                 onChange={(e)=>setForm({...form,phone_number:e.target.value})}/>
               </div>
             </div>
             <div className="form-group row">
               <label for="exampleFormControlTextarea1" className='col-sm-3 labelName'>Store description</label>
               <div className="col-sm-9">
-                <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" placeholder={user.desc_store}
+                <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" defaultValue={user.desc_store}
                 onChange={(e)=>setForm({...form,desc_store:e.target.value})}
                 />
               </div>
