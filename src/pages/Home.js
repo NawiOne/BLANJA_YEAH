@@ -12,9 +12,9 @@ import CategorySlider from '../component/categorySlider';
 import Search from '../component/modals/search';
 
 import "../component/home/category-slider/categorySlider.css";
-import {getUserCreator} from '../redux/action/user';
 import {getAddressCreator} from '../redux/action/address';
 import {getHistorySellerCreator, getHistoryCustomerCreator} from '../redux/action/history';
+
 
 
 
@@ -33,7 +33,6 @@ const Home = ({history}) => {
  useEffect(() => {
    dispatch(getNewProductCreator());
    dispatch(getPopularCreator());
-   dispatch(getUserCreator(id_login));
    dispatch(getAddressCreator(id_login))
    dispatch(getHistorySellerCreator(id_login))
    dispatch(getHistoryCustomerCreator(id_login))
@@ -41,11 +40,9 @@ const Home = ({history}) => {
 
   return (
     <>
-      <div>
-        <div>
-          <Navbar history={history}/>
-          <SidebarMenu history={history} />
-        </div>
+      <div className='navbarWrapper'>
+        <Navbar history={history}/>
+        <SidebarMenu history={history} />
       </div>
       <div className='content'>
         <div className='row section-top-slider'>

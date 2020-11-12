@@ -4,10 +4,12 @@
   background-color:#F5F5F5;
 }
 .profileContent{
-  display: flex;
-  flex-direction: row;
+  /* display: flex;
+  flex-direction: row; */
 }
-
+.content-profile{
+  padding-top: 10vh;
+}
 
 /* Profile List */
 .profileList{
@@ -43,7 +45,7 @@
 .btn-signOut{
   color:#ffffff;
   background-color: #DB3022;
-  margin-top: 10vh;
+  margin-top: 8vh;
   padding-left: 2vw;
   padding-right: 2vw;
   font-size: 0.875em;
@@ -251,8 +253,6 @@
 
 /* My Account */
 .informationProfile{
-  border: 0.0625em solid #9B9B9B;
-  border-radius: 0.3125em;
   margin-left: 1vw;
   font-size: 0.875em;
   color: #222222;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { OverlayTrigger, Popover } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { hideMenuCreator } from "../../../redux/action/animate";
 import {
@@ -15,7 +15,7 @@ import filterLogo from "../../../assets/image/filter.png";
 import trolly from "..//../../assets/image/basket.png";
 import hambMenu from "../../../assets/image/hamb-menu.png";
 import mail from "../../../assets/image/mail.png";
-import notif from "../../../assets/image/notif.png";
+import notif from "../../../assets/image/bell.png";
 import cross from "../../../assets/image/cross.png";
 import userImage from "../../../assets/image/user.png";
 import emptyNotif from "../../../assets/image/no-notif.png";
@@ -48,8 +48,11 @@ const Navbar = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getUserCreator(id_user));
-  }, []);
+    if(isLogin){
+      dispatch(getUserCreator(id_user))
+    }
+  }, [isLogin]);
+  
 
   const user = useSelector((state) => state.user.user);
 
@@ -140,7 +143,7 @@ const Navbar = (props) => {
             </div>
           ) : (
             <div className='operation-btn-nav-auth'>
-              <img src={trolly} alt='' className='trolly' />
+              <Link to='/auth'><img src={trolly} alt='' className='trolly' /></Link>
               <div className='btn-auth'>
                 <Link to='/auth'>
                   <button type='button' className='btn btn-login'>

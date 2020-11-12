@@ -37,7 +37,7 @@ const Profile = ({history})=> {
     <div className='profile'>
       <Navbar history={history} />
       <SidebarMenu history={history} />
-      <div>
+      <div className='content-profile'>
         <div className='row no-gutters'>
           <div className='col col-md-4 col-lg-4'><ProfileList data={[data,setData]}/></div>
           <div className='col col-md-8 col-lg-8'><ProfileDetails data={[data,setData]}/></div>
