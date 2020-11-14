@@ -66,7 +66,7 @@ const SliderTop = () => {
     {
       id:
         "https://droidjournal.com/wp-content/uploads/2020/06/alexandra-daddario.jpg",
-        name: 'best product of the year'
+        name: 'best product'
     },
     {
       id:
