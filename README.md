@@ -55,8 +55,20 @@
     <tr>
       <td align="center">
         <a href="https://github.com/NawiOne">
-          <img width="100" src="./src/assets/image/saya.jpg"><br/>
+          <img width="100" src="./src/assets/image/contributors/saya.jpg"><br/>
           <sub><b>Nawirudin</b></sub>
+        </a>
+        <a href="https://github.com/GustiAmelia">
+          <img width="100" src="./src/assets/image/contributors/amel.jpg"><br/>
+          <sub><b>Gusti Amelia</b></sub>
+        </a>
+        <a href="https://github.com/wildandhya">
+          <img width="100" src="./src/assets/image/contributors/wildan.jpg"><br/>
+          <sub><b>Wildan Dhya</b></sub>
+        </a>
+        <a href="https://github.com/YusupJunaedi">
+          <img width="100" src="./src/assets/image/contributors/ucup.jpg"><br/>
+          <sub><b>Yusup Junaedi</b></sub>
         </a>
       </td>
     </tr>
