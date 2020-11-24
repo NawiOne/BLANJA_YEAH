@@ -1,23 +1,64 @@
-# Blanja
+<h1 align="center">Blanja</h1>
 
-Blanja adalah sebuah aplikasi marketplace(product pakaian) berbasis web. Aplikasi ini memungkinkan pengguna untuk menjual produk mereka dan juga bisa membeli produk yang ada. Aplikasi Blanja ini dibangun Menggunakan ReactJs untuk frontend, NodeJS dan ExpressJS untuk backend, dan MySQL untuk database.
+## Table of Contents
 
-![home](/src/assets/image/blanja/home.png) ![home](/src/assets/image/blanja/catgeory.png)
+- [Table of Contents](#table-of-contents)
+- [Introduction](#introduction)
+- [Built with:](#built-with)
+- [Features](#features)
+- [Requirements](#requirements)
+- [Usage for development](#usage-for-development)
+- [Screenshots](#screenshots)
+- [Demo](#demo)
+- [Contributors](#contributors)
 
-![home](/src/assets/image/blanja/profile.png)
+## Introduction
+<b>Blanja</b> is a web-based marketplace application (clothes product). This application allows users to sell their products and also buy existing products. This Blanja application was built using ReactJs for the frontend, NodeJS and ExpressJS for the backend, and MySQL for the database.
 
-![home](/src/assets/image/blanja/detail-product.png)
+## Built with:
+- [React js](https://reactjs.org/)
+- [Node js](https://nodejs.org/en/)
+- [Express js](https://expressjs.com/)
+- [MySQL](https://www.mysql.com/)
+- [Bootstrap](https://getbootstrap.com/)
 
-![home](/src/assets/image/blanja/login.png)
+## Features
+* User can buy and sell some cloth product
+* Cashier can handle(print or send email) order list of customer
+* Seller can add, modify, delete and edit menus.
+* And others
 
-### Dibangun menggunakan:
-* [ReactJS](https://reactnative.dev/)
-* [NodeJS](nodejs.org)
-* [ExpressJS](https://expressjs.com/)
-* [Boostrap](https://getbootstrap.com/)
-* [React Boostrap](https://react-bootstrap.github.io/)
-* [MySQL](https://www.mysql.com/)
-
-### Link demo [Blanja](http://52.91.11.189:8080/)
+## Requirements
+* [`npm`](https://www.npmjs.com/get-npm)
+* [`react-js`](https://reactjs.org/)
 
 
+## Usage for development
+1. Open your terminal or command prompt
+2. Type `git clone https://github.com/NawiOne/BLANJA_YEAH.git`
+3. Open the folder and type `npm install` for install dependencies
+4. Type `npm start` for run this app.
+
+## Screenshots
+<div align="center">
+    <img width="400" src="./src/assets/blanja/home.png"> 
+    <img width="400" src="./src/assets/blanja/catgeory.png">
+    <img width="400" src="./src/assets/blanja/login.png">
+</div>
+
+## Demo
+[Blanja](2.91.11.189:8080/)
+
+## Contributors
+<center>
+  <table>
+    <tr>
+      <td align="center">
+        <a href="https://github.com/NawiOne">
+          <img width="100" src="./src/asset/saya.jpg"><br/>
+          <sub><b>Nawirudin</b></sub>
+        </a>
+      </td>
+    </tr>
+  </table>
+</center>
