@@ -43,11 +43,12 @@
 <div align="center">
     <img width="400" src="./src/assets/image/blanja/home.png"> 
     <img width="400" src="./src/assets/image/blanja/catgeory.png">
+     <img width="400" src="./src/assets/image/blanja/profile.png">
     <img width="400" src="./src/assets/image/blanja/login.png">
 </div>
 
 ## Demo
-[Blanja](2.91.11.189:8080/)
+[Blanja](http://52.91.11.189:8080/)
 
 ## Contributors
 <center>
@@ -58,19 +59,24 @@
           <img width="100" src="./src/assets/image/contributors/saya.jpg"><br/>
           <sub><b>Nawirudin</b></sub>
         </a>
+      </td>
+      <td>
         <a href="https://github.com/GustiAmelia">
           <img width="100" src="./src/assets/image/contributors/amel.jpg"><br/>
           <sub><b>Gusti Amelia</b></sub>
         </a>
+      </td>
+      <td>
         <a href="https://github.com/wildandhya">
           <img width="100" src="./src/assets/image/contributors/wildan.jpg"><br/>
           <sub><b>Wildan Dhya</b></sub>
         </a>
+      </td>
+      <td>
         <a href="https://github.com/YusupJunaedi">
-          <img width="100" src="./src/assets/image/contributors/ucup.jpg"><br/>
-          <sub><b>Yusup Junaedi</b></sub>
+            <img width="100" src="./src/assets/image/contributors/ucup.jpg"><br/>
+            <sub><b>Yusup Jun</b></sub>
         </a>
       </td>
-    </tr>
   </table>
 </center>
