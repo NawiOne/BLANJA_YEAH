@@ -50,22 +50,32 @@
 [Blanja](2.91.11.189:8080/)
 
 ## Contributors
-
- <div>
+<center>
+  <table>
+    <tr>
+      <td align="center">
         <a href="https://github.com/NawiOne">
           <img width="100" src="./src/assets/image/contributors/saya.jpg"><br/>
           <sub><b>Nawirudin</b></sub>
         </a>
+      </td>
+      <td>
         <a href="https://github.com/GustiAmelia">
           <img width="100" src="./src/assets/image/contributors/amel.jpg"><br/>
           <sub><b>Gusti Amelia</b></sub>
         </a>
+      </td>
+      <td>
         <a href="https://github.com/wildandhya">
           <img width="100" src="./src/assets/image/contributors/wildan.jpg"><br/>
           <sub><b>Wildan Dhya</b></sub>
         </a>
+      </td>
+      <td>
         <a href="https://github.com/YusupJunaedi">
-          <img width="100" src="./src/assets/image/contributors/ucup.jpg"><br/>
-          <sub><b>Yusup Junaedi</b></sub>
+            <img width="100" src="./src/assets/image/contributors/ucup.jpg"><br/>
+            <sub><b>Yusup Jun</b></sub>
         </a>
-</div>
+      </td>
+  </table>
+</center>
