@@ -48,7 +48,7 @@
 </div>
 
 ## Demo
-[Blanja](52.91.11.189:8080/)
+[Blanja](http://52.91.11.189:8080/)
 
 ## Contributors
 <center>
