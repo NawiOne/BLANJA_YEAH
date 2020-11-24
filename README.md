@@ -41,9 +41,9 @@
 
 ## Screenshots
 <div align="center">
-    <img width="400" src="./src/assets/iamge/blanja/home.png"> 
+    <img width="400" src="./src/assets/image/blanja/home.png"> 
     <img width="400" src="./src/assets/image/blanja/catgeory.png">
-    <img width="400" src="./src/assets/iamge/blanja/login.png">
+    <img width="400" src="./src/assets/image/blanja/login.png">
 </div>
 
 ## Demo
