@@ -55,7 +55,7 @@
     <tr>
       <td align="center">
         <a href="https://github.com/NawiOne">
-          <img width="100" src="./src/assets/saya.jpg"><br/>
+          <img width="100" src="./src/assets/image/saya.jpg"><br/>
           <sub><b>Nawirudin</b></sub>
         </a>
       </td>
