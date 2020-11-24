@@ -51,7 +51,7 @@
 
 ## Contributors
 
- <div align='center'>
+ <div>
         <a href="https://github.com/NawiOne">
           <img width="100" src="./src/assets/image/contributors/saya.jpg"><br/>
           <sub><b>Nawirudin</b></sub>
