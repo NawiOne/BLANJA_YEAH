@@ -41,9 +41,9 @@
 
 ## Screenshots
 <div align="center">
-    <img width="400" src="./src/assets/blanja/home.png"> 
-    <img width="400" src="./src/assets/blanja/catgeory.png">
-    <img width="400" src="./src/assets/blanja/login.png">
+    <img width="400" src="./src/assets/iamge/blanja/home.png"> 
+    <img width="400" src="./src/assets/image/blanja/catgeory.png">
+    <img width="400" src="./src/assets/iamge/blanja/login.png">
 </div>
 
 ## Demo
@@ -55,7 +55,7 @@
     <tr>
       <td align="center">
         <a href="https://github.com/NawiOne">
-          <img width="100" src="./src/asset/saya.jpg"><br/>
+          <img width="100" src="./src/assets/saya.jpg"><br/>
           <sub><b>Nawirudin</b></sub>
         </a>
       </td>
