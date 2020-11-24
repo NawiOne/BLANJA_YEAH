@@ -50,10 +50,8 @@
 [Blanja](2.91.11.189:8080/)
 
 ## Contributors
-<center>
-  <table>
-    <tr>
-      <td align="center">
+
+ <div align='center'>
         <a href="https://github.com/NawiOne">
           <img width="100" src="./src/assets/image/contributors/saya.jpg"><br/>
           <sub><b>Nawirudin</b></sub>
@@ -70,7 +68,4 @@
           <img width="100" src="./src/assets/image/contributors/ucup.jpg"><br/>
           <sub><b>Yusup Junaedi</b></sub>
         </a>
-      </td>
-    </tr>
-  </table>
-</center>
+</div>
